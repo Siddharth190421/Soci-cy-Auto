@@ -1,0 +1,190 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-08-03T10:55:57.998Z",
+    "end": "2022-08-03T10:56:16.162Z",
+    "duration": 18164,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4e8fe666-7fe3-453a-a8ff-583cecbda51f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Images.cy.js",
+      "file": "cypress\\e2e\\Images.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "34f9d7a5-d127-4246-b87f-e96f90011808",
+          "title": "Images",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigating to Images",
+              "fullTitle": "Images Navigating to Images",
+              "timedOut": null,
+              "duration": 16254,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  // returning false here prevents Cypress from\n  // failing the test       \n  return false;\n});\ncy.visit('admin/account/3854/image_library');\ncy.wait(6000);",
+              "err": {},
+              "uuid": "b2cec0c0-8384-40e0-9851-98159fa9e86e",
+              "parentUUID": "34f9d7a5-d127-4246-b87f-e96f90011808",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "upload Image",
+              "fullTitle": "Images upload Image",
+              "timedOut": null,
+              "duration": 450,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Images.cy.js\\\\Images -- upload Image (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "const filepath = 'download.png';\ncy.get('.control').selectFile('cypress/fixtures/download.png');",
+              "err": {
+                "message": "CypressError: `cy.selectFile()` can only be called on an `<input type=\"file\">` or a `<label for=\"fileInput\">` pointing to or containing one. Your subject is: `<div class=\"control icon_button btn_image\" title=\"Upload\" style=\"display: inline-block;\">...</div>`.\n\nhttps://on.cypress.io/selectfile",
+                "estack": "CypressError: `cy.selectFile()` can only be called on an `<input type=\"file\">` or a `<label for=\"fileInput\">` pointing to or containing one. Your subject is: `<div class=\"control icon_button btn_image\" title=\"Upload\" style=\"display: inline-block;\">...</div>`.\n\nhttps://on.cypress.io/selectfile\n    at Context.selectFile (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:151701:80)\n    at Context.<anonymous> (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:171965:19)\nFrom Your Spec Code:\n    at Context.eval (https://sneaky.meetsoci.com/__cypress/tests?p=cypress\\e2e\\Images.cy.js:113:24)",
+                "diff": null
+              },
+              "uuid": "b19f7bef-436a-4856-99bf-1ddc2a61bafe",
+              "parentUUID": "34f9d7a5-d127-4246-b87f-e96f90011808",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Edit",
+              "fullTitle": "Images Edit",
+              "timedOut": null,
+              "duration": 742,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-id=\"22603675\"] > .image > .image_info_container > .info > .btn_edit_tags').click();\ncy.get('.bbm-modal__section').find('[class=\"select2-input\"]').type('aae bhai ');\ncy.get('.primary_button').click();\ncy.server({\n  enable: false\n});",
+              "err": {},
+              "uuid": "260fa05b-02f8-449b-9075-8cb398478392",
+              "parentUUID": "34f9d7a5-d127-4246-b87f-e96f90011808",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Download",
+              "fullTitle": "Images Download",
+              "timedOut": null,
+              "duration": 267,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-id=\"22603675\"] > .image > .image_info_container > .info > .btn_download').click();",
+              "err": {},
+              "uuid": "704d7e53-bd70-459d-b83f-75f5d2670bf0",
+              "parentUUID": "34f9d7a5-d127-4246-b87f-e96f90011808",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete",
+              "fullTitle": "Images Delete",
+              "timedOut": null,
+              "duration": 376,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[data-id=\"22603675\"] > .image > .image_info_container > .info > .warning_button').click();\ncy.contains('Cancel').click();",
+              "err": {},
+              "uuid": "6a33d765-7597-4c5f-923f-5b91049baf31",
+              "parentUUID": "34f9d7a5-d127-4246-b87f-e96f90011808",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b2cec0c0-8384-40e0-9851-98159fa9e86e",
+            "260fa05b-02f8-449b-9075-8cb398478392",
+            "704d7e53-bd70-459d-b83f-75f5d2670bf0",
+            "6a33d765-7597-4c5f-923f-5b91049baf31"
+          ],
+          "failures": [
+            "b19f7bef-436a-4856-99bf-1ddc2a61bafe"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18089,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "cypress/reports",
+        "reportPageTitle": "Demo-title1",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
