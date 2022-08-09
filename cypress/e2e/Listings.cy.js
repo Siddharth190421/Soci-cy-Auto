@@ -343,7 +343,7 @@ describe('Listings', ()=>{
     })
 
 
-    it.only('Bonus Fields - C3007', ()=>{
+    it('Bonus Fields - C3007', ()=>{
 
         Listing.gotoListingAccount()
 
@@ -404,10 +404,7 @@ describe('Listings', ()=>{
         cy.wait(5000)
 
 
-
-
     })
-
-
+  
 
 })
