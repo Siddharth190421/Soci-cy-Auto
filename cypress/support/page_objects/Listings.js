@@ -13,6 +13,7 @@ export class ListingPage{
         cy.wait(5000)
         cy.get('.btn_enable_all_listings').click()
         cy.get('.DlgUtilityConfirm > .bbm-modal > .bbm-modal__bottombar > .primary_button').click()
+        cy.get('[data-cy="toast_message"]').should('have.text','\n\t\tListings successfully enabled for all locations.\n\t\t\n\t')
     }
 
     disableAllListings(){
@@ -26,7 +27,7 @@ export class ListingPage{
         cy.visit('/admin/account/3854')
         cy.wait(6000)
         cy.contains('div[data-href="listings_header"] > .section-heading > .section-label','Listings').click()
-        cy.wait(6000)
+        cy.wait(8000)
 
     }
 
