@@ -5,6 +5,7 @@ export class ListingPage{
         cy.visit('/admin/account/3854')
         cy.wait(6000)
         cy.get('.project_controls > .icon_button > .fa').click()
+        cy.wait(5000)
 
     }
 

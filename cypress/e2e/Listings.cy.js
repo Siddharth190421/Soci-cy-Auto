@@ -360,6 +360,15 @@ describe('Listings', ()=>{
 
         } ).should('be.visible')
 
+    })
+
+    it('Update Bonus fields - C3008', ()=>{
+
+        Listing.settingsGear()
+        Listing.enableAllListings()
+        Listing.gotoListingAccount()
+
+
         cy.get('.frac-numerator').eq(3).should( $bonus =>{
 
 
@@ -405,6 +414,46 @@ describe('Listings', ()=>{
 
 
     })
-  
+
+
+    it('Locations with issue fields - C3009', ()=>{
+
+        Listing.settingsGear()
+        Listing.enableAllListings()
+        Listing.gotoListingAccount()
+
+        cy.get(':nth-child(5) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase').should('be.visible')
+        cy.get(':nth-child(5) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value > .far').should('be.visible')
+        cy.get(':nth-child(5) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase').click()
+        cy.wait(5000)
+        cy.get('#DataTables_Table_1_wrapper > .dataTables_scroll > .dataTables_scrollBody').should('be.visible')
+        cy.get('.bbm-modal__bottombar > .secondary_button').click()
+
+    })
+
+    it('Directories - C3010', ()=>{
+
+        Listing.gotoListingAccount()
+        
+        cy.get('.primary').should('be.visible')
+        cy.get('.multi_value_container').should('be.visible')
+
+
+    })
+
+    it.only('edit Custom Field', ()=>{
+
+        Listing.settingsGear()
+        cy.get(':nth-child(12) > .translated').click()
+
+        cy.get('#custom_fields_table').should('be.visible')
+        // cy.get('#location_fields_table').scrollTo('bottom').should('be.visible')
+        cy.get('.location_fields > h3').should('be.visible')
+
+        cy.get('.custom_field_input').first().type('1')
+        cy.get('#custom_fields_table > tbody').find('.select2-arrow').first().click()
+
+
+    })
 
 })
