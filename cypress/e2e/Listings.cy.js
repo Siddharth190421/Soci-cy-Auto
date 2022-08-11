@@ -441,7 +441,7 @@ describe('Listings', ()=>{
 
     })
 
-    it.only('edit Custom Field', ()=>{
+    it('edit Custom Field', ()=>{
 
         Listing.settingsGear()
         cy.get(':nth-child(12) > .translated').click()
@@ -455,5 +455,9 @@ describe('Listings', ()=>{
 
 
     })
+
+    
+
+
 
 })
