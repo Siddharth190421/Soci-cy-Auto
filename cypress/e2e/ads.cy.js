@@ -43,6 +43,8 @@ describe('Ads', () => {
 
         })
 
+
+
     })
 
     describe('Dashboard ', () => {
@@ -150,13 +152,21 @@ describe('Ads', () => {
 
         })
 
-        it.only('Leads Form-Download - C2803', () => {
+        it('Leads Form-Download - C2803', () => {
+
+            Cypress.on('fail', (error, runnable) => {
+
+                return false
+                
+              })
+    
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_leads')
             cy.wait(5000)
             cy.get('[class="icon_button export fa fa-download"][title="Export Leads"]').first().click()
+            cy.wait(5000)
+            cy.contains('Download All Leads').click()
             cy.get('.btn_export').click()
-            cy.reload()
 
 
         })
