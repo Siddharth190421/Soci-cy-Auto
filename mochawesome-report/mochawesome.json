@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 3,
+    "failures": -2,
+    "start": "2022-07-21T08:29:55.008Z",
+    "end": "2022-07-21T08:30:56.155Z",
+    "duration": 61147,
+    "testsRegistered": 7,
+    "passPercent": 75,
+    "pendingPercent": 42.857142857142854,
+    "other": 3,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "78f20898-441e-45b2-8225-86c71d17d882",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Reports.cy.js",
+      "file": "cypress\\e2e\\Reports.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+          "title": "Reports",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigating/Email Reports",
+              "fullTitle": "Reports Navigating/Email Reports",
+              "timedOut": null,
+              "duration": 20497,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Reports.cy.js\\\\Reports -- NavigatingEmail Reports (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  // returning false here prevents Cypress from\n  // failing the test\n  return false;\n});\ncy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content'); // cy.get('.overview > :nth-child(1)').click()\n// cy.wait(5000)\n// cy.get('.overview > :nth-child(1)').click()\n// cy.get('[onclick=\"download_report()\"]').click()\ncy.get('.email_report').click(); // cy.get('.dlg_email > form').focus()\ncy.get('[name=\"to\"]').type('skakade@meetsoci.com');\ncy.get('.primary_button').click();\ncy.wait(5000);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.email_report`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.email_report`, but never found it.\n    at Context.eval (https://sneaky.meetsoci.com/__cypress/tests?p=cypress\\e2e\\Reports.cy.js:116:8)",
+                "diff": null
+              },
+              "uuid": "b3729360-e1fb-4a79-a5ed-5e454b350a20",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Download Reports",
+              "fullTitle": "Reports Download Reports",
+              "timedOut": null,
+              "duration": 22697,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.on('fail', (error, runnable) => {\n  return false;\n});\ncy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content');\ncy.wait(10000);\ncy.get('[onclick=\"download_report()\"]').click({\n  failOnStatusCode: false\n});",
+              "err": {},
+              "uuid": "8885aca0-ca5a-4557-9e33-4674ba72ae17",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logo check",
+              "fullTitle": "Reports Logo check",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "7d4906af-9ff9-4d2d-be31-c89eb71e2628",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check-logo",
+              "fullTitle": "Reports Check-logo",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "233df575-06ca-499c-8829-82d2e7a8f252",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check-logo-2",
+              "fullTitle": "Reports Check-logo-2",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "2b094b09-c62b-406b-a44a-2dd5cc44504d",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Check logo",
+              "fullTitle": "Reports Check logo",
+              "timedOut": null,
+              "duration": 13659,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  return false;\n});\ncy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content'); // cy.get('label.label_check').first().click({force:true}).should('have.class','c_on')\n// cy.get('label.label_check').first().click().should('have.class','c_on')\n//     var flag = true;\n// try {\n//     cy.get('label.label_check').first().click({force:true}).should('have.class','c_on')\n//     flag = true\n// } catch(e) {\n//     cy.get('label.label_check').first().click().should('have.class','c_on')\n//     console.log(e)\n//     flag = false\n//     done(e)\n// } finally {\n//     //do something\n//     cy.get('label.label_check').first().click()\n//     if(flag)\n//         done()\n// }\n// cy.get('label.label_check').first().then( check=>{\n//     cy.wrap(check)\n//     const checky = check.should('have.class', 'c_on')\n//     if (checky = true){\n//         //do nothing for now\n//     }else {\n//         checky.click()\n//     }\n// })\n// try{\n// if (cy.get('.overview > :nth-child(1)').contains('label.label_check.c_on', 'Show Logo')){\n//             //do nothing for now\n//         }else {\n//             cy.get('.overview > :nth-child(1)').click()\n//         }\n//     }catch{\n//          cy.get('.overview > :nth-child(1)').click()\n//     }\n// })\n// try {\n//     cy.get('.overview > :nth-child(1)').contains('label.label_check.c_on', 'Show Logo')\n// } catch {\n//     cy.get('.overview > :nth-child(1)').click()   \n// }\n// })\n// it('Alias', () => {\n//     Cypress.on('uncaught:exception', (err, runnable) => {\n//         return false\n//         });\n//         cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')\n//         cy.wait(7000)\n// // try {\n// //     cy.get('.overview > :nth-child(1)').contains('label.label_check', 'Show Logo').as('Uncheck')\n// //     cy.get('@Uncheck').click()\n// // } catch (error) {\n// //     //nothing\n// //     cy.get('@Uncheck').click()\n// //     cy.get('@Uncheck').contains('label.label_check.c_on', 'Show Logo')\n// // }\n// // try {\n// //     cy.get('.overview > :nth-child(1)').contains('label.label_check', 'Show Logo').as('Uncheck')\n// //     cy.get('@Uncheck').click()\n// // } catch (error) {\n// //     //nothing\n// //     cy.get('@Uncheck').click()\n// //     cy.get('@Uncheck').contains('label.label_check.c_on', 'Show Logo')\n// // }\n// // cy.get('.overview > :nth-child(1)').contains('label.label_check', 'Show Logo').as('Uncheck')\n// // cy.get('.overview > :nth-child(1)').contains('label.label_check.c_on', 'Show Logo').as('Check')\n// // if((cy.get('@Uncheck')) != (cy.get('@Check')) ){\n// //     cy.get('@Uncheck').click()\n// //     this.Fail()\n// // } else {\n// //     cy.get('@Uncheck')\n// // }\ncy.get('.label_check').children('input').first().check({\n  force: true\n});\ncy.wait(5000);\ncy.scrollTo('top');\ncy.get('#frame').should('be.visible');\ncy.get('.label_check').children('input').as('All');\ncy.get('.label_check').children('input').first().as('logo');\ncy.get('@logo').click({\n  force: true\n});\ncy.get('@logo').check({\n  force: true\n});\ncy.get('@All').check({\n  force: true\n});",
+              "err": {},
+              "uuid": "443497e7-3a0a-4c2e-a8e9-bab995d5a2cd",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email with all Checked",
+              "fullTitle": "Reports Email with all Checked",
+              "timedOut": null,
+              "duration": 4192,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.email_report').click(); // cy.get('.dlg_email > form').focus()\ncy.get('[name=\"to\"]').type('skakade@meetsoci.com');\ncy.get('.primary_button').click();\ncy.wait(5000);",
+              "err": {},
+              "uuid": "75a1af28-8894-4e82-bc08-dcba9919971c",
+              "parentUUID": "345a7e6f-fd46-43ff-b88b-1669fe5d48b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8885aca0-ca5a-4557-9e33-4674ba72ae17",
+            "443497e7-3a0a-4c2e-a8e9-bab995d5a2cd",
+            "75a1af28-8894-4e82-bc08-dcba9919971c"
+          ],
+          "failures": [
+            "b3729360-e1fb-4a79-a5ed-5e454b350a20"
+          ],
+          "pending": [
+            "7d4906af-9ff9-4d2d-be31-c89eb71e2628",
+            "233df575-06ca-499c-8829-82d2e7a8f252",
+            "2b094b09-c62b-406b-a44a-2dd5cc44504d"
+          ],
+          "skipped": [],
+          "duration": 61045,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
