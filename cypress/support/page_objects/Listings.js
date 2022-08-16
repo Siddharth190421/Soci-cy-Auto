@@ -5,7 +5,7 @@ export class ListingPage{
         cy.visit('/admin/account/3854')
         cy.wait(6000)
         cy.get('.project_controls > .icon_button > .fa').click()
-        cy.wait(5000)
+        cy.wait(6000)
 
     }
 
@@ -35,9 +35,9 @@ export class ListingPage{
     locationEdit(){
 
         cy.visit('/admin/account/3854/office/0/project/321267/dashboard')
-        cy.wait(5000)
+        cy.wait(7000)
         cy.get('.project_details_button > .fa').click()
-        cy.wait(6000)
+        cy.wait(7000)
     }
 
     locationandGrouplevelElements(){
@@ -48,6 +48,24 @@ export class ListingPage{
         cy.get('.multi_value_container').should('be.visible')
         cy.get('.dataTables_scrollBody').should('be.visible')
 
+    }
+
+    Account(){
+
+        cy.visit('/admin/account/3854')
+        cy.intercept('GET', '/account/3854').as('Account')
+        // cy.intercept({
+        //     method: 'GET',
+        //     url: '/account/3854',
+        //   }).as('Account')
+
+        cy.get('@Account')
+
+    }
+
+    dataFields(){
+
+        cy.get(':nth-child(12) > .translated').click()
     }
 
 }
