@@ -1,10 +1,23 @@
 export class ListingPage{
 
+    Account(){
+
+        cy.visit('/admin/account/3854')
+        cy.intercept('GET', '/account/3854').as('Account')
+        // cy.intercept({
+        //     method: 'GET',
+        //     url: '/account/3854',
+        //   }).as('Account')
+
+        cy.get('@Account')
+
+    }
+
     settingsGear(){
 
         cy.visit('/admin/account/3854')
-        cy.wait(6000)
-        cy.get('.project_controls > .icon_button > .fa').click()
+        cy.get(8000)
+        cy.get('.project_controls > .icon_button').click({force:true})
         cy.wait(6000)
 
     }
@@ -50,22 +63,22 @@ export class ListingPage{
 
     }
 
-    Account(){
-
-        cy.visit('/admin/account/3854')
-        cy.intercept('GET', '/account/3854').as('Account')
-        // cy.intercept({
-        //     method: 'GET',
-        //     url: '/account/3854',
-        //   }).as('Account')
-
-        cy.get('@Account')
-
-    }
 
     dataFields(){
 
         cy.get(':nth-child(12) > .translated').click()
+    }
+
+
+    toManagerLevel(){
+
+       cy.get('[data-href="users"]').click()
+       cy.wait(7000)
+       cy.contains('[class="col_role"]','Manager').click()
+       cy.get('.user_edit_form_buttons > :nth-child(3) > .gray_button').click()
+       cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+       cy.visit('/admin/account/3854/office/0/project/445429')
+
     }
 
 }

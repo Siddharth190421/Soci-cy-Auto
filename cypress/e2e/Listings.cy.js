@@ -536,26 +536,69 @@ describe('Listings', ()=>{
 
     })
 
-    it.skip('Editable with approval on Manager level - C3018', ()=>{
+    it('Editable with approval on Manager level - C3018', ()=>{
 
         Listing.Account()
-        cy.get('[data-href="users"]').click()
-       cy.wait(7000)
-       cy.contains('[class="col_role"]','Manager').click()
+        Listing.toManagerLevel()
        Listing.locationEdit()
-       cy.get('.long_description').find('input').type('Long')
-//workin to be continued 
+       cy.get('.long_description > .FormFieldView > .field_container > .input_container > .MultiLineInputView > .edit_input').type('Long')
+       cy.get('.btn_save').click()  
+    //    cy.get('.long_description').find('input').type('Long')
+        // cy.hash().should('eq','3854')
+
+        cy.get('.stop_impersonation').click()
+        cy.get('@Account')
+        cy.get('div[data-href="listings_header"] > .section-heading > .section-label').click()
+        cy.get(':nth-child(3) > .subsections > .LayoutSubSectionView > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value > .far').should('be.visible')
+
+
 
 
 
     })
 
-  
+    it('Read-only for Managers - C3019', ()=>{
 
 
+        Listing.Account()
+        Listing.settingsGear()
+        Listing.dataFields()
+        cy.contains('.even', 'Address').find('.select2-container').click()
+        cy.contains('.select2-result-label','Read-only for Managers').click()
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
 
-    
 
+    })
+
+    it('Read-only for Managers - C3020',()=>{
+
+        Listing.Account()
+        Listing.toManagerLevel()
+        Listing.locationEdit()
+
+            //tbd
+
+    })
+
+    it.only('Enable Locked - C3021', ()=>{
+
+        Listing.Account()
+        Listing.settingsGear()
+        Listing.dataFields()
+        cy.contains('.even', 'Brands').find('.select2-container').click()
+        cy.contains('.select2-result-label','Hidden').click()
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+
+
+    })
+
+    it.skip('verify if super admin can accept', ()=>{
+
+        cy.get(':nth-child(3) > .subsections > .LayoutSubSectionView > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value > .far').click()
+        cy.get('#DataTables_Table_1 > tbody > .odd > :nth-child(1)').click()
+        cy.contains('.admin-actions > .gray_button', 'Approve').click()
+
+    })
 
 
 })
