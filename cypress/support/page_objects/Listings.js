@@ -81,4 +81,11 @@ export class ListingPage{
 
     }
 
+    backToSuper(){
+
+        cy.get('.stop_impersonation').click()
+        cy.get('@Account')
+        
+    }
+
 }
