@@ -551,7 +551,7 @@ describe('Listings', ()=>{
 
     })
 
-    it.only('Read-only for Managers - C3019', ()=>{
+    it('Read-only for Managers - C3019', ()=>{
 
 
         Listing.Account()
@@ -564,7 +564,7 @@ describe('Listings', ()=>{
 
     })
 
-    it.only('Read-only for Managers - C3020',()=>{
+    it('verify Read-only for Managers - C3020',()=>{
 
         Listing.Account()
         Listing.toManagerLevel()
@@ -663,6 +663,24 @@ describe('Listings', ()=>{
         cy.get('.ListingsAttributesView > h4').should('be.visible')
         cy.get('.btn_save').click()
         
+    })
+
+    it.only('Edit Primary category - C3028', ()=>{
+
+        Listing.Account()
+        Listing.settingsGear()
+        Listing.enableAllListings()
+        Listing.locationEdit()
+        cy.contains('.ui-tabs-nav > .ui-state-default', 'Categories & Attributes').click()
+        cy.get('.select2-search-choice > .select2-search-choice-close').click()
+        cy.get('.primary_section').find('.input_container').click()
+        cy.get('.select2-result-label').eq(4).click()
+        cy.get('.btn_save').click()
+        
+
+
+
+
     })
 
 
