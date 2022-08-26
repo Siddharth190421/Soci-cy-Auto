@@ -84,6 +84,7 @@ beforeEach(() => {
     cy.intercept('POST', 'api/admin/*/update_meta\\?*').as('updateMeta');
     cy.intercept('api/group/*/get_members\\?*').as('getMembers');
     cy.intercept('api/project_networks/0/definitions\\?*').as('fetchNetworkDefinitions');
+    
 });
 
 

@@ -16,7 +16,8 @@ describe('Listening', ()=>{
 
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(9000)
+        cy.intercept('GET', '/admin/account/3854/brand_engagements/2816').as('listen')
+        cy.get('@listen')
         cy.get('g.highcharts-legend-item.highcharts-column-series.highcharts-color-0.highcharts-series-0 > rect').first().trigger('mouseover')
         cy.get('g.highcharts-legend-item.highcharts-column-series.highcharts-color-0.highcharts-series-0 > rect').last().trigger('mouseover')
 

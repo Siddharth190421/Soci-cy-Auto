@@ -11,7 +11,8 @@ describe('Creative', ()=>{
     
     
         cy.visit("/admin/account/3854/office/0/project/320406")
-        cy.wait(6000)
+        cy.intercept('GET', '/admin/account/3854/office/0/project/320406').as('creative')
+        cy.get('@creative')
     
     }
 
