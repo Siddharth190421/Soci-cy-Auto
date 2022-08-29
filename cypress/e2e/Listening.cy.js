@@ -8,16 +8,19 @@ describe('Listening', ()=>{
             return false
 
         })
-      
+
+        cy.intercept('GET', '/admin/account/3854/brand_engagements/2816').as('listen')
     })
 
     it('Insights Page-C2932,33', ()=>{
 
 
-
+        
+        
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.intercept('GET', '/admin/account/3854/brand_engagements/2816').as('listen')
-        cy.get('@listen')
+        // cy.wait(4000)
+        cy.wait('@listen')
+        // cy.wait(5000)
         cy.get('g.highcharts-legend-item.highcharts-column-series.highcharts-color-0.highcharts-series-0 > rect').first().trigger('mouseover')
         cy.get('g.highcharts-legend-item.highcharts-column-series.highcharts-color-0.highcharts-series-0 > rect').last().trigger('mouseover')
 
@@ -35,7 +38,7 @@ describe('Listening', ()=>{
           })
 
         cy.visit('/admin/account/3854/brand_engagements/2816')  
-       
+        cy.wait('@listen')
         // cy.get('.action_buttons > .icon_button').click()
         cy.get('.action_buttons > .icon_button').click({force:true})
         cy.wait(10000)
@@ -51,7 +54,7 @@ describe('Listening', ()=>{
 
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.show_duplicates').click({force:true})
@@ -67,7 +70,7 @@ describe('Listening', ()=>{
 
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.btn-assign').first().click()
@@ -81,7 +84,7 @@ describe('Listening', ()=>{
     it('Respond To a Task-C2937',()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.interaction > .icon_button').click()
@@ -96,7 +99,7 @@ describe('Listening', ()=>{
     it('Resolve a task-C2938', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.notif_checkbox > .label_check').click()
@@ -108,7 +111,7 @@ describe('Listening', ()=>{
     it('Archive a task-C2939', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.btn-archive').click()
@@ -121,7 +124,7 @@ describe('Listening', ()=>{
     it('Unarchive a task-C', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.btn-archive').click()
@@ -134,7 +137,7 @@ describe('Listening', ()=>{
     it('Delete a Task-C2940', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.show_duplicates').click()
@@ -149,7 +152,7 @@ describe('Listening', ()=>{
     it('Undelete-C', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.show_duplicates').click()
@@ -164,7 +167,7 @@ describe('Listening', ()=>{
     it('Resolve a Task-C2941', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(5000)
+        cy.wait('@listen')
         cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
         cy.wait(5000)
         cy.get('.notif_checkbox > .label_check').first().click()
@@ -229,9 +232,15 @@ describe('Listening', ()=>{
         cy.contains('[title="Edit Sentiment"]', 'Positive').should('be.visible')
         cy.contains('.select2-chosen', 'Positive').click()
         cy.wait(3000)
+
+        cy.reload()
+        cy.wait(5000)
+        cy.contains('[data-name="all"] > :nth-child(1) > .component_tab_text', 'All Engagements').click()
+        cy.wait(5000)
+        cy.contains('.select2-chosen', 'Sentiment').click()
+        cy.wait(5000)
         cy.contains('[class="select2-result-label"]', 'Negative').click()
         cy.wait(3000)
-        cy.contains('[title="Edit Sentiment"]', 'Negative').should('be.visible')
 
 
     })

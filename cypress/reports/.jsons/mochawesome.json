@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2022-08-12T10:56:45.363Z",
-    "end": "2022-08-12T10:57:08.289Z",
-    "duration": 22926,
+    "start": "2022-08-29T04:30:00.483Z",
+    "end": "2022-08-29T04:30:12.164Z",
+    "duration": 11681,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9cd65906-4c29-488a-ba72-a63f822d5772",
+      "uuid": "ffba72fa-f94f-4586-859b-4a7b98a43782",
       "title": "",
       "fullFile": "cypress\\e2e\\Admin.cy.js",
       "file": "cypress\\e2e\\Admin.cy.js",
@@ -29,7 +29,7 @@
           "title": "login",
           "fullTitle": "login",
           "timedOut": null,
-          "duration": 22887,
+          "duration": 11652,
           "state": "passed",
           "speed": "slow",
           "pass": true,
@@ -38,20 +38,20 @@
           "context": null,
           "code": "loginPage.toURL();\nloginPage.userName();\nloginPage.password();\nloginPage.clickSignIn();",
           "err": {},
-          "uuid": "6a1dd25b-3921-4c8d-9d31-a94ba8b57c13",
-          "parentUUID": "9cd65906-4c29-488a-ba72-a63f822d5772",
+          "uuid": "55bfde60-ccce-453b-9dc5-ba280ac251fc",
+          "parentUUID": "ffba72fa-f94f-4586-859b-4a7b98a43782",
           "isHook": false,
           "skipped": false
         }
       ],
       "suites": [],
       "passes": [
-        "6a1dd25b-3921-4c8d-9d31-a94ba8b57c13"
+        "55bfde60-ccce-453b-9dc5-ba280ac251fc"
       ],
       "failures": [],
       "pending": [],
       "skipped": [],
-      "duration": 22887,
+      "duration": 11652,
       "root": true,
       "rootEmpty": false,
       "_timeout": 2000

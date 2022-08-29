@@ -10,15 +10,18 @@ describe('Superadmin/ Admin/ User', ()=>{
     
         })
       
+        cy.intercept('GET', '/admin/account/3854').as('acc')
+        
     })
 
 
-    it('superAdmin can access Back Office - C2739', ()=>{
+    it.only('superAdmin can access Back Office - C2739', ()=>{
 
-        cy.visit('/')
-        cy.intercept('GET', '/admin/account/3854').as('acc')
-        cy.get('@acc')
-        cy.get('.back_office').click()
+        
+        
+        cy.visit('/admin/account/3854')
+        cy.wait('@acc')
+        cy.get('.back_office').click({force:true})
 
         cy.get('.crumbs_inner').find('.crumbs_stack_left > .translated').should('have.text','Back Office')
       
@@ -39,7 +42,7 @@ describe('Superadmin/ Admin/ User', ()=>{
     it('Edit Account - C2741', ()=>{
 
         cy.visit('/')
-        cy.get(8000)
+        cy.wait('@acc')
         cy.get('.project_controls > .icon_button').click({force:true})
         cy.wait(6000)
         cy.wait(5000)
@@ -49,6 +52,47 @@ describe('Superadmin/ Admin/ User', ()=>{
     })
 
 
+    it.only('Superadmin can create a user - C2742', ()=>{
+
+        cy.visit('/admin/account/3854')
+        cy.wait('@acc')
+        cy.get('[data-href="users"]').click()
+        cy.get('.btn_add_user').click()
+        cy.get('.bbm-modal__section').find('input').first().type('Anthony')
+        cy.get('.bbm-modal__section').find('input').eq(1).type('Kiedis')
+        cy.get('.bbm-modal__section').find('input').eq(2).type('AntKi@meetsoci.com')
+        cy.get('.bbm-modal__section').find('.select2-choice').click()
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+
+        cy.get('[data-cy="toast_message"]').should('have.text','\n\t\tNew user created successfully!\n\t\t\n\t')
+
+
+    })
+
+    it.only('Edit a User - C2743', ()=>{
+
+        cy.reload()
+        
+        cy.get('td [class="col_name"]').first().click({force:true})
+        cy.get('.bbm-modal__section').find('input').first().type('1')
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+
+
+    })
+
+    it.only('Login as Admin/User - C2744', ()=>{
+
+        cy.reload()
+        
+        cy.get('td [class="col_name"]').first().click({force:true})
+        cy.wait(5000)
+        cy.contains('.user_edit_form_buttons > :nth-child(3) > .gray_button',' Login as admin').click()
+        cy.wait(4000)
+        cy.visit('/admin/account/3854')
+        cy.wait('@acc')
+
+
+    })
 
 
 })

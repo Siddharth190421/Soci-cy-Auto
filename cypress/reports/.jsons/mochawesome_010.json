@@ -1,0 +1,95 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-08-29T05:04:18.627Z",
+    "end": "2022-08-29T05:04:32.057Z",
+    "duration": 13430,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ff9e00d-c591-4bec-a450-5514e148a89a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "login",
+          "fullTitle": "login",
+          "timedOut": null,
+          "duration": 13364,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\login.cy.js\\\\login (failed).png\"\n      }\n    ]\n  ]\n}",
+          "code": "Cypress.on('uncaught:exception', (err, runnable) => {\n  // returning false here prevents Cypress from\n  // failing the test\n  return false;\n}); // cy.visit('https://sneaky.meetsoci.com/admin/login')\ncy.visit('/');\ncy.get('#password_login > :nth-child(2) > .input_email').type('skakade@meetsoci.com');\ncy.get('.input_password').type('Logitech@2').type('{enter}');\ncy.get('.select2-arrow').click();\ncy.contains('Smoke-21').click();",
+          "err": {
+            "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#password_login > :nth-child(2) > .input_email`, but never found it.",
+            "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#password_login > :nth-child(2) > .input_email`, but never found it.\n    at Context.eval (https://sneaky.meetsoci.com/__cypress/tests?p=cypress\\e2e\\login.cy.js:117:6)",
+            "diff": null
+          },
+          "uuid": "7ac4413d-ac86-43e0-8f0f-f22d6e4244d1",
+          "parentUUID": "0ff9e00d-c591-4bec-a450-5514e148a89a",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "7ac4413d-ac86-43e0-8f0f-f22d6e4244d1"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 13364,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "cypress\\reports\\.jsons",
+        "reportPageTitle": "Demo-title1",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
