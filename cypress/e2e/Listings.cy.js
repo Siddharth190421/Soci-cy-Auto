@@ -665,7 +665,7 @@ describe('Listings', ()=>{
         
     })
 
-    it.only('Edit Primary category - C3038', ()=>{
+    it('Edit Primary category - C3038', ()=>{
 
         Listing.Account()
         Listing.settingsGear()

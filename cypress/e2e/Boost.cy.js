@@ -6,7 +6,7 @@ let month = date.getMonth()+1;
 
 let Hdate = month + "" + day 
 
-describe('Boost', ()=> {
+describe.skip('Boost', ()=> {
 
 
     beforeEach(() => {
