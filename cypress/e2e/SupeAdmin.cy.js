@@ -15,7 +15,7 @@ describe('Superadmin/ Admin/ User', ()=>{
     })
 
 
-    it.only('superAdmin can access Back Office - C2739', ()=>{
+    it('superAdmin can access Back Office - C2739', ()=>{
 
         cy.visit('https://sneaky.meetsoci.com/admin/login')
         cy.get('#password_login > :nth-child(2) > .input_email').type('skakade@meetsoci.com')
@@ -44,7 +44,7 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     it('Edit Account - C2741', ()=>{
 
-        cy.visit('/')
+        cy.visit('/admin/account/3854')
         cy.wait('@acc')
         cy.get('.project_controls > .icon_button').click({force:true})
         cy.wait(6000)
@@ -55,7 +55,7 @@ describe('Superadmin/ Admin/ User', ()=>{
     })
 
 
-    it.only('Superadmin can create a user - C2742', ()=>{
+    it('Superadmin can create a user - C2742', ()=>{
 
         cy.visit('/admin/account/3854')
         cy.wait('@acc')
@@ -72,7 +72,7 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     })
 
-    it.only('Edit a User - C2743', ()=>{
+    it('Edit a User - C2743', ()=>{
 
         cy.reload()
         
@@ -83,7 +83,7 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     })
 
-    it.only('Login as Admin/User - C2744', ()=>{
+    it('Login as Admin/User - C2744', ()=>{
 
 
         Cypress.on('fail', (error, runnable) => {
@@ -111,7 +111,7 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     })
 
-    it.only('Admin/user cannot access Back office - C2745', ()=>{
+    it('Admin/user cannot access Back office - C2745', ()=>{
 
         cy.get('.nav_header').then( $el => {
 
@@ -124,7 +124,7 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     })
 
-    it.only('User/Admin only sees "management" option under Ads PLUS- C2786', ()=>{
+    it('User/Admin only sees "management" option under Ads PLUS- C2986', ()=>{
 
         cy.get('[data-href="ads"]').click()
         cy.wait(4000)
@@ -134,7 +134,7 @@ describe('Superadmin/ Admin/ User', ()=>{
         })
     })
 
-    it.only('User/Admin only sees "management" option under Boost PLUS- C2787', ()=>{
+    it('User/Admin only sees "management" option under Boost PLUS- C2987', ()=>{
 
         cy.get('[data-href="boost_management"]').click()
         cy.wait(4000)
@@ -145,6 +145,28 @@ describe('Superadmin/ Admin/ User', ()=>{
         })
 
     })
+
+    it('User/admin doesnt see Location under Smartbot- C2988', ()=>{
+
+        
+        cy.get('[data-href="bots"]').click()
+        cy.wait(4000)
+        cy.get('.subsection active').then( $el =>{
+
+            expect($el).to.not.have('Locations')
+
+        })
+
+    })
+
+    it('Normal user Reports -C2989', ()=>{
+
+        cy.get('[data-href="report_progress"]').click()
+        cy.wait(7000)
+        cy.get('[class="fb_show_title"]').should('be.visible')
+        
+    })
+
 
 
 
