@@ -17,16 +17,17 @@ describe('Superadmin/ Admin/ User', ()=>{
 
     it('superAdmin can access Back Office - C2739', ()=>{
 
-        cy.visit('https://sneaky.meetsoci.com/admin/login')
-        cy.get('#password_login > :nth-child(2) > .input_email').type('skakade@meetsoci.com')
-        cy.get('.input_password').type('Logitech@2')
-        cy.contains('.gray_button','Sign In').click()
+        // cy.visit('https://sneaky.meetsoci.com/admin/login')
+        // cy.get('#password_login > :nth-child(2) > .input_email').type('skakade@meetsoci.com')
+        // cy.get('.input_password').type('Logitech@2')
+        // cy.contains('.gray_button','Sign In').click()
         
         cy.visit('/admin/account/3854')
         cy.wait('@acc')
         cy.get('.back_office').click({force:true})
 
         cy.get('.crumbs_inner').find('.crumbs_stack_left > .translated').should('have.text','Back Office')
+        cy.wait(5000)
       
     })
 
@@ -167,6 +168,19 @@ describe('Superadmin/ Admin/ User', ()=>{
         
     })
 
+    it('Delete Created User - Making e2e', ()=> {
+
+        cy.contains('.stop_impersonation','Back to Your User').click()
+        cy.visit('/admin/account/3854')
+        cy.wait('@acc')
+        cy.get('[data-href="users"]').click()
+        cy.contains('.col_email','AntKi@meetsoci.com').click()
+        cy.contains('.btn_remove_user','Remove User From This Account').click()
+        cy.contains('.primary_button gray_button btn_submit','Confirm').click({force:true})
+
+
+
+    })
 
 
 

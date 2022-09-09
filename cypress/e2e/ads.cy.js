@@ -34,7 +34,7 @@ function makeid() {
 }
 
 
-describe.skip('Ads', () => {
+describe('Ads', () => {
 
     beforeEach(() => {
 

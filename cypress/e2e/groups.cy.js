@@ -45,7 +45,6 @@ describe('Groups', ()=>{
           cy.get('.primary_button').click()
 
 
-
     })
 
     it('Delete group - C2767',()=>{

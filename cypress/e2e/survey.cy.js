@@ -98,7 +98,7 @@ describe('Survey', ()=>{
         cy.get(':nth-child(2) > .supports_dynamic_text').type('skakade@meetsoci.com')
         cy.get(':nth-child(3) > .supports_dynamic_text').type('Subject test')
         // cy.get('.upload_logo_container > .white_button').selectFile(filepath)
-        cy.get('[class="white_button upload_logo_button"]').siblings('input[type="file"]').attachFile(filepath)
+        cy.get('.upload_logo_container > .white_button').siblings('input[type="file"]').attachFile(filepath)
         cy.wait(5000)      
         // cy.get('label > input').click()
         cy.get(':nth-child(6) > .supports_dynamic_text').type('Survey-Foot')
@@ -145,6 +145,7 @@ describe('Survey', ()=>{
         cy.wait(5000)
         cy.get('.ActionButtonsColumn > .white_button').first().click({force:true})
         cy.get('.csv_file_button').siblings('input').attachFile('survey.csv')
+        cy.get('.bbm-modal__bottombar > .secondary_button').click()
 
     })
 

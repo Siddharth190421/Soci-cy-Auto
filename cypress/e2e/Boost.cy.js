@@ -6,7 +6,7 @@ let month = date.getMonth()+1;
 
 let Hdate = month + "" + day 
 
-describe.skip('Boost', ()=> {
+describe('Boost', ()=> {
 
 
     beforeEach(() => {
@@ -85,8 +85,9 @@ describe.skip('Boost', ()=> {
         //    cy.get('div[data-href="boost"] > .section-heading > .section-label').should('contain.text', 'Boost')
         //    cy.wait(4000)
         //    cy.get('[data-href="boost_audiences"]').click()
-           cy.get(':nth-child(2) > .AdItemView > .item_row > .action > .label_check').click()
+           cy.get('.AdItemView > .item_row > .action > .label_check').eq(4).click()
            cy.get('.edit').click()
+           cy.wait(4000)
            cy.get('.audience_name').type('editBoostaud')
            cy.wait(4000)
            cy.get('.primary_button').click()
