@@ -9,7 +9,7 @@ let Hdate = month + "" + day
 
 let CompleteURL = 'https://sneaky.meetsoci.com/admin/account/3854/'
 
-let LibName = 'Ads-create' + Hdate
+let LibName = 'Ads-create' + Hdate 
 
 
 const xMen = [
@@ -53,7 +53,10 @@ describe('Ads', () => {
         cy.intercept('POST', '/api/admin/139546/get_libraries_accessible?*').as('libdrp')
         // alternative_ordering=1&type=creative&start=0&limit=20&permission=read&include_total=1&previousStart=0&previousLimit=20&currentView=visual&request_token=wnPmHMIvQ7Vgu52Y8oA8
         // request_token=wnPmHMIvQ7Vgu52Y8oA8
-
+        cy.intercept('GET', '/api/ads_facebook/0/audiences?*').as('mgmtdrp')
+        cy.intercept('POST','/api/ads_facebook/0/delivery_estimate?*').as('audres')
+        // POST 200 /resources/1/2ce2c052c2?
+        // GET 200 /api/ads_facebook/0/audiences?
 
     })
 
@@ -85,7 +88,6 @@ describe('Ads', () => {
 
 
         it('Creatve Lib - C2793', () => {
-
 
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives')
@@ -209,14 +211,16 @@ describe('Ads', () => {
 
             it('Audience - C2792', () => {
 
-                cy.get('[data-href="ads_audiences"]').click({ force: true })
+                cy.visit('/admin/account/3854/office/0/project/320406/ads_audiences')
                 cy.wait('@audience')
                 cy.get('.btn_create_audience').click()
                 cy.get('.audience_name').type('Audience-' + Hdate)
-                cy.wait(4000)
+                cy.wait('@audres')
+                // cy.wait(4000)
                 // cy.get('#s2id_autogen30 > .select2-choices').type('batman')
                 // cy.xpath('/html/body/div[21]/ul/li[1]/div/div[2]').click()
                 cy.get('.primary_button').click()
+                cy.get('[data-cy="toast_message"]').should('have.text','\n\t\tAudience created!\n\t\t\n\t')
 
 
             })
@@ -232,7 +236,8 @@ describe('Ads', () => {
                 // cy.xpath('//*[contains(text(),"Reach")][@class="select2-result-label"]').click()
                 cy.contains('[class="select2-result-label"][role="option"]', 'Reach').click()
                 cy.contains('Use Location Default Audience').click()
-                cy.wait(9000)
+                cy.wait('@mgmtdrp')
+                // cy.wait(9000)
                 // cy.xpath("//*[contains(text(),'Audience-')]").first().click()
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
                 cy.get('.prefixed_input > .promote_input').type('99')
