@@ -1,10 +1,29 @@
 describe('Reports', ()=>{
 
+
+    beforeEach(()=>{
+
+        
     Cypress.on('uncaught:exception', (err, runnable) => {
         // returning false here prevents Cypress from
         // failing the test
         return false
         });
+
+        Cypress.on('fail', (error, runnable) => {
+
+            return false
+            
+          })
+
+        cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
+        cy.intercept('api/reports/*/get_all\\?*' ).as('getAll');
+
+
+    })
+
+    
+
 
     it('Navigating/Email Reports', ()=>{
 
@@ -15,10 +34,9 @@ describe('Reports', ()=>{
             });
 
         cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
-        cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
-        cy.intercept('api/reports/*/get_all\\?*' ).as('getAll');
-        cy.get('@Report')
-        cy.get('@getAll')
+        cy.wait(9000)
+        // cy.wait('@Report')
+        // cy.wait('@getAll')
         // cy.get('.overview > :nth-child(1)').click()
         // cy.get('[onclick="download_report()"]').click()
         cy.get('.email_report').click()

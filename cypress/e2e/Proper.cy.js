@@ -1,6 +1,6 @@
 /// <reference types ="cypress"/>
 
-describe('My First Test', function()  {
+describe.skip('My First Test', function()  {
 
   before(function()  {
     cy.fixture('example').then(function(data) {

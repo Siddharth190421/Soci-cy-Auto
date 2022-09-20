@@ -18,7 +18,9 @@ describe('Groups', ()=>{
 
 
         cy.visit('/admin/account/3854')
+        cy.wait(6000)
         cy.get('[data-href="groups"]').click()
+        cy.wait(4000)
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.name').type('AAAuto-Group-to-D')
         cy.get('.primary_button').click()
@@ -50,6 +52,7 @@ describe('Groups', ()=>{
     it('Delete group - C2767',()=>{
 
         cy.get('.account_crumb').click()
+        cy.wait(4000)
         cy.contains('Groups').click()
         cy.wait(5000)
         cy.get('[class="icon_button fa fa-trash btn_delete"][title="Delete"]').first().click()

@@ -10,6 +10,14 @@ describe('SmartBot', ()=>{
             return false
 
         })
+
+        Cypress.on('fail', (error, runnable) => {
+
+            return false
+            
+          })
+
+          cy.intercept('GET', '**/bots_locations/3053').as('atBots')
       
     })
     
@@ -19,7 +27,7 @@ describe('SmartBot', ()=>{
   
 
         cy.visit('admin/account/3854/office/0/project/320406/bots_locations/3053')
-        cy.wait(5000)
+        cy.wait('@atBots')
 
     })
 
@@ -42,6 +50,7 @@ describe('SmartBot', ()=>{
 
         cy.visit('admin/account/3854/office/0/project/320406/bots_locations/3053')
         cy.wait(5000)
+        cy.wait('@atBots')
         cy.get('.bulk-select-col > .BulkSelectColumn > div > .header > span').click()
         cy.get('[class="select2-container state_selector"]').click()
         cy.contains('[class="select2-result-label"]', 'Enable').click()

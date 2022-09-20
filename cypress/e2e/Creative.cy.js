@@ -72,6 +72,7 @@ describe('Creative', ()=>{
     it('Create Cover Image for FB - C2848', ()=>{
      
         cy.get('#create_page').click()
+        cy.wait(7000)
         cy.get('.customize_header > .section_right > .section_heading > table > tbody > tr > [valign="top"]').click()
         cy.wait(4000)
         cy.get('.add_image_lib').click()
@@ -84,7 +85,7 @@ describe('Creative', ()=>{
         cy.contains('.select2-result-label', 'Santosh Kakade Demo Account (Account)').click()
         cy.wait(4000)
         cy.get('.images_holder > :nth-child(1) > img').click()
-        cy.wait(6000)
+        cy.wait(10000)
         cy.get('.btn_publish').click()
         cy.wait(20000)
         cy.get('.primary_button').click()
