@@ -1,5 +1,3 @@
-require('cypress-xpath')
-
 
 describe('SmartBot', ()=>{
 
@@ -17,7 +15,18 @@ describe('SmartBot', ()=>{
             
           })
 
-          cy.intercept('GET', '**/bots_locations/3053').as('atBots')
+          cy.intercept('GET', 'frontend-services/BotsLocations/BotsLocations.js?*').as('frontend')
+          cy.intercept('GET', '/api/bi_reports/3053/get?*').as('insights')
+
+          cy.intercept('GET', '/admin/account/3854/office/0/project/320406/bots_locations/3053').as('atBots')
+          cy.intercept('GET', '/admin/account/3854/bots_locations/3053').as('account')
+          cy.intercept('GET', '/admin/account/3854/bots_qa').as('qa')
+
+          cy.intercept('GET', '/api/bots/0/engagement_analysis?*').as('engg')
+          cy.intercept('GET', '/api/bots/0/keywords/all?*').as('keywords')
+          cy.intercept('GET', '/admin/account/3854/office/0/project/320406/bots_leads').as('leads')
+
+          
       
     })
     
@@ -27,11 +36,13 @@ describe('SmartBot', ()=>{
   
 
         cy.visit('admin/account/3854/office/0/project/320406/bots_locations/3053')
-        cy.wait('@atBots')
+        cy.wait('@insights')
+        cy.wait('@frontend')
 
     })
 
     it('Deactivate Bot Loc Level', ()=>{
+
 
         cy.get('.bulk-select-col > .BulkSelectColumn > div > .header > span').click()
         cy.get('[class="select2-container state_selector"]').click()
@@ -40,7 +51,7 @@ describe('SmartBot', ()=>{
         cy.get('.input_wrapper > :nth-child(3)').click()
         cy.get('.input_wrapper > :nth-child(4)').click()
         cy.get('.btn_action_apply').click()
-        cy.wait(5000)
+        // cy.wait(5000)
         cy.get(':nth-child(1) > [data-cy="toast_type"] > .notification_close > .fa').click()
 
     })
@@ -49,8 +60,9 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('admin/account/3854/office/0/project/320406/bots_locations/3053')
-        cy.wait(5000)
-        cy.wait('@atBots')
+        // cy.wait(5000)
+        cy.wait('@insights')
+        cy.wait('@frontend')
         cy.get('.bulk-select-col > .BulkSelectColumn > div > .header > span').click()
         cy.get('[class="select2-container state_selector"]').click()
         cy.contains('[class="select2-result-label"]', 'Enable').click()
@@ -69,7 +81,11 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/bots_locations/3053')
-        cy.wait(6000)
+        // cy.wait(6000)
+        // cy.wait('@atBots')
+        // cy.wait('@account')
+        cy.wait('@frontend')
+        cy.wait('@insights')
         cy.get('tbody > :nth-child(1) > .bulk-select-col > .BulkSelectColumn > div > .bulk_select > span').click()
         cy.get('.input_wrapper > :nth-child(3)').click()
         cy.get('.input_wrapper > :nth-child(4)').click()
@@ -85,7 +101,7 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/bots_qa')
-        cy.wait(6000)
+        cy.wait('@qa')
         cy.get('.add_topic_btn').click() //Add Topic button
         cy.get('#topic-title').type('Ca')
 
@@ -103,7 +119,7 @@ describe('SmartBot', ()=>{
         cy.get('#topic-question-search').type('What types of coffee available ?"').type('{enter}')
         cy.get('.topic-response').type('All Kinds available')
         cy.contains('[class="primary_button gray_button btn_save translated"]','Save').click({force:true})
-        cy.wait(5000)
+        // cy.wait(5000)
 
 
 
@@ -114,7 +130,7 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_qa')
-        cy.wait(6000)
+        cy.wait('@engg')
         cy.get('.add_topic_btn').should('not.exist')
 
     })
@@ -123,9 +139,10 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_qa')
-        cy.wait(7000)
+        cy.wait('@engg')
+        cy.wait('@keywords')
         cy.get(':nth-child(11) > .enable-column').click()
-        cy.wait(3000)
+        cy.wait('@engg')
         cy.get('.primary_button').click()
 
 
@@ -136,7 +153,8 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_qa')
-        cy.wait(7000)
+        cy.wait('@engg')
+        cy.wait('@keywords')
         cy.contains('Welcome Message').click()
         cy.get('.topic-response').type('Again')
         cy.get('.primary_button').click({force:true})
@@ -149,6 +167,8 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/bots_qa')
+        cy.wait('@qa')
+        cy.wait('@keywords')
         cy.contains('Topic-14').click()
         cy.get('#topic-title').type('edit')
         cy.get('.primary_button').click({force:true})
@@ -161,7 +181,8 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_qa')
-        cy.wait(6000)
+        cy.wait('@engg')
+        cy.wait('@keywords')
         cy.contains('Topic-14').click()
         cy.get('.topic-response').type('EditL')
         cy.get('.primary_button').click({force:true})
@@ -174,9 +195,10 @@ describe('SmartBot', ()=>{
     it('Delete a Topic on Location level - C2833,34', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_qa')
-        cy.wait(6000)
+        cy.wait('@engg')
+        cy.wait('@keywords')
         cy.contains('Topic-14').click()
-        cy.wait(4000)
+
         cy.get('.remove_btn').should('be.disabled')
         cy.get('.bbm-modal__icon_close').click()
 
@@ -191,15 +213,17 @@ describe('SmartBot', ()=>{
           })
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_leads')
-        cy.wait(5000)
+        cy.wait('@leads')
         cy.get('.controls_container > .icon_button').click()
 
     })
 
-    it('Insights page -C2836,42,43', ()=>{
+    it('Insights page - C2836,42,43', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/bots_locations/3053')
-        cy.wait(4000)
+        cy.wait('@atBots')
+        cy.wait('@frontend')
+        cy.wait('@insights')
         cy.get('[style="min-width: 151px;"] > .right_aligned').should('be.visible')
         cy.get('.highcharts-background').should('be.visible')
         cy.get('.BotNetworkStateView > .custom-icons-bot').should('be.visible')
@@ -210,5 +234,3 @@ describe('SmartBot', ()=>{
 
 
 })
-
-

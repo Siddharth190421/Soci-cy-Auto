@@ -18,6 +18,9 @@ describe('Reports', ()=>{
 
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
         cy.intercept('api/reports/*/get_all\\?*' ).as('getAll');
+        cy.intercept('GET', '/api/tasks/0/count_unread?*').as('tasks')
+        cy.intercept('GET', '/api/group/36523/get_schedule?*').as('groups')
+        // GET  /api/tasks/0/count_unread?
 
 
     })
@@ -34,7 +37,7 @@ describe('Reports', ()=>{
             });
 
         cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
-        cy.wait(9000)
+        cy.wait('@tasks')
         // cy.wait('@Report')
         // cy.wait('@getAll')
         // cy.get('.overview > :nth-child(1)').click()
@@ -43,7 +46,7 @@ describe('Reports', ()=>{
         // cy.get('.dlg_email > form').focus()
         cy.get('[name="to"]').type('skakade@meetsoci.com')
         cy.get('.primary_button').click()
-        cy.wait(5000)
+        // cy.wait(5000)
         
        
 
@@ -58,8 +61,7 @@ describe('Reports', ()=>{
           })
 
         cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
-        cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
-        cy.intercept('api/reports/*/get_all\\?*' ).as('getAll');
+       
         cy.get('@Report')
         cy.get('@getAll')
         cy.get('[onclick="download_report()"]').click()
@@ -193,7 +195,7 @@ it('Check logo - C2849', ()=>{
 
             });
 
-        cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
+        
 
         
         // cy.get('label.label_check').first().click({force:true}).should('have.class','c_on')
@@ -329,10 +331,13 @@ it('Check logo - C2849', ()=>{
 
 // //     cy.get('@Uncheck')
 // // }
+        cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
+        cy.wait('@tasks')
 
-
+        cy.get('@Report')
+        cy.get('@getAll')
         cy.get('.label_check').children('input').first().check({force: true})
-        cy.wait(5000)
+        // cy.wait(5000)
         cy.scrollTo('top')
         cy.get('#frame').should('be.visible')
         
@@ -354,14 +359,14 @@ it('Check logo - C2849', ()=>{
     // cy.get('.dlg_email > form').focus()
     cy.get('[name="to"]').type('skakade@meetsoci.com')
     cy.get('.primary_button').click()
-    cy.wait(5000)
+    // cy.wait(5000)
 
   })
 
   it('Group Reports - C2852', ()=>{
 
     cy.visit('/admin/account/3854/group/36523/reports')
-    cy.wait(6000)
+    cy.wait('@groups')
     cy.contains('.buttons_tabs > .white_button', 'Print').click()
     // cy.visit('https://sneaky.meetsoci.com/admin/account/3854/group/36523/reports?print=1&since=2022-07-01&until=2022-08-01')
 
