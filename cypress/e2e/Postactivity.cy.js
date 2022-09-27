@@ -11,11 +11,17 @@ describe('Post activity', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
+
+        cy.intercept('GET', '/admin/account/3854').as('account')
+        // cy.intercept('GET', '/admin/account/3854/post_activity?*').as('postAct')
+        cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')
+
+
       
     })
     
@@ -23,9 +29,9 @@ describe('Post activity', ()=>{
 
  function isPublished(){
 
-    cy.wait(8000)
-    cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-    cy.wait(5000)
+    // cy.wait('@account')
+    cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
+    
 
 }
 
@@ -38,10 +44,10 @@ describe('Post activity', ()=>{
         })
 
         cy.visit('https://sneaky.meetsoci.com/admin/account/3854')
-        cy.wait(9000)
+        cy.wait('@account')
         cy.contains('Social').click()
         cy.get('[data-href="post_activity"]').click()
-        cy.wait(7000)
+        cy.wait('@postAct')
         cy.get('.date-range-container').click()
         cy.get('[data-range-key="Last 30 Days"]').click()
         // cy.get('[data-item-cid="c1817"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase').contains('eq', 22)
@@ -62,43 +68,43 @@ describe('Post activity', ()=>{
         it('Published', ()=>{
             
             // isPublished()
-            cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
 
         })
 
         it('Failed', ()=>{
 
-            cy.get(':nth-child(2) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(2) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
         it('Upcoming', ()=>{
 
-            cy.get(':nth-child(3) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(3) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
         it('Edited', ()=>{
 
-            cy.get(':nth-child(4) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(4) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
         it('Deleted', ()=>{
 
-            cy.get(':nth-child(5) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(5) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
         it('Pending', ()=>{
 
-            cy.get(':nth-child(6) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(6) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
         it('Rejected', ()=>{
 
-            cy.get(':nth-child(7) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
+            cy.get(':nth-child(7) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
             
         })
 
@@ -141,7 +147,7 @@ describe('Post activity', ()=>{
         it('Column Verification', ()=>{
 
             cy.get('[data-name="All Networks"]').click()
-            cy.wait(8000)
+            cy.wait('@postAct')
             cy.get('.dataTables_scrollHeadInner > .display > thead > tr > .sorting').should('be.visible')
             cy.get('.dataTables_scrollHeadInner > .display > thead > tr > .sorting_desc > div').should('be.visible')
 
@@ -150,9 +156,9 @@ describe('Post activity', ()=>{
         it('Status dropdown - C2968 ', ()=>{
 
             cy.contains('.select2-chosen', 'Status').click()
-            cy.wait(4000)
+            // cy.wait('@postAct')
             cy.contains('.select2-result-label', 'Pending Approval').click()
-            cy.wait(6000)
+            cy.wait('@postAct')
             cy.contains('[style="min-width: 160px;"]', 'Pending Approval').first().should('be.visible')
     
         })
