@@ -1,4 +1,4 @@
-require('cypress-xpath')
+// require('cypress-xpath')
 
 describe('Post activity', ()=>{
 
@@ -18,8 +18,9 @@ describe('Post activity', ()=>{
         //   })
 
         cy.intercept('GET', '/admin/account/3854').as('account')
-        // cy.intercept('GET', '/admin/account/3854/post_activity?*').as('postAct')
         cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')
+        cy.intercept('POST', '/graphql?*').as('pg')
+        cy.intercept('GET', '/api/broadcast_messages/0/count_new?*').as('dwnld')
 
 
       
@@ -29,7 +30,6 @@ describe('Post activity', ()=>{
 
  function isPublished(){
 
-    // cy.wait('@account')
     cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
     
 
@@ -165,10 +165,11 @@ describe('Post activity', ()=>{
 
         it('Post View - C2970', ()=>{
 
+            // cy.wait('@pg')
             cy.contains('.select2-chosen', 'Location Post View').click()
-            cy.wait(4000)
+            // cy.wait(4000)
             cy.contains('.select2-result-label', 'Group Post View').click()
-            cy.wait(5000)
+            // cy.wait(5000)
 
             
         })
@@ -176,8 +177,10 @@ describe('Post activity', ()=>{
         it('Post types - C2971', ()=>{
 
             cy.contains('.toggle_button ','All Post Types').click()
-            cy.wait(4000)
-            cy.get('[data-id="ORGANIC"]').click()
+            // cy.wait(4000)
+            cy.get('[data-id="ORGANIC"]').click({force:true})
+            cy.wait('@pg')
+
         })
 
         it('Export XLSX - C2972', ()=>{
@@ -190,13 +193,18 @@ describe('Post activity', ()=>{
               })
 
             cy.get('.icon_button[title="Export XLSX"]').click()
-            cy.wait(4000)
+            // cy.wait(4000)
+            cy.wait('@pg')
             cy.get('.bbm-modal__bottombar').find('.primary_button ').click()
             cy.get('[data-cy="toast_message"]').should('be.visible')
-            cy.wait(10000)
+            // cy.wait(10000)
+            // cy.wait('@dwnld')
             cy.get('.icon_button[title="Export XLSX"]').click()
-            cy.get('.bbm-modal__section').find(':nth-child(1) > .item_row > .btn').click()
+            cy.get('.bbm-modal__section').find(':nth-child(3) > .item_row > .btn').click()
             cy.get('.bbm-modal__bottombar > .secondary_button').click()
+            cy.wait('@dwnld')
+
+
             
 
         })
