@@ -34,18 +34,28 @@ describe('Survey', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
+
+        cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
+        cy.intercept('POST', '/graphql?*').as('pg')
+        cy.intercept('GET', '/admin/account/3854/office/0/project/320406/').as('Smoke-21')
+
+       
+
+
       
     })
 
     it('Insights Location level - C2975', ()=>{
 
         cy.visit('/admin/account/3854/surveys_insights/3153')
-        cy.wait(6000)
+        // cy.wait(6000)
+        cy.wait('@insights')
+        cy.wait('@pg')
         cy.get('.highcharts-series.highcharts-series-0 > .highcharts-point').first().trigger('mouseover')
         cy.get('[class="highcharts-point highcharts-color-1"]').should('be.visible')
         cy.get('.SurveysRecentNegativeReviewsView').should('be.visible')
@@ -57,7 +67,7 @@ describe('Survey', ()=>{
     it('Survey on Account level - C2976', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3164')
-        cy.wait(5000)
+        cy.wait('@pg')
         cy.get('.dataTables_scrollBody').should('be.visible')
 
     })
@@ -65,16 +75,16 @@ describe('Survey', ()=>{
     it('Survey on loc level - C2977', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_insights/3155')
-        cy.wait(6000)
+        cy.wait('@pg')
         cy.get('.system_contents').should('be.visible')
-        // cy.get('highcharts-background').last().should('be.visible')
+        
     })
 
 
-    it('Go to locations ', ()=>{
+    it.only('Go to locations ', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/')
-        cy.wait(5000)
+        cy.wait('@Smoke-21')
         cy.url().should('include', '3854')
         cy.get('.admin_logo').should('be.visible')
         cy.title().should('eq','SOCi - Social Media Management... Solved')
@@ -82,10 +92,10 @@ describe('Survey', ()=>{
     })
 
 
-    it('open Survey', ()=>{
+    it.only('open Survey', ()=>{
 
         cy.get('div[data-href="surveys"] > .section-heading > .section-label').click()
-        cy.wait(5000)
+        cy.wait('@pg')
         cy.url().should('include', 'surveys')
         cy.get('[data-href="surveys_list"]').click()
         

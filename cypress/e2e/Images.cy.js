@@ -1,3 +1,4 @@
+
 import 'cypress-file-upload';
 
 describe('Images', ()=>{
@@ -19,7 +20,9 @@ describe('Images', ()=>{
 
         
         const filepath = 'download.png'
-        cy.get('.control').selectFile('cypress/fixtures/download.png')
+        // cy.get('.control').selectFile('cypress/fixtures/download.png')
+        cy.get('.control').attachFile(filepath)
+
 
     })
 
@@ -45,6 +48,27 @@ describe('Images', ()=>{
         cy.contains('Cancel').click()
         
     })
+
+    // it.only('Upload post', ()=>{
+
+    //     Cypress.on('uncaught:exception', (err, runnable) => {
+                  
+    //         return false
+
+    //     })
+
+
+    //     const filepath = 'download.png'
+    //     cy.visit('/admin/account/3854/office/0/project/320406/scheduler_dashboard/week?t__SuggestedContentTab=Create')
+    //     cy.wait(6000)
+    //     cy.get('.btn_postnow').click()
+    //     cy.wait(5000)
+    //     cy.get('.message_editable').type('MSg')
+    //     cy.get('.btn_upload_image').parent('.post_detail').siblings('.image_preview').children('.label_check').children('input').selectFile(filepath)
+    //     // .attachFile(filepath)
+    //     cy.get('.gray_button').click()
+
+    // })
 
     
 })
