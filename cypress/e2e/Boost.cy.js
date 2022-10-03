@@ -99,7 +99,7 @@ describe('Boost', ()=> {
     })
     
 
-    it('Management - C2807', ()=>{
+    it.only('Management - C2807', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_management')
@@ -146,7 +146,7 @@ describe('Boost', ()=> {
         cy.visit('/admin/account/3854/office/0/project/320406/boost_notif')
         cy.wait('@notif')
         cy.get('.resolve-selected > .label_check').click()
-        cy.wait(4000)
+        // cy.wait(4000)
         cy.get('.resolve_Selected').should('be.enabled')
         cy.get('.resolve_Selected').click()
         cy.get('.secondary_button').click()

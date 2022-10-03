@@ -11,16 +11,21 @@ describe('Groups', ()=>{
             return false
 
         })
+
+        cy.intercept('GET', '/admin/account/3854').as('acc')
+        cy.intercept('GET', '/api/account/3854/get_groups?*').as('groups')
+
+        
       
     })
 
-    it('Create a group & Add Locations to Group - C2746,47', ()=>{
+    it.only('Create a group & Add Locations to Group - C2746,47', ()=>{
 
 
         cy.visit('/admin/account/3854')
-        cy.wait(6000)
+        cy.wait('@acc')
         cy.get('[data-href="groups"]').click()
-        cy.wait(4000)
+        cy.wait('@groups')
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.name').type('AAAuto-Group-to-D')
         cy.get('.primary_button').click()

@@ -43,12 +43,11 @@ describe('Survey', ()=>{
         cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
         cy.intercept('POST', '/graphql?*').as('pg')
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/').as('Smoke-21')
-
-       
-
+        // /admin/account/3854/office/0/project/320406/surveys_list/3164
 
       
     })
+
 
     it('Insights Location level - C2975', ()=>{
 
@@ -81,7 +80,7 @@ describe('Survey', ()=>{
     })
 
 
-    it.only('Go to locations ', ()=>{
+    it('Go to locations ', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/')
         cy.wait('@Smoke-21')
@@ -92,7 +91,7 @@ describe('Survey', ()=>{
     })
 
 
-    it.only('open Survey', ()=>{
+    it('open Survey', ()=>{
 
         cy.get('div[data-href="surveys"] > .section-heading > .section-label').click()
         cy.wait('@pg')
@@ -104,19 +103,22 @@ describe('Survey', ()=>{
 
     it('Create survey- C2978', ()=>{
 
-        cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
         const filepath = 'tesla.jpg'
+        cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
+        // cy.wait('@Smoke-21')
+        cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.survey_fields > :nth-child(1) > input').type('Survey' + xMen[Math.floor(Math.random() * 6)])
         cy.get(':nth-child(2) > .supports_dynamic_text').type('skakade@meetsoci.com')
         cy.get(':nth-child(3) > .supports_dynamic_text').type('Subject test')
         // cy.get('.upload_logo_container > .white_button').selectFile(filepath)
         cy.get('.upload_logo_container > .white_button').siblings('input[type="file"]').attachFile(filepath)
-        cy.wait(5000)      
+        // cy.wait('@pg')     
         // cy.get('label > input').click()
         cy.get(':nth-child(6) > .supports_dynamic_text').type('Survey-Foot')
         cy.contains('.bbm-modal__bottombar > .primary_button','Save').click({force:true}) 
-        cy.wait(5000)
+        // cy.wait(5000)
+        cy.wait('@pg') 
         
     })
 
@@ -124,7 +126,8 @@ describe('Survey', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
-        cy.wait(5000)
+        // cy.wait(5000)
+        cy.wait('@pg') 
         Survey.createCampaign()
         
         
@@ -133,19 +136,20 @@ describe('Survey', ()=>{
     it('Verify rated Campaign- C2983', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
-        cy.wait(5000)
+        cy.wait('@pg')
         cy.get('.truncated').first().click()
-        cy.wait(4000)
+        cy.wait('@pg')
         cy.get('.SurveyReportView').should('be.visible')
 
     })
 
-    it('Verify Localize feature - C2984', ()=>{
+    it('Verify Localize feature - C2984', ()=> {
 
         cy.visit('/admin/account/3854/surveys_list/3158')
-        cy.wait(5000)
+        // cy.wait(5000)
+        cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
-        cy.wait(4000)
+        // cy.wait(4000)
         cy.contains('.select2-chosen', 'Localize').click()
         cy.contains('{%Address Line 1}').click()
 
@@ -155,7 +159,7 @@ describe('Survey', ()=>{
     it('Upload CSV - C2985', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
-        cy.wait(5000)
+        cy.wait('@pg')
         cy.get('.ActionButtonsColumn > .white_button').first().click({force:true})
         cy.get('.csv_file_button').siblings('input').attachFile('survey.csv')
         cy.get('.bbm-modal__bottombar > .secondary_button').click()
