@@ -19,11 +19,13 @@ describe('Boost', ()=> {
 
         // /admin/account/3854/office/0/project/320406
         cy.intercept('GET', '**/boost_dashboard').as('dash')
-        cy.intercept('GET', '/admin/account/3854/office/0/project/320406/boost_audiences').as('boostaud')
-        cy.intercept('GET','/admin/account/3854/office/0/project/320406/boost_management').as('boostmgmt')
+        cy.intercept('GET', '**/boost_audiences').as('boostaud')
+        cy.intercept('GET','**/boost_management').as('boostmgmt')
         cy.intercept('GET','/admin/account/3854/office/0/project/320406/boost_notif').as('notif')
         cy.intercept('GET','/api/ads_facebook/0/boostable_posts?*').as('boostpg')
         cy.intercept('GET',' /api/ads_facebook/0/audiences?*').as('auddrp')
+        cy.intercept('POST', '/api/ads_facebook/0/delivery_estimate?*').as('Aud')
+        cy.intercept('GET', '/api/tasks/0/count_unread?*').as('err')
     })
 
 
@@ -69,6 +71,7 @@ describe('Boost', ()=> {
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_audiences')
         cy.wait('@boostaud')
+        cy.wait('@auddrp')
         cy.get(':nth-child(3) > .AdItemView > .item_row > .action > .label_check').click()
         cy.get('.delete').click()
         cy.get('.primary_button').click()
@@ -86,20 +89,22 @@ describe('Boost', ()=> {
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_audiences')
             cy.wait('@boostaud')
+            cy.wait('@auddrp')
+            cy.wait('@err')
         //    cy.get('div[data-href="boost"] > .section-heading > .section-label').should('contain.text', 'Boost')
         //    cy.wait(4000)
         //    cy.get('[data-href="boost_audiences"]').click()
            cy.get('.AdItemView > .item_row > .action > .label_check').eq(4).click()
            cy.get('.edit').click()
-           cy.wait(4000)
+           cy.wait('@Aud')
            cy.get('.audience_name').type('editBoostaud')
-           cy.wait(4000)
            cy.get('.primary_button').click()
+           cy.wait('@auddrp')
 
     })
     
 
-    it.only('Management - C2807', ()=>{
+    it('Management - C2807', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_management')
@@ -145,14 +150,14 @@ describe('Boost', ()=> {
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_notif')
         cy.wait('@notif')
+        cy.wait('@err')
         cy.get('.resolve-selected > .label_check').click()
-        // cy.wait(4000)
+        cy.wait(4000)
         cy.get('.resolve_Selected').should('be.enabled')
         cy.get('.resolve_Selected').click()
         cy.get('.secondary_button').click()
         cy.get('.resolve_All').click()
         cy.get('.primary_button').click()
-
 
 
     })
