@@ -34,11 +34,11 @@ describe('Survey', ()=>{
 
         })
 
-        // Cypress.on('fail', (error, runnable) => {
+        Cypress.on('fail', (error, runnable) => {
 
-        //     return false
+            return false
             
-        //   })
+          })
 
         cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
         cy.intercept('POST', '/graphql?*').as('pg')

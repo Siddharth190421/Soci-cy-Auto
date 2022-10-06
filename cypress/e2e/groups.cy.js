@@ -77,7 +77,7 @@ describe('Groups', ()=>{
 
     })
 
-    it.only('Edit Group - C2749', ()=>{
+    it('Edit Group - C2749', ()=>{
 
         Cypress.on('uncaught:exception', (err, runnable) => {
         
@@ -106,7 +106,7 @@ describe('Groups', ()=>{
 
     })
 
-    it.only('Post Image on group -C2750', ()=>{
+    it('Post Image on group -C2750', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
         cy.wait('@updateMeta')

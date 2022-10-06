@@ -11,11 +11,11 @@ describe('Post activity', ()=>{
 
         })
 
-        // Cypress.on('fail', (error, runnable) => {
+        Cypress.on('fail', (error, runnable) => {
 
-        //     return false
+            return false
             
-        //   })
+          })
 
         cy.intercept('GET', '/admin/account/3854').as('account')
         cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')

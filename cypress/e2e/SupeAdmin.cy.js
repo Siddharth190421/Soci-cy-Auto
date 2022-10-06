@@ -22,24 +22,6 @@ describe('Superadmin/ Admin/ User', ()=>{
         
     })
 
-    it.skip('Exp BIG',()=>{
-
-        cy.visit('/admin/account/3854')
-        cy.wait('@acc')
-        cy.get('[data-href="users"]').click()
-        cy.wait(7000)
-        cy.contains('[class="col_role"]','Manager').click()
-        cy.get('.user_edit_form_buttons > :nth-child(3) > .gray_button').click()
-        cy.visit('/')
-        cy.wait('@smalluser')
-        cy.wait(4000)
-        cy.get('.stop_impersonation').click({force:true})
-        cy.visit('/')
-        cy.wait('@back2user')
-        // cy.get('.bbm-modal__bottombar').find('.primary_button').click()
-        // // cy.visit('/admin/account/3854/office/0/project/445429')
-        
-    })
 
     it('superAdmin can access Back Office - C2739', ()=>{
 

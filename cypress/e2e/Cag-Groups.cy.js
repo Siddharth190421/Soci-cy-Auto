@@ -11,9 +11,9 @@ function futureCAG(){
     cy.get('.secondary_button').click()
     cy.wait(5000)
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 9; i++) {
       
-      cy.get('.fa-angle-right').click()
+      cy.get('.fa-angle-right').click() 
 
 
     }
