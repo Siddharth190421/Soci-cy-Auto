@@ -30,8 +30,6 @@ describe('Listening', ()=>{
 
     it('Insights Page-C2932,33', ()=>{
 
-
-        
         
         cy.visit('/admin/account/3854/brand_engagements/2816')
         // cy.wait(4000)
@@ -271,7 +269,6 @@ describe('Listening', ()=>{
         cy.wait('@allEng')
 
 
-
     })
 
     it('Elements on Network-C2947', ()=>{
@@ -398,9 +395,9 @@ describe('Listening', ()=>{
     it('Edit rule-C2956', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(7000)
+        cy.wait('@listen')
         cy.get('[data-name="rules"]').click()
-        cy.wait(5000)
+        cy.wait('@rules')
         cy.get('.btn_rule_edit').first().click()
         // :nth-child(1) > .hpanel > .panel-body > :nth-child(1) > .interaction > .btn-group > .btn_rule_edit
         cy.get('.rule_name').type('Edit')
@@ -412,9 +409,9 @@ describe('Listening', ()=>{
     it('Delete A Rule-C2957', ()=>{
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(7000)
+        cy.wait('@listen')
         cy.get('[data-name="rules"]').click()
-        cy.wait(5000)
+        cy.wait('@rules')
         cy.contains('p[class="rule-name"]', 'AAA1').parents('[class="panel-body"]').find('[aria-label="delete"]').click()
         cy.get('.primary_button').click({force:true})
 
@@ -430,11 +427,11 @@ describe('Listening', ()=>{
           })
 
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(7000)
+        cy.wait('@listen')
         cy.get('[data-name="rules"]').click()
-        cy.wait(5000)
+        cy.wait('@rules')
         cy.get('.btn_export').click()
-        cy.wait(5000)
+        cy.wait('@charts')
         
     })
 
@@ -446,11 +443,14 @@ describe('Listening', ()=>{
             
           })
         cy.visit('/admin/account/3854/brand_engagements/2816')
-        cy.wait(7000)
+        cy.wait('@listen')
         cy.get('[data-name="rules"]').click()
-        cy.wait(5000)
+        cy.wait('@rules')
+
         cy.contains('p[class="rule-name"]', 'Sneakrule24').parents('[class="panel-body"]').find('[aria-label="download"]').click()
-        cy.wait(5000)
+        // cy.wait(5000)
+        cy.wait('@charts')
+
     })
 
 
