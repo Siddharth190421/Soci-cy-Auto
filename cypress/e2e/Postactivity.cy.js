@@ -153,6 +153,7 @@ describe('Post activity', ()=>{
 
         })
 
+
         it('Status dropdown - C2968 ', ()=>{
 
             cy.contains('.select2-chosen', 'Status').click()
