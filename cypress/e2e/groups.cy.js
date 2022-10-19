@@ -241,6 +241,7 @@ describe('Groups', ()=>{
         cy.get('[data-hour="21"]').first().trigger('drop',{
             
             dataTransfer
+            
         })
 
 })

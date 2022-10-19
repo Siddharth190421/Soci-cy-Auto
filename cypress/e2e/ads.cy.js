@@ -180,7 +180,7 @@ describe('Ads', () => {
             cy.wait(5000)
             cy.contains('Download All Leads').click()
             cy.get('.btn_export').click()
-
+            
 
         })
 
@@ -258,7 +258,7 @@ describe('Ads', () => {
                 cy.get('.overflow_menu_item').click()
 
 
-
+                cy.exec('npx cypress run --spec "D:\Web\SOCi\cypress\e2e\Proper.cy.js"')
             })
 
         })

@@ -33,7 +33,7 @@ describe('Listening', ()=>{
         
         cy.visit('/admin/account/3854/brand_engagements/2816')
         // cy.wait(4000)
-        cy.wait('@listen')
+        cy.wait('@listen', { timeout: 1000 })
         cy.wait('@charts')
         // cy.wait(5000)
         cy.get('g.highcharts-legend-item.highcharts-column-series.highcharts-color-0.highcharts-series-0 > rect').first().trigger('mouseover')
