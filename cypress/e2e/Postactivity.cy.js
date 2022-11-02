@@ -11,11 +11,11 @@ describe('Post activity', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
 
         cy.intercept('GET', '/admin/account/3854').as('account')
         cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')
@@ -69,6 +69,7 @@ describe('Post activity', ()=>{
             
             // isPublished()
             cy.get(':nth-child(1) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.have.value', 0)
+            // cy.readFile('D:/Web/SOCi/cypress/downloads/')
 
         })
 
@@ -181,6 +182,7 @@ describe('Post activity', ()=>{
             // cy.wait(4000)
             cy.get('[data-id="ORGANIC"]').click({force:true})
             cy.wait('@pg')
+            // cy.readFile('*.xlsx')
 
         })
 
@@ -202,17 +204,27 @@ describe('Post activity', ()=>{
             // cy.wait('@dwnld')
             cy.get('.icon_button[title="Export XLSX"]').click()
             cy.get('.bbm-modal__section').find(':nth-child(3) > .item_row > .btn').click()
-            cy.get('.bbm-modal__bottombar > .secondary_button').click()
+            cy.get('.bbm-modal__bottombar > .secondary_button').click({force:true})
             cy.wait('@dwnld')
-
-
+            // cy.readFile('downloads/*.xlsx')
             
 
+            
         })
+
+        // cy.readFile('*.xlsx')
+        // const downloadsFolder = Cypress.config('downloadsFolder')
+        // const downloadedFilename = path.join(downloadsFolder, '.xlsx')
+        
+        // cy.readFile(downloadedFilename, 'binary', { timeout: 15000 })
+        // .should('have.text', 'Report Time Period:');
+
+      });
+    
 
 
     })
 
    
 
-    })
+    // })

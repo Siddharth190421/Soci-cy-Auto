@@ -55,6 +55,7 @@ export class ListingPage{
 
     locationandGrouplevelElements(){
 
+        cy.wait(3000)
         cy.get('.highcharts-background').should('be.visible')
         cy.get('[style="--section-size:auto; height: auto; --grid-gap:10px; --grid-template-columns:1fr 1fr 1fr 1fr;"] > .subsections > :nth-child(4) > .LayoutDropAreaView > .BiModulesModule > .BiModulesTypesBase').should('be.visible')
         cy.get('[style="--section-size:386px; --grid-gap:10px; --grid-template-columns:2.03fr 1fr 1fr;"] > .subsections > :nth-child(3) > :nth-child(1) > .BiModulesModule > .BiModulesTypesBase').should('be.visible')

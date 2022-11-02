@@ -24,8 +24,13 @@ describe('Groups', ()=>{
 
         cy.intercept('POST', '/api/admin/139546/update_meta?*').as('updateMeta')
 
+        cy.intercept('POST', '/api/account/3854/shorten?*').as('shorten')
         cy.intercept('GET', '/api/account/3854/get?*').as('post')
         cy.intercept('GET', '/api/files/0/get_files?*').as('imgLib')
+
+        cy.intercept('GET', ' /api/promote/0/get_has_warnings_for_messages?*').as('wait')
+
+        cy.intercept('POST', '/api/admin/0/get_libraries_accessible?*').as('libsdrp')
 
         cy.intercept('POST',  '/api/group/36523/schedule?*').as('after')
         
@@ -69,7 +74,7 @@ describe('Groups', ()=>{
         cy.contains('Groups').click()
         cy.wait('@groups')
         cy.get('[class="icon_button fa fa-trash btn_delete"][title="Delete"]').first().click()
-        cy.wait(4000)
+        cy.wait(5000)
         cy.get('#confirmation_input').type('DELETE')
         // cy.wait(4000)
         cy.get('.primary_button').click({force:true})
@@ -113,14 +118,14 @@ describe('Groups', ()=>{
         cy.wait('@edit')
         cy.get('.btn_postnow').click()
         cy.wait('@post')
+        cy.wait('@edit')
         // cy.get('.message_editable').type('Group-Post')
         cy.wait(4000)
-        cy.get('.bbm-modal__section').find('.message_editable').type('Group-Post')
+        cy.get('.bbm-modal__section').find('.message_editable').type('Group-Posts')
         // cy.get('.ComponentMessageEditor').find('.message_editable').type('Group-Post')
         cy.get('.btn_choose_image').click()
         cy.wait('@imgLib')
         cy.get('.visual_container').first().click()
-        // cy.wait('@after')
         cy.get('.gray_button').click()
 
 
@@ -129,40 +134,48 @@ describe('Groups', ()=>{
     it('shorten URL - C2753', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
-        cy.wait(5000)
+        cy.wait('@updateMeta')
+        cy.wait('@edit')
         cy.get('.btn_postnow').click()
-        cy.wait(5000)
+        cy.wait('@post')
         cy.get('.btn_bitly').click()
         cy.get('.bbm-modal__section > input').type(Urltoshort)
         cy.get('.DlgUtilityInput > .bbm-modal > .bbm-modal__bottombar > .primary_button').click({force:true})
-        cy.wait(7000)
+        cy.wait('@shorten')
         cy.get('.gray_button').click({force:true})
+  
 
     })
 
     it('Choose a Message- C2754,55', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
-        cy.wait(5000)
+        cy.wait('@updateMeta')
+        cy.wait('@edit')
         cy.get('.btn_postnow').click()
         cy.get('.btn_message_select').click()
-        cy.wait(7000)
+        cy.wait('@post')
         cy.contains('.component_tab_text', '___Loc-level-lib').click()
-        cy.wait(7000)
-        cy.get(' .upcoming > .message').first().click()
-        cy.wait(5000)
-        cy.get('.gray_button').click({force:true})
+        cy.wait('@post')
+        cy.get('.upcoming > .message').first().click()
+        cy.wait('@wait')
+        cy.contains('.gray_button','Post Now').click()
+        // cy.get('.gray_button').click({force:true})
+        
 
     })
 
     it('Meta fields- C2756', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
-        cy.wait(5000)
+        cy.wait('@updateMeta')
+        cy.wait('@edit')
         cy.get('.btn_postnow').click()
-        cy.wait(4000)
-        cy.get('.ComponentMessageEditor').type('{%Name}'+ '\n' +'{%Website URL}', { parseSpecialCharSequences: false })
+        // cy.wait(3000)
         cy.get('.network_selection > .instagram').click()
+        cy.get('.bbm-modal__section').find('.message_editable').type('{%Name}'+ '\n' +'{%Website URL}', { parseSpecialCharSequences: false })
+        cy.wait('@post')
+        // cy.get('.network_selection > .instagram').click()
         cy.get('.gray_button').click({force:true})
 
 
@@ -171,16 +184,17 @@ describe('Groups', ()=>{
     it('Future Post - C2757', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
-        cy.wait(5000)
+        cy.wait('@updateMeta')
+        cy.wait('@edit')
         cy.get('.fa-angle-right').click()
-        cy.wait(5000)
+        // cy.wait(4000)
         cy.get('[data-hour="23"]').last().click()
-        cy.wait(5000)
+        cy.wait('@post')
         cy.get('.ComponentMessageEditor').type('Future Post')
         cy.get('.btn_choose_image').click({force:true})
-        cy.wait(5000)
+        cy.wait('@imgLib')
         cy.get('.visual_container').first().click()
-        cy.wait(5000)
+        // cy.wait(5000)
         cy.get('.gray_button').click()
 
        
@@ -189,8 +203,8 @@ describe('Groups', ()=>{
     it('Edit future -C2758', ()=>{
 
         cy.get('[data-hour="23"]').last().click()
-        cy.wait(5000)
-        cy.get('.ComponentMessageEditor').type('Edit Future Post')
+        cy.wait('@post')
+        cy.get('.ComponentMessageEditor').type('Edit Near Future Post')
         cy.get('.gray_button').click()
 
     })
@@ -199,16 +213,18 @@ describe('Groups', ()=>{
     it('Post Plan - C2765', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?t__SuggestedContentTab=Suggested')
-        cy.wait(5000)
+        cy.wait('@post')
         cy.get('.btn_plans').click()
-        cy.wait(5000)
+        cy.wait('@edit')
+        cy.wait('@updateMeta')
         cy.get('.btn_new_plan').click()
         cy.get('.title').type('Group Post Plan')
         cy.get('.label_check').children('input').check({force: true})
         cy.contains('.select2-chosen', 'All libraries').click()
-        cy.wait(5000)
+        cy.wait('@libsdrp')
+        cy.wait('@edit')
         cy.get('.select2-input').last().type('___Loc-level-lib')
-        cy.wait(5000)
+        cy.wait('@libsdrp')
         cy.get('.content_selector_element').click()
         cy.get('.btn_next').click()
      
@@ -218,9 +234,9 @@ describe('Groups', ()=>{
     it('Delete Post Plan - C2766', ()=>{
 
         cy.visit('/admin/account/3854/group/36523/scheduler_dashboard/week?calendarId=942701&t__SuggestedContentTab=Suggested')
-        cy.wait(4000)
+        cy.wait('@post')
         cy.get('.btn_plans').click()
-        cy.wait(5000)
+        cy.wait('@edit')
         cy.contains('.gray_button', 'Delete').click()
         cy.contains('.primary_button', 'Delete').click()
 

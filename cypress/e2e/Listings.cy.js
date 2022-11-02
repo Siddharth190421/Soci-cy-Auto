@@ -103,7 +103,7 @@ describe('Listings', ()=>{
     it('Listing on Loactions Dash - C2999', ()=>{
 
         cy.visit('/admin/account/3854/office/0/project/320406/listings_overview/3182')
-        cy.wait(6000)
+        cy.wait(8000)
 
 
         Listing.locationandGrouplevelElements()

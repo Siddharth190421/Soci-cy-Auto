@@ -166,6 +166,7 @@ describe('Survey', ()=>{
 
     })
 
+
     it('Clear downloads folder', () => {
 
         cy.exec('del /q cypress\\downloads\\.', { log: true, failOnNonZeroExit: false });
