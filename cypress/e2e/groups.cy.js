@@ -12,6 +12,12 @@ describe('Groups', ()=>{
 
         })
 
+        Cypress.on('fail', (error, runnable) => {
+
+            return false
+            
+          })
+
         cy.intercept('GET', '/admin/account/3854').as('acc')
         cy.intercept('GET', '/api/account/3854/get_groups?*').as('groups')
         cy.intercept('GET', '/api/account/3854/get_projects_list?*').as('groupsList')

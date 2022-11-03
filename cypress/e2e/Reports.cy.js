@@ -16,11 +16,11 @@ describe('Reports', () => {
       return false
     });
 
-    // Cypress.on('fail', (error, runnable) => {
+    Cypress.on('fail', (error, runnable) => {
 
-    //     return false
+        return false
 
-    //   })
+      })
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
     cy.intercept('api/reports/*/get_all\\?*').as('getAll');
@@ -392,7 +392,7 @@ describe('Reports', () => {
 
   })
 
-  it.only('Reports BETA - Comparison Report', () => {
+  it('Reports BETA - Comparison Report', () => {
 
     cy.visit('/admin/account/3854')
     cy.wait('@tasks')
@@ -412,7 +412,7 @@ describe('Reports', () => {
 
   })
 
-  it.only('Reports BETA - Content Creators', () => {
+  it('Reports BETA - Content Creators', () => {
 
     cy.visit('/admin/account/3854')
     cy.wait('@tasks')
