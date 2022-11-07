@@ -1,8 +1,20 @@
 export class Reports{
 
-    sendEmail(){
 
-    cy.get('.fa-envelope').click()
+    toReports(){
+
+    cy.visit('/admin/account/3854')
+    cy.wait('@tasks')
+    cy.contains('.section-label', 'Reports BETA').click()
+    cy.wait('@Allreports')
+
+    }
+
+    sendEmail(){
+    
+    cy.wait(4000)
+    cy.get('.fa-envelope').click({force:true})
+    cy.wait(4000)
     cy.get('.report_schedule_name').type('Report-1')
     cy.get('.bbm-modal__section').find('.select2-choices').type('skakade@meetsoci.com {enter}')
     cy.get('.bbm-modal__bottombar').find('.primary_button').click()
@@ -18,6 +30,8 @@ export class Reports{
     cy.get('.highcharts-plot-background').eq(1).should('be.visible')
     cy.get('.highcharts-plot-background').eq(2).should('be.visible')
     cy.get('.highcharts-plot-background').eq(3).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
 
     }
 }

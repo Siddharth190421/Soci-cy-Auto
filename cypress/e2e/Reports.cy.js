@@ -16,13 +16,15 @@ describe('Reports', () => {
       return false
     });
 
-    Cypress.on('fail', (error, runnable) => {
+    // Cypress.on('fail', (error, runnable) => {
 
-        return false
+    //     return false
 
-      })
+    //   })
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
+
+    cy.intercept('GET', '/api/bi_reports/0/get_all_from_account?*').as('Allreports')
     cy.intercept('api/reports/*/get_all\\?*').as('getAll');
     cy.intercept('GET', '/api/tasks/0/count_unread?*').as('tasks')
     cy.intercept('GET', '/api/group/36523/get_schedule?*').as('groups')
@@ -394,10 +396,9 @@ describe('Reports', () => {
 
   it('Reports BETA - Comparison Report', () => {
 
-    cy.visit('/admin/account/3854')
-    cy.wait('@tasks')
-    cy.contains('.section-label', 'Reports BETA').click()
-    cy.get('.report_card').eq(0).click()
+    Report.toReports()
+
+    cy.get('.report_card').eq(0).pause().click()
 
     for (let i = 0; i < 4; i++) {
 
@@ -410,13 +411,13 @@ describe('Reports', () => {
     Report.checkGraphs()
 
 
+
   })
 
   it('Reports BETA - Content Creators', () => {
 
-    cy.visit('/admin/account/3854')
-    cy.wait('@tasks')
-    cy.contains('.section-label', 'Reports BETA').click()
+    Report.toReports()
+
     cy.get('.report_card').eq(2).click()
 
     for (let i = 0; i < 4; i++) {
@@ -430,9 +431,94 @@ describe('Reports', () => {
     cy.get('.highcharts-plot-background').eq(0).should('be.visible')
     // Report.checkGraphs()
     cy.get('#DataTables_Table_1_wrapper > .dataTables_scroll > .dataTables_scrollBody').should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
 
 
   })
+
+  it('Reports BETA - Facebook Organic vs paid', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(3).click()
+
+    Report.sendEmail()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+    // cy.get('.highcharts-background').eq(2).should('be.visible')
+    // cy.get('.highcharts-background').eq(3).should('be.visible')
+    // cy.get('.highcharts-background').eq(4).should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Facebook Post performance report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(4).click()
+
+    Report.sendEmail()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it.only('Reports BETA - Facebook report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(5).click()
+
+    // Report.sendEmail()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  
 
 })
 

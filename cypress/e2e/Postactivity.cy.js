@@ -43,6 +43,7 @@ describe('Post activity', ()=>{
             return false
         })
 
+        
         cy.visit('https://sneaky.meetsoci.com/admin/account/3854')
         cy.wait('@account')
         cy.contains('Social').click()
@@ -208,7 +209,6 @@ describe('Post activity', ()=>{
             cy.wait('@dwnld')
             // cy.readFile('downloads/*.xlsx')
             
-
             
         })
 
