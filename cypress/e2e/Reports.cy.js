@@ -16,11 +16,11 @@ describe('Reports', () => {
       return false
     });
 
-    // Cypress.on('fail', (error, runnable) => {
+    Cypress.on('fail', (error, runnable) => {
 
-    //     return false
+        return false
 
-    //   })
+      })
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
 
@@ -398,7 +398,7 @@ describe('Reports', () => {
 
     Report.toReports()
 
-    cy.get('.report_card').eq(0).pause().click()
+    cy.get('.report_card').eq(0).click()
 
     for (let i = 0; i < 4; i++) {
 
@@ -492,7 +492,7 @@ describe('Reports', () => {
 
   })
 
-  it.only('Reports BETA - Facebook report', ()=>{
+  it('Reports BETA - Facebook report', ()=>{
 
     Report.toReports()
 
@@ -517,6 +517,207 @@ describe('Reports', () => {
     // Report.checkGraphs()
 
   })
+
+  it('Reports BETA - GMB Leads report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(6).click()
+
+    // Report.sendEmail()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - GMB Post Performance Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(7).click()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - GMB Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(8).click()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Instagram leads Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(9).click()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Instagram Post Performance Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(10).click()
+
+    for (let i = 0; i < 6; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Instagram Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(11).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - LinkedIN Post performance report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(12).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - LinkedIN report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(13).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+
+
+
 
   
 

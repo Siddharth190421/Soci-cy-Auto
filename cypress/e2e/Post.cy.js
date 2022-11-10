@@ -84,9 +84,19 @@ beforeEach(() => {
     cy.intercept('POST', 'api/admin/*/update_meta\\?*').as('updateMeta');
     cy.intercept('api/group/*/get_members\\?*').as('getMembers');
     cy.intercept('api/project_networks/0/definitions\\?*').as('fetchNetworkDefinitions');
+
+    cy.intercept('GET', '/admin/account/3854/office/0/project/320406/social_hub?no_sidebar=1&no_layout=11').as('Publisher')
     
 });
 
+it(' Publisher Status Check', ()=>{
+
+  cy.visit('/admin/account/3854/office/0/project/320406/social_hub#514735/feed')
+  cy.wait('@Publisher')
+  cy.request('/admin/account/3854/office/0/project/320406/social_hub?no_sidebar=1&no_layout=11').as('Publisher1')
+  cy.get('@Publisher1').should('have.property', 'status', 200)
+
+})
 
 
 it('Create Location & Switch to Location - C2768, 69', ()=>{
