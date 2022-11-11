@@ -715,6 +715,128 @@ describe('Reports', () => {
 
   })
 
+  it('Reports BETA - Reputation Performance Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(14).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Review Management Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(15).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Twitter post Performance report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(16).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+  it('Reports BETA - Twitter Report', ()=>{
+
+    Report.toReports()
+
+    cy.get('.report_card').eq(17).click()
+
+    for (let i = 0; i < 3; i++) {
+
+      cy.wait('@graph')
+
+    }
+
+    Report.sendEmail()
+
+
+    cy.get('.highcharts-plot-background').eq(0).should('be.visible')
+    // // Report.checkGraphs()
+    cy.get('.highcharts-plot-background').eq(1).should('be.visible')
+    cy.get('.highcharts-root > .highcharts-background').should('be.visible')
+
+
+    Report.datePicker()
+
+    Report.downloadXLSX()
+  
+
+    // cy.get('@tasks').should('have.property', 'status', 200)
+    // Report.checkGraphs()
+
+  })
+
+
+  it.only('Filters', ()=>{
+
+//tdc
+
+    Report.toReports()
+    // cy.visit('/admin/account/3854/reporting')
+    cy.get('.report_card instagram').should('be.visible')
+    cy.get('[data-tag-name="Reviews"]').click()
+    cy.wait(3000)
+    cy.get('.report_card instagram').should('not.exist')
+
+  })
+
+
+
 
 
 

@@ -34,4 +34,21 @@ export class Reports{
 
 
     }
+
+
+    datePicker(){
+
+    cy.get('.date-range-container').click()
+    cy.get('[data-range-key="Last 60 Days"]').click()
+
+    }
+
+    downloadXLSX(){
+
+    cy.get('.fa-download').click()
+    cy.get('.item_container > :nth-child(2) > .item_row > .btn').click({force:true})
+
+    }
+
+
 }
