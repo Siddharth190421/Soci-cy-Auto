@@ -822,26 +822,132 @@ describe('Reports', () => {
   })
 
 
-  it.only('Filters', ()=>{
-
-//tdc
+  it('Reviews Filters', ()=>{
 
     Report.toReports()
     // cy.visit('/admin/account/3854/reporting')
-    cy.get('.report_card instagram').should('be.visible')
+    cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('be.visible')
     cy.get('[data-tag-name="Reviews"]').click()
     cy.wait(3000)
-    cy.get('.report_card instagram').should('not.exist')
+    cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('not.exist')
 
   })
 
+  it('Social Filters', ()=>{
+
+        Report.toReports()
+        // cy.visit('/admin/account/3854/reporting')
+        cy.get('[ref="report_item"][class="report_card "][data-id="3209"]').should('be.visible')
+        cy.get('[data-tag-name="Social"]').click()
+        cy.wait(3000)
+        cy.get('[ref="report_item"][class="report_card "][data-id="3209"]').should('not.exist')
+    
+      })
+
+    it('Fb filter', ()=>{
+
+      Report.toReports()
+      cy.get('[data-tag-name="Facebook"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('not.exist')
 
 
 
+    })
 
+    it('GMB filter', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card google_my_business"][data-id="480"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('be.visible')
+      cy.get('[data-tag-name="Google My Business"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card google_my_business"][data-id="480"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('not.exist')
+
+    })
+
+    it('Instagram', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('be.visible')
+
+      cy.get('[data-tag-name="Instagram"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="482"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card "][data-id="3209"]').should('not.exist')
+
+
+    })
+
+    it.only('LinkedIn', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card linkedin"][data-id="485"]').should('be.visible')
+
+      cy.get('[data-tag-name="LinkedIn"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card linkedin"][data-id="485"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card "][data-id="3209"]').should('not.exist')
+
+
+    })
+
+    it.only('Twitter', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card twitter"][data-id="484"]').should('be.visible')
+      cy.get('[data-tag-name="Twitter"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card twitter"][data-id="484"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card "][data-id="3209"]').should('not.exist')
+
+
+    })
+
+
+    it.only('Comparison Report', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card "][data-id="490"]').should('be.visible')
+      cy.get('[data-tag-name="Comparison"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card "][data-id="490"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card twitter"][data-id="484"]').should('not.exist')
+
+
+
+    })
+
+
+    it.only('Group Publishing', ()=> {
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card facebook"][data-id="630"]').should('be.visible')
+      cy.get('[data-tag-name="Group Publishing"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card facebook"][data-id="630"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card facebook"][data-id="511"]').should('not.exist')
+
+
+
+    })
+
+    // it.only('youtube', ()=>{
+
+    //   cy.visit('https://www.youtube.com/')
+    //   cy.wait(4000)
+    //   cy.get('#search-form > #container').type('Russ - Pull the trigger {enter}')
+    //   cy.wait(4000)
+    //   cy.contains('Russ - Pull The Trigger (Official Video').click()
+    //   cy.wait(9000)
+    //   cy.contains('Skip Ads').click()
+
+    // })
 
 
   
+
 
 })
 
