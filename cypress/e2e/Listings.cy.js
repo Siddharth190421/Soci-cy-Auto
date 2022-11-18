@@ -144,11 +144,11 @@ describe('Listings', ()=>{
     it('Required fields update - C3002', ()=>{
 
       
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
 
 
         Listing.gotoListingAccount()

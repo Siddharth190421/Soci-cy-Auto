@@ -24,7 +24,7 @@ export class ListingPage{
 
     enableAllListings(){
 
-        cy.wait(5000)
+        cy.wait(7000)
         cy.get('.btn_enable_all_listings').click()
         cy.get('.DlgUtilityConfirm > .bbm-modal > .bbm-modal__bottombar > .primary_button').click()
         cy.get('[data-cy="toast_message"]').should('have.text','\n\t\tListings successfully enabled for all locations.\n\t\t\n\t')

@@ -760,9 +760,6 @@ describe('Reports', () => {
     cy.get('.highcharts-root > .highcharts-background').should('be.visible')
 
 
-    // cy.get('@tasks').should('have.property', 'status', 200)
-    // Report.checkGraphs()
-
   })
 
   it('Reports BETA - Twitter post Performance report', ()=>{
@@ -880,7 +877,7 @@ describe('Reports', () => {
 
     })
 
-    it.only('LinkedIn', ()=>{
+    it('LinkedIn', ()=>{
 
       Report.toReports()
       cy.get('[ref="report_item"][class="report_card linkedin"][data-id="485"]').should('be.visible')
@@ -893,7 +890,7 @@ describe('Reports', () => {
 
     })
 
-    it.only('Twitter', ()=>{
+    it('Twitter', ()=>{
 
       Report.toReports()
       cy.get('[ref="report_item"][class="report_card twitter"][data-id="484"]').should('be.visible')
@@ -906,7 +903,7 @@ describe('Reports', () => {
     })
 
 
-    it.only('Comparison Report', ()=>{
+    it('Comparison Report', ()=>{
 
       Report.toReports()
       cy.get('[ref="report_item"][class="report_card "][data-id="490"]').should('be.visible')
@@ -920,7 +917,7 @@ describe('Reports', () => {
     })
 
 
-    it.only('Group Publishing', ()=> {
+    it('Group Publishing', ()=> {
 
       Report.toReports()
       cy.get('[ref="report_item"][class="report_card facebook"][data-id="630"]').should('be.visible')
@@ -932,6 +929,111 @@ describe('Reports', () => {
 
 
     })
+
+    it('Lead Generator', ()=>{
+
+      Report.toReports()
+      
+      cy.get('[ref="report_item"][class="report_card google_my_business"][data-id="629"]').should('be.visible')
+      cy.get('[data-tag-name="Leads Generator"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card google_my_business"][data-id="629"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="624"]').should('not.exist')
+
+
+    })
+
+    it('Page Activity', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card linkedin"][data-id="485"]').should('be.visible')
+      cy.get('[data-tag-name="Page Activity"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card linkedin"][data-id="485"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="624"]').should('not.exist')
+
+
+
+
+    })
+
+    it("Paid Social", ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card facebook"][data-id="511"]').should('be.visible')
+      cy.get('[data-tag-name="Paid Social"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card facebook"][data-id="511"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card instagram"][data-id="624"]').should('not.exist')
+
+
+    })
+
+    it('Performance', ()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card"][data-id="3209"]').should('be.visible')
+      cy.get('[data-tag-name="Performance"]').click()
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card"][data-id="3209"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card twitter "][data-id="484"]').should('not.exist')
+
+
+
+    })
+
+
+    it('Team Member Activity',()=>{
+
+      Report.toReports()
+      cy.get('[ref="report_item"][class="report_card"][data-id="1974"]').should('be.visible')
+      cy.get('[data-tag-name="Team Member Activity"]')
+      cy.wait(4000)
+      cy.get('[ref="report_item"][class="report_card"][data-id="1974"]').should('be.visible')
+      cy.get('[ref="report_item"][class="report_card twitter "][data-id="484"]').should('not.exist')
+
+
+    })
+
+
+  describe('Automated Email', ()=>{
+    
+    it('Automated Email',()=>{
+
+      Report.toReports()
+
+      cy.get('[data-href="reporting_automated_emails"]').click()
+      cy.get('.state > .state_inner_wrapper > .btn_delete').eq(0).click()
+      cy.get('.primary_button').click()
+
+
+    })
+
+
+    it.only('Copy Email', ()=>{
+
+      Report.toReports()
+      cy.get('[data-href="reporting_automated_emails"]').click()
+      cy.get('.state > .state_inner_wrapper > .btn_copy').eq(1).click()
+      cy.wait(4000)
+      cy.get('.primary_button').click()
+
+
+    })
+
+    it.only('Scheduled Email', ()=>{
+
+      Report.toReports()
+      cy.get('[data-href="reporting_automated_emails"]').click()
+      cy.get('[data-name="plans"]').click()
+      cy.wait(4000)
+      cy.get('.btn_edit').click()
+      cy.get('.secondary_button').click()
+      
+
+    })
+
+  })
 
     // it.only('youtube', ()=>{
 

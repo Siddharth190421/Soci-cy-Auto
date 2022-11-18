@@ -143,7 +143,7 @@ describe('Post activity', ()=>{
         
         })
 
-       
+    
         describe('Table - C2967', ()=>{ 
 
         it('Column Verification', ()=>{
