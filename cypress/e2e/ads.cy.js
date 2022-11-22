@@ -117,7 +117,7 @@ describe('Ads', () => {
 
         it('edit creative - C2795', () => {
 
-            cy.get('.creative_toolbar > .edit').first().click()
+            cy.get('.creative_toolbar > .btn_secondary').first().click()
             cy.get('.AdCreativeImageFormatView > .text_input_container > :nth-child(1) > textarea').first().type('arsenal')
             cy.get('.primary_button').click({ force: true })
 
@@ -127,10 +127,10 @@ describe('Ads', () => {
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives')
             cy.wait('@creatives')
-            // cy.get(':nth-child(3) > .wrapper > .section_title > .title_box > .truncate')
             cy.get(':nth-child(3) > .wrapper').click()
             cy.wait(4000)
-            cy.get(':nth-child(1) > .creative_toolbar > .transfer').first().click()
+            cy.get('.creative_toolbar > :nth-child(3) > .btn_gray').first().click()
+            // cy.get(':nth-child(1) > .creative_toolbar > .transfer').first().click()
             cy.wait(4000)
             cy.get('.label_checkbox').click()
             cy.contains('.select2-chosen', 'All libraries').click().type('...Lib17thfeb')
@@ -237,15 +237,11 @@ describe('Ads', () => {
                 cy.contains('[class="select2-result-label"][role="option"]', 'Reach').click()
                 cy.contains('Use Location Default Audience').click()
                 cy.wait('@mgmtdrp')
-                // cy.wait(9000)
-                // cy.xpath("//*[contains(text(),'Audience-')]").first().click()
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
                 cy.get('.prefixed_input > .promote_input').type('99')
                 cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
                 cy.get('.primary_button').click()
                 cy.log('Ad created successfully')
-                // cy.contains("Reach").click()
-                // cy.contains('.select2-match', 'Reach').click()
 
 
             })

@@ -1,0 +1,404 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 12,
+    "passes": 11,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-11-21T06:21:58.829Z",
+    "end": "2022-11-21T06:24:26.777Z",
+    "duration": 147948,
+    "testsRegistered": 12,
+    "passPercent": 91.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1b4372b1-7c5b-4368-9e5b-7d32471c75c8",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ads.cy.js",
+      "file": "cypress\\e2e\\ads.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fdf416be-14ce-4b9a-86fe-ea8d2987368c",
+          "title": "Ads",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "2d13f8e2-7a1b-40ec-9087-67fddec23147",
+              "title": "Dashboard ",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Insights - C2791",
+                  "fullTitle": "Ads Dashboard  Insights - C2791",
+                  "timedOut": null,
+                  "duration": 12910,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_dashboard');\ncy.wait('@ads');\ncy.get('.date-range-container').click();\ncy.get('[data-range-key=\"Last Year\"]').click();\ncy.get('.dashboard_controls').should('be.visible');\ncy.get('.AdsDashboardView').should('be.visible');\ncy.get('.stat_module_spend > .AdsMetricView > .metric_view_container').should('be.visible');\ncy.get('.stat_module_impressions > .AdsMetricView').should('be.visible');\ncy.get('.stat_module_engagement > .AdsMetricView > .metric_view_container').should('be.visible');\ncy.get('.stat_module_active_ads > .AdsMetricView').should('be.visible');\ncy.get('.AdsTopPerformingCreativesView').should('be.visible');",
+                  "err": {},
+                  "uuid": "5d965017-6077-4b6b-968c-942187ad1305",
+                  "parentUUID": "2d13f8e2-7a1b-40ec-9087-67fddec23147",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5d965017-6077-4b6b-968c-942187ad1305"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 12910,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "32ee7adc-9cfc-4588-9bc9-301061cce4c0",
+              "title": "Library-creative",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Creatve Lib - C2793",
+                  "fullTitle": "Ads Library-creative Creatve Lib - C2793",
+                  "timedOut": null,
+                  "duration": 9818,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives');\ncy.get('.btn_add_library').click();\ncy.get('#name').type(LibName);\ncy.get('.primary_button').click();\ncy.wait('@afterCreative');",
+                  "err": {},
+                  "uuid": "c35e466a-896c-4bdd-a2f8-ac27c721586b",
+                  "parentUUID": "32ee7adc-9cfc-4588-9bc9-301061cce4c0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Add creative - C2794",
+                  "fullTitle": "Ads Library-creative Add creative - C2794",
+                  "timedOut": null,
+                  "duration": 16166,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives');\ncy.contains('.select2-chosen', 'All libraries').click();\ncy.wait('@libdrp');\ncy.get('#s2id_autogen2_search').type(LibName);\ncy.wait(4000);\ncy.get('[class=\"select2-result-label\"][role=\"option\"]').first().click();\ncy.get('.btn_add_creative').click();\ncy.get('.AdCreativeImageFormatView > .btn_container > .left-col > .label_check').click();\ncy.get('.primary_button').click({\n  force: true\n});\ncy.wait(2000);",
+                  "err": {},
+                  "uuid": "20bf8d6b-098d-4fc7-9126-17754d43c868",
+                  "parentUUID": "32ee7adc-9cfc-4588-9bc9-301061cce4c0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "edit creative - C2795",
+                  "fullTitle": "Ads Library-creative edit creative - C2795",
+                  "timedOut": null,
+                  "duration": 800,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.creative_toolbar > .edit').first().click();\ncy.get('.AdCreativeImageFormatView > .text_input_container > :nth-child(1) > textarea').first().type('arsenal');\ncy.get('.primary_button').click({\n  force: true\n});",
+                  "err": {},
+                  "uuid": "82d48ef6-a0b9-45d6-923c-178dcd9979a1",
+                  "parentUUID": "32ee7adc-9cfc-4588-9bc9-301061cce4c0",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Transfer creative - C2796",
+                  "fullTitle": "Ads Library-creative Transfer creative - C2796",
+                  "timedOut": null,
+                  "duration": 14296,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Library-creative -- Transfer creative - C2796 (failed).png\"\n      }\n    ]\n  ]\n}",
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives'); // cy.get(':nth-child(3) > .wrapper > .section_title > .title_box > .truncate')\ncy.get(':nth-child(3) > .wrapper').click();\ncy.wait(4000);\ncy.get(':nth-child(1) > .creative_toolbar > .transfer').first().click();\ncy.wait(4000);\ncy.get('.label_checkbox').click();\ncy.contains('.select2-chosen', 'All libraries').click().type('...Lib17thfeb');\ncy.wait(2000);\ncy.contains('[class=\"name\"]', '...Lib17thfeb').click();\ncy.get('.primary_button').click();",
+                  "err": {
+                    "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(1) > .creative_toolbar > .transfer`, but never found it.",
+                    "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `:nth-child(1) > .creative_toolbar > .transfer`, but never found it.\n    at Context.eval (https://sneaky.meetsoci.com/__cypress/tests?p=cypress\\e2e\\ads.cy.js:187:10)",
+                    "diff": null
+                  },
+                  "uuid": "04f7c5f1-a231-4d88-84a2-341725ad7c04",
+                  "parentUUID": "32ee7adc-9cfc-4588-9bc9-301061cce4c0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c35e466a-896c-4bdd-a2f8-ac27c721586b",
+                "20bf8d6b-098d-4fc7-9126-17754d43c868",
+                "82d48ef6-a0b9-45d6-923c-178dcd9979a1"
+              ],
+              "failures": [
+                "04f7c5f1-a231-4d88-84a2-341725ad7c04"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 41080,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "8898fd5f-ca32-49c6-a12c-82a5251e860e",
+              "title": "Leads",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Create Lead - C2801",
+                  "fullTitle": "Ads Leads Create Lead - C2801",
+                  "timedOut": null,
+                  "duration": 22107,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[data-href=\"ads_leads\"]').click();\ncy.get('.control_btn_group > .AdLeadsControlBarView > .icon_button').click();\ncy.get(':nth-child(1) > .row > input').type('Leadz' + Hdate + xMen[Math.floor(Math.random() * 6)]);\ncy.get(':nth-child(5) > .header').click();\ncy.wait(4000);\ncy.get('.open > .content > :nth-child(2) > input').type(CompleteURL);\ncy.wait(4000);\ncy.get(':nth-child(7) > .header').click();\ncy.get(':nth-child(5) > input').type(CompleteURL);\ncy.get('.primary_button').click({\n  force: true\n});\ncy.wait(5000);",
+                  "err": {},
+                  "uuid": "ccb89fc3-f2f7-410e-bbcc-3e5edef349bd",
+                  "parentUUID": "8898fd5f-ca32-49c6-a12c-82a5251e860e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Leads Form-Download - C2803",
+                  "fullTitle": "Ads Leads Leads Form-Download - C2803",
+                  "timedOut": null,
+                  "duration": 12116,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "Cypress.on('fail', (error, runnable) => {\n  return false;\n});\ncy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[class=\"icon_button export fa fa-download\"][title=\"Export Leads\"]').first().click();\ncy.wait(5000);\ncy.contains('Download All Leads').click();\ncy.get('.btn_export').click();",
+                  "err": {},
+                  "uuid": "4a405ab9-1afa-4b3b-a5c5-69326d915428",
+                  "parentUUID": "8898fd5f-ca32-49c6-a12c-82a5251e860e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Leads Form-Copy - C2802",
+                  "fullTitle": "Ads Leads Leads Form-Copy - C2802",
+                  "timedOut": null,
+                  "duration": 11237,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[class=\"icon_button copy fa fa-copy\"][title=\"Copy Form\"]').first().click();\ncy.wait(5000);\ncy.get('.primary_button').click();\ncy.get('.bbm-modal__icon_close').click();",
+                  "err": {},
+                  "uuid": "859c3726-9611-4a07-a547-875ec5648d3d",
+                  "parentUUID": "8898fd5f-ca32-49c6-a12c-82a5251e860e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Leads Form-Delete",
+                  "fullTitle": "Ads Leads Leads Form-Delete",
+                  "timedOut": null,
+                  "duration": 12398,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[class=\"icon_button delete fa fa-trash\"][title=\"Delete Form\"]').first().click();\ncy.wait(5000);\ncy.get('.primary_button').click();\ncy.get('.bbm-modal__icon_close').click();",
+                  "err": {},
+                  "uuid": "396b8a08-bd21-4b3f-a246-e375c1708899",
+                  "parentUUID": "8898fd5f-ca32-49c6-a12c-82a5251e860e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [
+                {
+                  "uuid": "c0a6a569-2193-4150-8442-65e716e5015e",
+                  "title": "Ads PLUS",
+                  "fullFile": "",
+                  "file": "",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Audience - C2792",
+                      "fullTitle": "Ads Leads Ads PLUS Audience - C2792",
+                      "timedOut": null,
+                      "duration": 9247,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_audiences');\ncy.wait('@audience');\ncy.get('.btn_create_audience').click();\ncy.get('.audience_name').type('Audience-' + Hdate);\ncy.wait('@audres'); // cy.wait(4000)\n// cy.get('#s2id_autogen30 > .select2-choices').type('batman')\n// cy.xpath('/html/body/div[21]/ul/li[1]/div/div[2]').click()\ncy.get('.primary_button').click();\ncy.get('[data-cy=\"toast_message\"]').should('have.text', '\\n\\t\\tAudience created!\\n\\t\\t\\n\\t');",
+                      "err": {},
+                      "uuid": "47b68bb1-0747-4f1b-9f29-213ded0a6002",
+                      "parentUUID": "c0a6a569-2193-4150-8442-65e716e5015e",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Management - C2797",
+                      "fullTitle": "Ads Leads Ads PLUS Management - C2797",
+                      "timedOut": null,
+                      "duration": 12743,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_management');\ncy.wait('@management');\ncy.get('.control_btn_group > .active').click();\ncy.get('.campaign > .field_input > .promote_input').type('Oranges');\ncy.contains('Custom Objective Per Ad').click(); // cy.xpath('//*[contains(text(),\"Reach\")][@class=\"select2-result-label\"]').click()\ncy.contains('[class=\"select2-result-label\"][role=\"option\"]', 'Reach').click();\ncy.contains('Use Location Default Audience').click();\ncy.wait('@mgmtdrp'); // cy.wait(9000)\n// cy.xpath(\"//*[contains(text(),'Audience-')]\").first().click()\ncy.contains('[class=\"select2-result-label\"][role=\"option\"]', 'Audience-').first().click();\ncy.get('.prefixed_input > .promote_input').type('99');\ncy.get(':nth-child(1) > .post_checkbox > .label_check').click();\ncy.get('.primary_button').click();\ncy.log('Ad created successfully'); // cy.contains(\"Reach\").click()\n// cy.contains('.select2-match', 'Reach').click()",
+                      "err": {},
+                      "uuid": "245c8e1f-c329-4d2a-9167-853923bf0c0f",
+                      "parentUUID": "c0a6a569-2193-4150-8442-65e716e5015e",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "Pause Ads - C2798",
+                      "fullTitle": "Ads Leads Ads PLUS Pause Ads - C2798",
+                      "timedOut": null,
+                      "duration": 13818,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_management');\ncy.wait('@management');\ncy.get('.dropdown').click();\ncy.get('.overflow_menu_item').click();\ncy.exec('npx cypress run --spec \"D:\\Web\\SOCi\\cypress\\e2e\\Proper.cy.js\"');",
+                      "err": {},
+                      "uuid": "7d6a8e1b-58fd-42cb-8416-6b038dd409fc",
+                      "parentUUID": "c0a6a569-2193-4150-8442-65e716e5015e",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "47b68bb1-0747-4f1b-9f29-213ded0a6002",
+                    "245c8e1f-c329-4d2a-9167-853923bf0c0f",
+                    "7d6a8e1b-58fd-42cb-8416-6b038dd409fc"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 35808,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 2000
+                }
+              ],
+              "passes": [
+                "ccb89fc3-f2f7-410e-bbcc-3e5edef349bd",
+                "4a405ab9-1afa-4b3b-a5c5-69326d915428",
+                "859c3726-9611-4a07-a547-875ec5648d3d",
+                "396b8a08-bd21-4b3f-a246-e375c1708899"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 57858,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "cypress\\reports\\.jsons",
+        "reportPageTitle": "Demo-title1",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

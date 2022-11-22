@@ -23,6 +23,7 @@ export class LoginPage{
     clickSignIn(){
 
         cy.contains('.gray_button','Sign In').click()
+        cy.wait(5000)
     }
 }
 

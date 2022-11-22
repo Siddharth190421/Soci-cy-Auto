@@ -394,6 +394,14 @@ describe('Reports', () => {
 
   })
 
+  it('Clear Cookies', ()=>{
+
+        cy.clearCookies()
+        cy.wait(4000)
+        
+
+  })
+
   it('Reports BETA - Comparison Report', () => {
 
     Report.toReports()
@@ -1010,7 +1018,7 @@ describe('Reports', () => {
     })
 
 
-    it.only('Copy Email', ()=>{
+    it('Copy Email', ()=>{
 
       Report.toReports()
       cy.get('[data-href="reporting_automated_emails"]').click()
@@ -1021,7 +1029,7 @@ describe('Reports', () => {
 
     })
 
-    it.only('Scheduled Email', ()=>{
+    it('Scheduled Email', ()=>{
 
       Report.toReports()
       cy.get('[data-href="reporting_automated_emails"]').click()
