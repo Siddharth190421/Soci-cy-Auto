@@ -24,11 +24,11 @@ describe('Creative', ()=>{
     
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
       
     })
 
@@ -77,6 +77,7 @@ describe('Creative', ()=>{
 
     it('Create Cover Image for FB - C2848', ()=>{
      
+        
         cy.get('#create_page').click()
         cy.wait(7000)
         cy.get('.customize_header > .section_right > .section_heading > table > tbody > tr > [valign="top"]').click()

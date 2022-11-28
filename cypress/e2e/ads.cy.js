@@ -176,6 +176,8 @@ describe('Ads', () => {
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_leads')
             cy.wait('@leads')
+            cy.get('[data-href="ads_leads"]').click()
+
             cy.get('[class="icon_button export fa fa-download"][title="Export Leads"]').first().click()
             cy.wait(5000)
             cy.contains('Download All Leads').click()
@@ -188,7 +190,10 @@ describe('Ads', () => {
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_leads')
             cy.wait('@leads')
-            cy.get('[class="icon_button copy fa fa-copy"][title="Copy Form"]').first().click()
+            cy.get('[data-href="ads_leads"]').click()
+
+
+            cy.get('[class="icon_button copy fa fa-copy"][title="Copy Form"]').first().click({force:true})
             cy.wait(5000)
             cy.get('.primary_button').click()
             cy.get('.bbm-modal__icon_close').click()
@@ -199,6 +204,8 @@ describe('Ads', () => {
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_leads')
             cy.wait('@leads')
+            cy.get('[data-href="ads_leads"]').click()
+            cy.wait(4000)
             cy.get('[class="icon_button delete fa fa-trash"][title="Delete Form"]').first().click()
             cy.wait(5000)
             cy.get('.primary_button').click()
@@ -206,6 +213,8 @@ describe('Ads', () => {
 
         })
 
+    })
+    
         describe('Ads PLUS', () => {
 
 
@@ -240,7 +249,7 @@ describe('Ads', () => {
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
                 cy.get('.prefixed_input > .promote_input').type('99')
                 cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
-                cy.get('.primary_button').click()
+                cy.get('.bbm-modal__bottombar > .primary_button').click({force:true})
                 cy.log('Ad created successfully')
 
 
@@ -257,7 +266,7 @@ describe('Ads', () => {
                 cy.exec('npx cypress run --spec "D:\Web\SOCi\cypress\e2e\Proper.cy.js"')
             })
 
-        })
+       
 
 
     })

@@ -11,7 +11,8 @@ describe('Listening', ()=>{
 
     beforeEach(() => {
 
-        Cypress.on('uncaught:exception', (err, runnable) => {     
+        Cypress.on('uncaught:exception', (err, runnable) => {  
+
             return false
 
         })
@@ -28,7 +29,7 @@ describe('Listening', ()=>{
 
     })
 
-    it('Insights Page-C2932,33', ()=>{
+    it('Insights Page-C2932,33', {retries: 2},  ()=>{
 
         
         cy.visit('/admin/account/3854/brand_engagements/2816')
@@ -190,7 +191,6 @@ describe('Listening', ()=>{
         cy.get('.resolve_Selected').click()
         cy.contains('.primary_button', 'Confirm').click({force:true})
         cy.wait('@allEng')
-
 
 
     })

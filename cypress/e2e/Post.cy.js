@@ -41,11 +41,11 @@ describe('Locations/Social', ()=>{
 
     })
 
-    Cypress.on('fail', (error, runnable) => {
+    // Cypress.on('fail', (error, runnable) => {
 
-      return false
+    //   return false
       
-    })
+    // })
 
   
 })
@@ -86,7 +86,10 @@ beforeEach(() => {
     cy.intercept('api/project_networks/0/definitions\\?*').as('fetchNetworkDefinitions');
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/social_hub?no_sidebar=1&no_layout=11').as('Publisher')
-    
+    cy.intercept('GET', '/admin/account/3854/office/0/project/320512/social_hub_fb_feed?*').as('Published') 
+
+
+
 });
 
 it(' Publisher Status Check', ()=>{
@@ -118,14 +121,15 @@ it('Edit Location - C2770', ()=>{
   cy.wait(5000)
   cy.get('.project_details_button > .fa').click()
   cy.wait(5000)
-  cy.get('.listings_name > .FormFieldView > .field_container > .input_container > .NetworkSingleLineInputView > :nth-child(1) > .network_container > :nth-child(1) > input[placeholder="No data"]').type('Edit')
+  cy.get('.listings_name > .FormFieldView > .field_container > .input_container > .NetworkSingleLineInputView > :nth-child(1) > .network_container > :nth-child(1) > input').type('Edit')
+  // cy.get('.listings_name > .FormFieldView > .field_container > .input_container > .NetworkSingleLineInputView > :nth-child(1) > .network_container > :nth-child(1) > input[placeholder="No data"]').type('Edit')
   cy.get('.btn_save').click()
 
   //Clearing the Earlier step (Going back)
   
   cy.get('.project_details_button > .fa').click()
   cy.wait(5000)
-  cy.get('.listings_name > .FormFieldView > .field_container > .input_container > .NetworkSingleLineInputView > :nth-child(1) > .network_container > :nth-child(1) > input[placeholder="No data"]').type('{selectAll}{backspace}')
+  cy.get('.listings_name > .FormFieldView > .field_container > .input_container > .NetworkSingleLineInputView > :nth-child(1) > .network_container > :nth-child(1) > input').type('Edit').type('{selectAll}{backspace}')
   cy.get('.btn_save').click()
 
 
@@ -206,7 +210,7 @@ it('Check Instagram', ()=>{
 
   Cypress.on('uncaught:exception', (err, runnable) => {
 
-    return false
+    return false 
     });
 
 
@@ -283,7 +287,8 @@ it('Delete Published - C2782',()=>{
   cy.wait(6000)
   cy.get('.facebook > .msg_container > .message_main').first().click()
   cy.wait(4000)
-  cy.get('[class="icon_button warning_button btn_del_message"][title="Unpublish"]').click()
+  cy.get('.edit_buttons > .warning_button').click()
+  // cy.get('[class="icon_button warning_button btn_del_message"][title="Unpublish"]').click()
   cy.wait(4000)
   // cy.contains('primary_button gray_button btn_submit', 'Unpublish').click()
   // cy.get('.DlgUtilityConfirm > .bbm-modal > .bbm-modal__bottombar > .primary_button').click({force:true})
@@ -294,13 +299,14 @@ it('Delete Published - C2782',()=>{
 
   it('URL shortner-C2785', ()=>{
 
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test       
-    return false
-})
+      Cypress.on('uncaught:exception', (err, runnable) => {
+    
+          return false
 
-  
+      })
+
+  cy.visit('/admin/account/3854/office/0/project/321267/scheduler_dashboard/week?t__SuggestedContentTab=Create')
+  cy.wait(6000)
   cy.get('.btn_postnow').click()
   cy.get('.btn_bitly').click()
   cy.get('.bbm-modal__section > input').type(CompleteURL)
@@ -386,7 +392,7 @@ it('Delete Published - C2782',()=>{
     cy.get('.secondary_button').click()
     cy.wait(5000)
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 9; i++) {
       
       cy.get('.fa-angle-right').click()
 
@@ -520,8 +526,10 @@ it('Queued Post - C2789',()=>{
 it('Published Posts - C2790',()=>{
 
   cy.visit('/admin/account/3854/office/0/project/320512/social_hub#513749/feed')
-  cy.wait(6000)
+  cy.wait('@Published')
+  // cy.wait(6000)
   cy.get('.message_inner').first().should('be.visible')
+
 })
 
 
