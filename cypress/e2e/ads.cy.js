@@ -240,7 +240,7 @@ describe('Ads', () => {
                 cy.visit('/admin/account/3854/office/0/project/320406/ads_management')
                 cy.wait('@management')
                 cy.get('.control_btn_group > .active').click()
-                cy.get('.campaign > .field_input > .promote_input').type('Oranges')
+                cy.get('.campaign > .field_input > .promote_input').type(Hdate + xMen[Math.floor(Math.random() * 6)])
                 cy.contains('Custom Objective Per Ad').click()
                 // cy.xpath('//*[contains(text(),"Reach")][@class="select2-result-label"]').click()
                 cy.contains('[class="select2-result-label"][role="option"]', 'Reach').click()

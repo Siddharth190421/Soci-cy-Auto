@@ -77,7 +77,8 @@ describe('Creative', ()=>{
 
     it('Create Cover Image for FB - C2848', ()=>{
      
-        
+        // cy.visit("/admin/account/3854/office/0/project/320406")
+
         cy.get('#create_page').click()
         cy.wait(7000)
         cy.get('.customize_header > .section_right > .section_heading > table > tbody > tr > [valign="top"]').click()
@@ -91,7 +92,7 @@ describe('Creative', ()=>{
         cy.wait(4000)
         cy.contains('.select2-result-label', 'Santosh Kakade Demo Account (Account)').click()
         cy.wait(4000)
-        cy.get('.images_holder > :nth-child(1) > img').click()
+        cy.get('.images_holder > :nth-child('+ 2 +') > img').click()
         cy.wait(10000)
         cy.get('.btn_publish').click()
         cy.wait(20000)

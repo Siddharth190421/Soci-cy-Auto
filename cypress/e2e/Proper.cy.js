@@ -82,23 +82,62 @@ it('Clear downloads folder', () => {
 
 
 
-    describe.only('Exception Handling In Cypress', () => {
+    describe.only('Exception Handling In Cypress', {retries: 0}, () => {
 
       it('Navigate to webpage', () => {
   
-          // Cypress.on('fail', (error, runnable) => {
+          Cypress.on('fail', (error, runnable) => {
   
-          //     if (!error.message.includes('buttondoestexist')) {
+              if (!error.message.includes('buttondoestexist')) {
   
-          //         throw error
+                  throw error
   
-          //     }
+              }
   
-          // })
+          })
+
+          Cypress.on('uncaught:exception', (err, runnable) => {
+
+            return false 
+
+        })
   
-          cy.visit('https://www.google.in');
+        Cypress.on('fail', (error, runnable) => {
+
+          return false
   
-          cy.get('#buttondoestexist')
+        })
+  
+
+
+          cy.visit('https://accounts.google.com/');
+          // cy.visit('https://www.amazon.in/');
+          cy.wait(4000)
+          // cy.get('#nav-search').type('Iphone 13 {enter}')
+          // cy.get('#nav-search-submit-button').click()
+          // cy.get('#twotabsearchtextbox').type('Iphone 13 {enter}')
+          cy.wait(4000)
+          // cy.get('[data-index="2"] > :nth-child(1)').click()
+
+          cy.get('.cxMOTc > .rFrNMe').type('siddharth.d@testriq.com')
+          cy.contains('Next').click()
+          cy.wait(6000)
+          cy.get('#password').type('Logitech@2')
+          cy.contains('Next').click()
+          cy.origin('')
+          cy.wait(6000)
+          cy.get('.gb_Ve').click()
+          cy.wait(6000)
+
+
+
+
+          // cy.contains('Sign in').click()
+          // cy.get('#buttons > ytd-button-renderer.style-scope > yt-button-shape > .yt-spec-button-shape-next > yt-touch-feedback-shape > .yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__fill')
+
+      
+  
+          // cy.get('#buttondoestexist')
   
       })
   

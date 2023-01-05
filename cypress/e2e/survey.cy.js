@@ -34,14 +34,16 @@ describe('Survey', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
 
         cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
-        cy.intercept('POST', '/graphql?*').as('pg')
+        // cy.intercept('POST', '/graphql?*').as('pg')
+        // cy.intercept('POST', '/dqs?_op=SurveyList').as('pg')
+        cy.intercept('POST', '/dqs?*').as('pg')
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/').as('Smoke-21')
         // /admin/account/3854/office/0/project/320406/surveys_list/3164
 
@@ -89,7 +91,7 @@ describe('Survey', ()=>{
         cy.title().should('eq','SOCi - Social Media Management... Solved')
 
     })
-
+    
 
     it('open Survey', ()=>{
 
@@ -105,7 +107,6 @@ describe('Survey', ()=>{
 
         const filepath = 'tesla.jpg'
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
-        // cy.wait('@Smoke-21')
         cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.survey_fields > :nth-child(1) > input').type('Survey' + xMen[Math.floor(Math.random() * 6)])
@@ -126,7 +127,7 @@ describe('Survey', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
-        // cy.wait(5000)
+        cy.wait(5000)
         cy.wait('@pg') 
         Survey.createCampaign()
         

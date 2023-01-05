@@ -6,6 +6,15 @@ let month = date.getMonth()+1;
 
 let Hdate = month + "" + day 
 
+const xMen = [
+    'professorX',
+    'beast',
+    'colossus',
+    'cyclops',
+    'iceman',
+    'wolverine',
+    ];
+
 describe('Boost', ()=> {
 
 
@@ -112,7 +121,7 @@ describe('Boost', ()=> {
         cy.wait('@boostmgmt')
         cy.get('.control_btn_group > .active').click()
         cy.wait('@boostpg')
-        cy.get('.campaign > .field_input > .promote_input').type('Batman')
+        cy.get('.campaign > .field_input > .promote_input').type(Hdate + xMen[Math.floor(Math.random() * 6)])
         // cy.contains('Custom Objective Per Ad').click()
         // cy.xpath('//*[contains(text(),"Reach")][@class="select2-result-label"]').click()
         cy.contains('.select2-choice','Use Location Default Audience').click()

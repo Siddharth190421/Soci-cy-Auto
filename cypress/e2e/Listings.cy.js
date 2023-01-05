@@ -206,7 +206,7 @@ describe('Listings', ()=>{
 
         Listing.settingsGear()
         
-        Listing.enableAllListings()
+        Listing.enableAllListings() 
 
         Listing.gotoListingAccount()
 
@@ -465,7 +465,7 @@ describe('Listings', ()=>{
 
     it('edit Custom Field - C3013', ()=>{
 
-        Listing.settingsGear()
+        Listing.settingsGear()  
         Listing.dataFields()
 
         cy.get('#custom_fields_table').should('be.visible')
@@ -475,7 +475,7 @@ describe('Listings', ()=>{
         cy.get('.custom_field_input').first().type('1')
         cy.get('#custom_fields_table > tbody').find('.select2-arrow').first().click()
 
-
+  
     })
 
     it('Editable by all on manager level - C3014', ()=>{
@@ -486,13 +486,13 @@ describe('Listings', ()=>{
             
           })
 
-       Listing.Account()
-       cy.get('[data-href="users"]').click()
-       cy.wait(7000)
-       cy.contains('[class="col_role"]','Manager').click()
-       cy.get('.user_edit_form_buttons > :nth-child(3) > .gray_button').click()
-       cy.get('.bbm-modal__bottombar').find('.primary_button').click()
-       cy.visit('/admin/account/3854/office/0/project/445429')
+        Listing.Account()
+        cy.get('[data-href="users"]').click()
+        cy.wait(7000)
+        cy.contains('[class="col_role"]','Manager').click()
+        cy.get('.user_edit_form_buttons > :nth-child(3) > .gray_button').click()
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+        cy.visit('/admin/account/3854/office/0/project/445429')
         Listing.locationEdit()
         cy.get('.listings_name').find('input').type('Edit manager')
         cy.get('.btn_save').click()
@@ -516,7 +516,7 @@ describe('Listings', ()=>{
     it('Hidden fields on Manager level - C3016', ()=>{
 
         Listing.Account()
-       Listing.toManagerLevel()
+        Listing.toManagerLevel()
         Listing.locationEdit()
         // cy.get('.service_areas').should('not.be.visible')
         // cy.contains('Service Areas').should('not.be.visible')
@@ -543,12 +543,11 @@ describe('Listings', ()=>{
 
         Listing.Account()
         Listing.toManagerLevel()
-       Listing.locationEdit()
-       cy.get('.long_description > .FormFieldView > .field_container > .input_container > .MultiLineInputView > .edit_input').type('Long')
-       cy.get('.btn_save').click()  
-    //    cy.get('.long_description').find('input').type('Long')
-        // cy.hash().should('eq','3854')
-
+        Listing.locationEdit()
+        cy.get('.long_description > .FormFieldView > .field_container > .input_container > .MultiLineInputView > .edit_input').type('Long')
+        cy.get('.btn_save').click()  
+    //  cy.get('.long_description').find('input').type('Long')
+    //  cy.hash().should('eq','3854')
 
         cy.get('.stop_impersonation').click()
         cy.get('@Account')
@@ -684,10 +683,7 @@ describe('Listings', ()=>{
         cy.get('.primary_section').find('.input_container').click()
         cy.get('.select2-result-label').eq(4).click()
         cy.get('.btn_save').click()
-        
-
-
-
+  
 
     })
 
