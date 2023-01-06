@@ -5,7 +5,7 @@ export class Reports{
 
     cy.visit('/admin/account/3854')
     cy.wait('@tasks')
-    cy.contains('.section-label', 'Reports BETA').click()
+    cy.contains('.section-label', 'Reports').click()
     cy.wait('@Allreports')
 
     }

@@ -16,11 +16,11 @@ describe('Reports', () => {
       return false
     });
 
-    Cypress.on('fail', (error, runnable) => {
+    // Cypress.on('fail', (error, runnable) => {
 
-        return false
+    //     return false
 
-      })
+    //   })
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
 
@@ -28,7 +28,8 @@ describe('Reports', () => {
     cy.intercept('api/reports/*/get_all\\?*').as('getAll');
     cy.intercept('GET', '/api/tasks/0/count_unread?*').as('tasks')
     cy.intercept('GET', '/api/group/36523/get_schedule?*').as('groups')
-    cy.intercept('POST', '/graphql?*').as('graph')
+    // cy.intercept('POST', '//graphql/*').as('graph')
+    cy.intercept('POST', '/dqs?*').as('graph')
     // GET  /api/tasks/0/count_unread?
 
 
@@ -46,6 +47,7 @@ describe('Reports', () => {
     });
 
     cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
+    cy.wait(10000)
     cy.wait('@tasks')
     // cy.wait('@Report')
     // cy.wait('@getAll')
@@ -63,11 +65,11 @@ describe('Reports', () => {
 
   it('Download Reports - C2850', () => {
 
-    Cypress.on('fail', (error, runnable) => {
+    // Cypress.on('fail', (error, runnable) => {
 
-      return false
+    //   return false
 
-    })
+    // })
 
     cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
 
@@ -452,7 +454,7 @@ describe('Reports', () => {
     cy.get('.report_card').eq(3).click()
 
     Report.sendEmail()
-
+ 
     for (let i = 0; i < 6; i++) {
 
       cy.wait('@graph')
