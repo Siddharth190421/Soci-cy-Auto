@@ -21,6 +21,8 @@ describe('Libraries', ()=>{
             return false
     
         })
+
+        // cy.viewport('iphone-xr')
     })
 
 

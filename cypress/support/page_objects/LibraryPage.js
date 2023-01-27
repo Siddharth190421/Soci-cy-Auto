@@ -88,7 +88,7 @@ export class LibraryPage{
         cy.wait(5000)
         cy.visit('/admin/account/3854/office/0/project/320512/canned/1094117')
         cy.wait(5000)
-        cy.contains('.component_tab_text', '___Loc-level-lib').click()
+        cy.contains('.component_tab_text', '___Loc-level-lib' ).click({force:true})
         cy.wait(5000)
         cy.get('[class="fa fa-calendar-plus-o"]').first().click()
         cy.wait(4000)

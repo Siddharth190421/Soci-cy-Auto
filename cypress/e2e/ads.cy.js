@@ -43,6 +43,8 @@ describe('Ads', () => {
 
         })
 
+        
+
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/ads_dashboard').as('ads')
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/ads_creatives').as('creatives')
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/ads_leads').as('leads')
@@ -127,9 +129,11 @@ describe('Ads', () => {
 
             cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives')
             cy.wait('@creatives')
-            cy.get(':nth-child(3) > .wrapper').click()
-            cy.wait(4000)
-            cy.get('.creative_toolbar > :nth-child(3) > .btn_gray').first().click()
+            // cy.get(':nth-child(3) > .wrapper').click({force:true})
+            cy.get('.wrapper > .section_image > .img').eq(2).click()
+            // cy.reload()
+            cy.wait(7000)
+            cy.get('.creative_toolbar > :nth-child(3) > .btn_gray').first().click({force:true})
             // cy.get(':nth-child(1) > .creative_toolbar > .transfer').first().click()
             cy.wait(4000)
             cy.get('.label_checkbox').click()

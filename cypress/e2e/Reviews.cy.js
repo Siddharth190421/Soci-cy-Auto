@@ -14,6 +14,9 @@ describe('Reviews', ()=>{
         cy.wait(4000)
         cy.get('.report_view_container').should('be.visible')
         cy.wait(4000)
+        cy.get('.highcharts-series.highcharts-series-0 > [x="132.5"]').should('be.visible')
+        cy.get('#highcharts-1w0sa0o-92 > .highcharts-root > .highcharts-background').should('be.visible')
+
         
         
 

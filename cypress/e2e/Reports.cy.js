@@ -9,6 +9,7 @@ describe('Reports', () => {
 
   beforeEach(() => {
 
+    // cy.viewport('samsung-s10')
 
     Cypress.on('uncaught:exception', (err, runnable) => {
       // returning false here prevents Cypress from
@@ -16,11 +17,16 @@ describe('Reports', () => {
       return false
     });
 
+        // cy.viewport('iphone-xr')
+
     // Cypress.on('fail', (error, runnable) => {
 
     //     return false
 
     //   })
+
+    cy.visit('/admin/account/3854/reporting/')
+
 
     cy.intercept('GET', '/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content').as('Report')
 
@@ -80,7 +86,7 @@ describe('Reports', () => {
 
   })
 
-  it.skip('Logo check', function (done) {
+  it('Logo check', function (done) {
 
 
     // let element = 'label.label_check'
@@ -180,7 +186,7 @@ describe('Reports', () => {
 
   })
 
-  it.skip('Check-logo', () => {
+  it('Check-logo', () => {
 
     cy.get('.overview > :nth-child(1) ').should('have.class', 'label_check c_on').then(() => {
 
@@ -189,7 +195,7 @@ describe('Reports', () => {
     })
   })
 
-  it.skip('Check-logo-2', () => {
+  it('Check-logo-2', () => {
 
     cy.get('.overview > :nth-child(1) ').should('not.have.class', 'c_on').then((G) => {
 
@@ -407,6 +413,7 @@ describe('Reports', () => {
   it('Reports BETA - Comparison Report', () => {
 
     Report.toReports()
+
 
     cy.get('.report_card').eq(0).click()
 

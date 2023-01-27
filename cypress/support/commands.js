@@ -71,6 +71,8 @@
         // Login as desired user
         loginAs(userObject);
         cy.getCookie('PHPSESSID').should('exist');
+        // cy.session('PHPSESSID').should('exist');
+
     });
 
 

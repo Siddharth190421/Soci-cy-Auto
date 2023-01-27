@@ -21,9 +21,10 @@ function makeid() {
     'iceman',
     'wolverine',
     ];
-    
+  
+let Loc = "admin/account/3854/office/0/project/320406/"
 
-let CompleteURL = 'https://sneaky.meetsoci.com/admin/account/3854/office/0/project/320406/scheduler_dashboard/week?t__SuggestedContentTab=Create'
+let CompleteURL = 'https://sneaky.meetsoci.com/' + Loc + ' /scheduler_dashboard/week?t__SuggestedContentTab=Create'
 
 let Smoke22CAG = 'https://sneaky.meetsoci.com/approve?id=320512&token=1634890002'
 
@@ -241,6 +242,24 @@ it('Schedule a Post - C2777', ()=>{
   cy.get('.schedule > .label_check').children('input').check({force:true})
   cy.wait(3000)
   cy.get('.gray_button').click()
+
+
+})
+
+it('Post Upload image', ()=>{
+
+  const filepath = 'tesla.jpg'
+  cy.visit('/admin/account/3854/office/0/project/320512/scheduler_dashboard/week?t__SuggestedContentTab=Create')
+  cy.wait(5000)
+  cy.contains('Social').click()
+  cy.wait(5000)
+  cy.get('.btn_postnow').click()
+  cy.wait(5000)
+  cy.get('.ComponentMessageEditor').type('Upload test- tesla')
+  cy.wait(4000)
+  cy.get('input[type="file"]').eq(1).attachFile(filepath)
+  cy.contains('.gray_button', 'Post Now').click()
+
 
 
 })

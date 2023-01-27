@@ -21,5 +21,9 @@ Cypress.Cookies.defaults({
     preserve: ['PHPSESSID', 'remember_token']
 });
 
+// cy.session({
+//     preserve: ['PHPSESSID', 'remember_token']
+// });
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

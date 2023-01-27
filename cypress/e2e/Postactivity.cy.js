@@ -11,15 +11,21 @@ describe('Post activity', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
 
         cy.intercept('GET', '/admin/account/3854').as('account')
-        cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')
-        cy.intercept('POST', '/graphql?*').as('pg')
+
+        // cy.intercept('POST', '/graphql?_op=AllNetworksPostActivity').as('postAct')
+        cy.intercept('POST', '/dqs?_op=AllNetworksPostActivity').as('postAct')
+
+        // cy.intercept('POST', '/graphql?*').as('pg')
+        cy.intercept('POST', '/dqs?*').as('pg')
+
         cy.intercept('GET', '/api/broadcast_messages/0/count_new?*').as('dwnld')
 
 
@@ -196,6 +202,7 @@ describe('Post activity', ()=>{
                 
               })
 
+            cy.visit('https://sneaky.meetsoci.com/admin/account/3854/post_activity/75')
             cy.get('.icon_button[title="Export XLSX"]').click()
             // cy.wait(4000)
             cy.wait('@pg')

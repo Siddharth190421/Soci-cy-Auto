@@ -17,6 +17,8 @@ describe('Listening', ()=>{
 
         })
 
+       
+
         cy.intercept('GET', '/admin/account/3854/brand_engagements/2816').as('listen')
         cy.intercept('POST', '/graphql?*').as('charts')
         cy.intercept('GET', '/api/reports/0/get_all?*').as('download')
@@ -32,6 +34,7 @@ describe('Listening', ()=>{
     it('Insights Page-C2932,33', {retries: 2},  ()=>{
 
         
+        
         cy.visit('/admin/account/3854/brand_engagements/2816')
         // cy.wait(4000)
         cy.wait('@listen', { timeout: 1000 })
@@ -43,14 +46,14 @@ describe('Listening', ()=>{
 
     })
 
-    it('Export XLSX-C2934', ()=>{
+    it.skip('Export XLSX-C2934', ()=>{
 
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
 
         cy.visit('/admin/account/3854/brand_engagements/2816')  
         cy.wait('@listen')

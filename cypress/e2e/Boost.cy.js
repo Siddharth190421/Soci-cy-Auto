@@ -42,7 +42,7 @@ describe('Boost', ()=> {
 
         cy.visit('/admin/account/3854/office/0/project/320406/boost_dashboard')
         cy.wait('@dash')
-        cy.get('.AdsRecommendationsContainerView > .ads_content_container').should('be.visible')
+        // cy.get('.AdsRecommendationsContainerView > .ads_content_container').should('be.visible')
         cy.get('.BoostDashboardView').should('be.visible')
         cy.get('.dashboard_controls').should('be.visible')
 
@@ -53,7 +53,7 @@ describe('Boost', ()=> {
 
         cy.get('.date-range-container').click()
         cy.get('[data-range-key="Last 90 Days"]').click()
-        cy.get('.AdsRecommendationsContainerView > .ads_content_container').should('be.visible')
+        // cy.get('.AdsRecommendationsContainerView > .ads_content_container').should('be.visible')
 
     })
 

@@ -9,11 +9,14 @@ describe('SmartBot', ()=>{
 
         })
 
-        Cypress.on('fail', (error, runnable) => {
+        // Cypress.on('fail', (error, runnable) => {
 
-            return false
+        //     return false
             
-          })
+        //   })
+
+        // cy.viewport('iphone-xr')
+
 
           cy.intercept('GET', 'frontend-services/BotsLocations/BotsLocations.js?*').as('frontend')
           cy.intercept('GET', '/api/bi_reports/3053/get?*').as('insights')
@@ -118,10 +121,8 @@ describe('SmartBot', ()=>{
         cy.get('[data-name="qa-tab"]').click()
         cy.get('#topic-question-search').type('What types of coffee available ?"').type('{enter}')
         cy.get('.topic-response').type('All Kinds available')
-        cy.contains('[class="primary_button gray_button btn_save translated"]','Save').click({force:true})
+        cy.contains('.primary_button','Save').click({force:true})
         // cy.wait(5000)
-
-
 
 
     })
