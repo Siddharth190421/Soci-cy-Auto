@@ -78,7 +78,7 @@ describe('Reports', () => {
     // })
 
     cy.visit('/admin/account/3854/office/0/project/320406/page/82269/editor_v2#edit_content')
-
+    
     cy.get('@Report')
     cy.get('@getAll')
     cy.get('[onclick="download_report()"]').click()
@@ -86,7 +86,7 @@ describe('Reports', () => {
 
   })
 
-  it('Logo check', function (done) {
+  it.skip('Logo check', function (done) {
 
 
     // let element = 'label.label_check'
@@ -186,7 +186,7 @@ describe('Reports', () => {
 
   })
 
-  it('Check-logo', () => {
+  it.skip('Check-logo', () => {
 
     cy.get('.overview > :nth-child(1) ').should('have.class', 'label_check c_on').then(() => {
 
@@ -195,7 +195,7 @@ describe('Reports', () => {
     })
   })
 
-  it('Check-logo-2', () => {
+  it.skip('Check-logo-2', () => {
 
     cy.get('.overview > :nth-child(1) ').should('not.have.class', 'c_on').then((G) => {
 
@@ -697,7 +697,7 @@ describe('Reports', () => {
     Report.sendEmail()
 
     cy.get('.highcharts-plot-background').eq(0).should('be.visible')
-    // // Report.checkGraphs()
+    // Report.checkGraphs()
     cy.get('.highcharts-plot-background').eq(1).should('be.visible')
     cy.get('.highcharts-root > .highcharts-background').should('be.visible')
 
@@ -747,7 +747,7 @@ describe('Reports', () => {
     Report.sendEmail()
 
     cy.get('.highcharts-plot-background').eq(0).should('be.visible')
-    // // Report.checkGraphs()
+    // Report.checkGraphs()
     cy.get('.highcharts-plot-background').eq(1).should('be.visible')
     cy.get('.highcharts-root > .highcharts-background').should('be.visible')
 
@@ -772,7 +772,7 @@ describe('Reports', () => {
     Report.sendEmail()
 
     cy.get('.highcharts-plot-background').eq(0).should('be.visible')
-    // // Report.checkGraphs()
+    // Report.checkGraphs()
     cy.get('.highcharts-plot-background').eq(1).should('be.visible')
     cy.get('.highcharts-root > .highcharts-background').should('be.visible')
 

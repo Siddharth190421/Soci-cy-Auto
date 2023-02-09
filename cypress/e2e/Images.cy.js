@@ -20,8 +20,13 @@ describe('Images', ()=>{
 
         
         const filepath = 'download.png'
+//   const filepath = 'tesla.jpg'
+
         // cy.get('.control').selectFile('cypress/fixtures/download.png')
-        cy.get('.control').attachFile(filepath)
+        cy.get("input[type='file']").attachFile(filepath)
+        // cy.get('.control').attachFile(filepath)
+        cy.wait(4000)
+        cy.get('.primary_button').click()
 
 
     })
@@ -29,7 +34,7 @@ describe('Images', ()=>{
 
     it('Edit', ()=>{
 
-        cy.get('[data-id="22603675"] > .image > .image_info_container > .info > .btn_edit_tags').click()
+        cy.get('.image > .image_info_container > .info > .btn_edit_tags').first().click()
         cy.get('.bbm-modal__section').find('[class="select2-input"]').type('aae bhai ')
         cy.get('.primary_button').click()
         cy.server({ enable: false })
@@ -39,13 +44,13 @@ describe('Images', ()=>{
 
     it('Download', ()=>{
 
-        cy.get('[data-id="22603675"] > .image > .image_info_container > .info > .btn_download').click()
+        cy.get(' .image > .image_info_container > .info > .btn_download').first().click()
     })
 
     it('Delete', ()=>{
 
-        cy.get('[data-id="22603675"] > .image > .image_info_container > .info > .warning_button').click()
-        cy.contains('Cancel').click()
+        cy.get('.image > .image_info_container > .info > .warning_button').first().click()
+        cy.contains('Delete').click()
         
     })
 
