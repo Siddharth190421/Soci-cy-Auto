@@ -82,7 +82,7 @@ it('Clear downloads folder', () => {
 
 
 
-    describe.only('Exception Handling In Cypress', {retries: 0}, () => {
+    describe('Exception Handling In Cypress', {retries: 0}, () => {
 
       it('Navigate to webpage', () => {
   
@@ -110,24 +110,24 @@ it('Clear downloads folder', () => {
   
 
 
-          cy.visit('https://accounts.google.com/');
-          // cy.visit('https://www.amazon.in/');
-          cy.wait(4000)
-          // cy.get('#nav-search').type('Iphone 13 {enter}')
-          // cy.get('#nav-search-submit-button').click()
-          // cy.get('#twotabsearchtextbox').type('Iphone 13 {enter}')
-          cy.wait(4000)
-          // cy.get('[data-index="2"] > :nth-child(1)').click()
+          // cy.visit('https://accounts.google.com/');
+          // // cy.visit('https://www.amazon.in/');
+          // cy.wait(4000)
+          // // cy.get('#nav-search').type('Iphone 13 {enter}')
+          // // cy.get('#nav-search-submit-button').click()
+          // // cy.get('#twotabsearchtextbox').type('Iphone 13 {enter}')
+          // cy.wait(4000)
+          // // cy.get('[data-index="2"] > :nth-child(1)').click()
 
-          cy.get('.cxMOTc > .rFrNMe').type('siddharth.d@testriq.com')
-          cy.contains('Next').click()
-          cy.wait(6000)
-          cy.get('#password').type('Logitech@2')
-          cy.contains('Next').click()
-          cy.origin('')
-          cy.wait(6000)
-          cy.get('.gb_Ve').click()
-          cy.wait(6000)
+          // cy.get('.cxMOTc > .rFrNMe').type('siddharth.d@testriq.com')
+          // cy.contains('Next').click()
+          // cy.wait(6000)
+          // cy.get('#password').type('Logitech@2')
+          // cy.contains('Next').click()
+          // cy.origin('')
+          // cy.wait(6000)
+          // cy.get('.gb_Ve').click()
+          // cy.wait(6000)
 
 
 
@@ -139,6 +139,47 @@ it('Clear downloads folder', () => {
   
           // cy.get('#buttondoestexist')
   
+      })
+
+
+
+
+
+      const resizeObserverLoopErrRe = /^ResizeObserver loop limit exceeded/
+
+      const ResizeObserver = /ResizeObserver/
+
+        Cypress.on('uncaught:exception', err => {
+
+          if (resizeObserverLoopErrRe.test(err.message)) {
+            return false
+          }
+
+      })
+
+      it('Log in mail', ()=>{
+
+        cy.visit('https://mail.google.com/mail/u/0/#inbox')
+
+
+        
+        cy.wait(4000)
+        cy.get('input[type="email"]').type('siddharth.d@testriq.com')
+        cy.contains('Next').click()
+        cy.wait(4000)
+        cy.get('input[type="password"]').type('Logitech190421')
+        cy.wait(4000)
+        cy.contains('Next').click()
+        cy.wait(7000)
+
+
+
+
+
+
+
+
+
       })
   
   })

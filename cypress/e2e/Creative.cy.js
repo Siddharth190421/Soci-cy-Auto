@@ -42,6 +42,24 @@ describe('Creative', ()=>{
 
     })
 
+    it('add a Cover image (Single upload) - C2844', ()=>{
+
+        gotoAccount()
+        const filepath = 'emi.jpg'
+        cy.get("input[type='file']").attachFile(filepath)
+        cy.wait(4000)
+        cy.get('.primary_button').click()
+
+
+    })
+
+    it('Multiple uploads', ()=>{
+
+        
+
+    })
+
+
     it('tag a Cover Image - C2846', ()=>{
 
         gotoAccount()
