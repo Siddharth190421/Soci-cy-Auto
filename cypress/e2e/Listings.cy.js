@@ -699,4 +699,25 @@ describe('Listings', ()=>{
     })
 
 
+    it.only('Bulk Edit', ()=>{
+
+        const filepath = 'emi.jpg'
+
+        Listing.Account()
+        Listing.gotoListingAccount()
+        cy.wait(4000)
+        cy.get('.dataTables_scrollHeadInner > .display > thead > tr > .sorting_disabled').click()
+        cy.wait(4000)
+        cy.get('.btn_action_bulk_edit').click()
+        cy.wait(4000)
+        cy.get('[data-name="Images"]').click()
+        cy.get('input[type=file]').attachFile(filepath)
+        cy.wait(4000)
+        cy.get('.bbm-modal__bottombar').find('.primary_button').click()
+        cy.contains('.bbm-modal__bottombar > .primary_button','Confirm').click()
+
+    })
+
+
+
 })

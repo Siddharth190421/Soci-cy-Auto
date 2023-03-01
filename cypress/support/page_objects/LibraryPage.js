@@ -23,7 +23,7 @@ export class LibraryPage{
         cy.wait(5000)
         cy.contains('#s2id_library_select > .select2-choice', 'All libraries').click()
         cy.wait(6000)
-        cy.get('#select2-drop').children('.select2-search').type('___J20-Lib')
+        cy.get('#select2-drop').children('.select2-search').type('_-Last-test')
         cy.wait(10000)
         cy.get('[class="select2-result-label"][role="option"]').click()
         
@@ -73,7 +73,7 @@ export class LibraryPage{
 
         cy.get('[class="icon_button btn_copy"][title="Move to Library"]').first().click()
         cy.contains('.select2-chosen','Select a Destination Library').click()
-        cy.get('#select2-drop').children('.select2-search').type('___J20-Lib')
+        cy.get('#select2-drop').children('.select2-search').type('_-Last-test')
         cy.wait(10000)
         cy.get('[class="select2-result-label"][role="option"]').click()
         cy.get('.label_check').children('input').check({force:true})
@@ -85,10 +85,10 @@ export class LibraryPage{
 
     schedule(){
 
-        cy.wait(5000)
+        // cy.wait(5000)
         cy.visit('/admin/account/3854/office/0/project/320512/canned/1094117')
         cy.wait(5000)
-        cy.contains('.component_tab_text', '___Loc-level-lib' ).click({force:true})
+        cy.contains('.component_tab_text', '_-Last-test' ).click({force:true})
         cy.wait(5000)
         cy.get('[class="fa fa-calendar-plus-o"]').first().click()
         cy.wait(4000)
