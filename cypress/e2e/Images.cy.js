@@ -35,7 +35,7 @@ describe('Images', ()=>{
     it('Edit', ()=>{
 
         cy.get('.image > .image_info_container > .info > .btn_edit_tags').first().click()
-        cy.get('.bbm-modal__section').find('[class="select2-input"]').type('aae bhai ')
+        cy.get('.bbm-modal__section').find('[class="select2-input"]').type('Edited Tag')
         cy.get('.primary_button').click()
         cy.server({ enable: false })
 

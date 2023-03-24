@@ -130,7 +130,7 @@ describe('Boost', ()=> {
         cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
         cy.get('.prefixed_input > .promote_input').type('99')
         cy.get('.date-range-container').click()
-        cy.get('[data-range-key="Last 30 Days"]').click()
+        cy.get('[data-range-key="All Time"]').click()
         cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
         cy.get('.primary_button').click()
         cy.log('Boost Created Successfully !')

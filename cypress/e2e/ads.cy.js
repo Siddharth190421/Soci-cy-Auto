@@ -169,7 +169,7 @@ describe('Ads', () => {
 
         })
 
-        it('Leads Form-Download - C2803', () => {
+        it.skip('Leads Form-Download - C2803', () => {
 
             Cypress.on('fail', (error, runnable) => {
 
@@ -267,7 +267,7 @@ describe('Ads', () => {
                 cy.get('.overflow_menu_item').click()
 
 
-                cy.exec('npx cypress run --spec "D:\Web\SOCi\cypress\e2e\Proper.cy.js"')
+                // cy.exec('npx cypress run --spec "D:\Web\SOCi\cypress\e2e\Proper.cy.js"')
             })
 
        

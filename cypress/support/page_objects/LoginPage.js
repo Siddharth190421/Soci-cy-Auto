@@ -16,7 +16,7 @@ export class LoginPage{
 
     password(){
 
-        cy.get('.input_password').type('Logitech@2')
+        cy.get('.input_password').type('internal quit disturb package')
 
     }
 

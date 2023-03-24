@@ -69,6 +69,7 @@ module.exports = defineConfig({
     },
 
     baseUrl: 'https://sneaky.meetsoci.com',
+    // baseUrl: 'https://sneaky.test-meetsoci.com',
   },
 
 

@@ -13,6 +13,7 @@ it('login' , ()=>{
 
         //  const logout = (() => {
 
+
         cy.request('POST', '/api/logout').then((response) => {
             if (response.status !== 200) {
                 console.log(response);
