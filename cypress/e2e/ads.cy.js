@@ -11,6 +11,7 @@ let CompleteURL = 'https://sneaky.meetsoci.com/admin/account/3854/'
 
 let LibName = 'Ads-create' + Hdate 
 
+let test = ` "okay "okay" " `
 
 const xMen = [
     'professorX',
@@ -121,7 +122,7 @@ describe('Ads', () => {
 
             cy.get('.creative_toolbar > .btn_secondary').first().click()
             cy.get('.AdCreativeImageFormatView > .text_input_container > :nth-child(1) > textarea').first().type('arsenal')
-            cy.get('.primary_button').click({ force: true })
+            cy.get('.primary_button').click({ force: true }) 
 
         })
 

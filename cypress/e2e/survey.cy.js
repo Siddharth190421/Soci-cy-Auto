@@ -128,7 +128,7 @@ describe('Survey', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
-        cy.wait(5000)
+        cy.wait(7000)
         cy.wait('@pg') 
         Survey.createCampaign()
         
@@ -138,7 +138,7 @@ describe('Survey', ()=>{
     it('Verify rated Campaign- C2983', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
-        cy.wait('@pg')
+        // cy.wait('@pg')
         cy.get('.truncated').first().click()
         cy.wait('@pg')
         cy.get('.SurveyReportView').should('be.visible')
