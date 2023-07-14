@@ -99,7 +99,7 @@ describe('Boost', ()=> {
         cy.visit('/admin/account/3854/office/0/project/320406/boost_audiences')
             cy.wait('@boostaud')
             cy.wait('@auddrp')
-            cy.wait('@err')
+            cy.wait('@err') 
         //    cy.get('div[data-href="boost"] > .section-heading > .section-label').should('contain.text', 'Boost')
         //    cy.wait(4000)
         //    cy.get('[data-href="boost_audiences"]').click()
@@ -132,7 +132,7 @@ describe('Boost', ()=> {
         cy.get('.date-range-container').click()
         cy.get('[data-range-key="All Time"]').click()
         cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
-        cy.get('.primary_button').click()
+        cy.contains('.primary_button', 'Submit').click()
         cy.log('Boost Created Successfully !')
 
     })

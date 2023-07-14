@@ -191,7 +191,7 @@ it('Dollar Tree', ()=>{
 
 })
 
-it.only('Joann', ()=>{
+it('Joann', ()=>{
 
     cy.visit('https://hosted.where2stageit.com/joann/mystore/locator-0811.html')
     cy.wait(5000)
@@ -203,8 +203,60 @@ it.only('Joann', ()=>{
     
 })
 
+describe.only('VPN', ()=>{
+
+    
+    it('VPN logo and cards visible', ()=>{
+        
+        cy.visit('https://www.expressvpn.com/order')
+
+        cy.wait(5000)
+        cy.get('.nav-logo').should('be.visible')
+        cy.get('#package_1 > .desktop > .plan-box-wrapper > .plan-box').should('be.visible')
+        
+        cy.get('#package_1 > .desktop > .plan-box-wrapper > .plan-box > .plan-name').contains('1 Month')
+        
+        cy.get('#package_3 > .desktop > .plan-box-wrapper > .plan-box').should('be.visible')
+        
+        cy.get('#package_3 > .desktop > .plan-box-wrapper > .plan-box > .plan-name').contains('12 Months')
+        
+        cy.get('#package_2 > .desktop > .plan-box-wrapper > .plan-box').should('be.visible')
+        
+        cy.get('#package_2 > .desktop > .plan-box-wrapper > .plan-box > .plan-name').contains('6 Months')
+        
+        cy.get('h1.txt-center').should('have.text','Get ExpressVPN in 3 easy steps')
+
+    })
+        
+        
+    it('Clicking Cards ', ()=>{
+
+    cy.get('#package_1 > .desktop > .plan-box-wrapper > .plan-box').click()
+        cy.wait(4000)
+    cy.get('#package_2 > .desktop > .plan-box-wrapper > .plan-box').click()
+        cy.wait(4000)
+    cy.get('#package_3 > .desktop > .plan-box-wrapper > .plan-box').click()
 
 })
+
+    it('Email', ()=>{
+
+        cy.get('#signup_email').type('subodh@testriq.com')
+
+    })
+
+
+
+
+
+
+
+})
+
+})
+
+
+
 
 
 

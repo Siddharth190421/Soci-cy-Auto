@@ -22,7 +22,6 @@ describe('Libraries', ()=>{
     
         })
 
-        // cy.viewport('iphone-xr')
     })
 
 
@@ -60,6 +59,22 @@ describe('Libraries', ()=>{
 
     })
 
+    
+    // it("Transfer Library Message to a different Library - C2926 ", ()=>{
+
+    //     cy.reload()
+    //     cy.get('.component_tab_text').eq(4).click({force:true})
+    //     Library.transferMessage()
+
+    //     // cy.xpath('//*[@id="canned_post_32502159"]/div/div[2]/div/div/div[4]/div[3]').click()
+    //     // cy.xpath("//*[contains(@class,'dlg_canned_move DlgCannedMove bbm-wrapper')]/following-sibling::div/div/input").type('___J20-Lib')
+    //     // cy.wait(5000)
+    //     // cy.get('.name').click()
+    //     // cy.wait(6000)
+    //     // cy.get('.primary_button').click()
+    //     // cy.get('.label_check').click()
+
+    // })
 
     it("Add Text-Message - C2924", ()=>{
 
@@ -81,6 +96,7 @@ describe('Libraries', ()=>{
 
     it("Edit message - C2925", ()=>{
 
+
        Library.editMessage()
 
     
@@ -88,6 +104,8 @@ describe('Libraries', ()=>{
 
     it("Transfer Library Message to a different Library - C2926 ", ()=>{
 
+        cy.reload()
+        cy.get('.component_tab_text').eq(4).click({force:true})
         Library.transferMessage()
 
         // cy.xpath('//*[@id="canned_post_32502159"]/div/div[2]/div/div/div[4]/div[3]').click()
@@ -102,6 +120,9 @@ describe('Libraries', ()=>{
 
     it('Delete Message - C2927,28,31', ()=>{
 
+        cy.reload()
+        Library.searchLibrary()
+
         cy.get('[class="icon_button warning_button btn_del_message"][title="Delete"]').first().click()
         cy.wait(4000)
         cy.get('.primary_button').click({force:true})
@@ -113,10 +134,11 @@ describe('Libraries', ()=>{
 
     it("Schedule", ()=>{
 
+        cy.get('.component_tab_text').eq(4).click()
         Library.schedule()
 
     })
 
 
 
-})//end of describe block
+})

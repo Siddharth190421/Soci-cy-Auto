@@ -113,16 +113,19 @@ describe('Ads', () => {
             cy.get('[class="select2-result-label"][role="option"]').first().click()
             cy.get('.btn_add_creative').click()
             cy.get('.AdCreativeImageFormatView > .btn_container > .left-col > .label_check').click()
-            cy.get('.primary_button').click({ force: true })
+            cy.wait(4000)
+            cy.contains('.primary_button', 'Save').click({ force: true })
             cy.wait(2000)
 
         })
 
         it('edit creative - C2795', () => {
 
-            cy.get('.creative_toolbar > .btn_secondary').first().click()
+            // cy.get('.creative_toolbar > .btn_secondary').first().click()
+            cy.get(':nth-child(1) > .creative_toolbar > .btn_secondary').click()
+            cy.wait(4000)
             cy.get('.AdCreativeImageFormatView > .text_input_container > :nth-child(1) > textarea').first().type('arsenal')
-            cy.get('.primary_button').click({ force: true }) 
+            cy.contains('.primary_button','Save').click({ force: true }) 
 
         })
 
@@ -253,6 +256,11 @@ describe('Ads', () => {
                 cy.wait('@mgmtdrp')
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
                 cy.get('.prefixed_input > .promote_input').type('99')
+
+                cy.get('#select2-chosen-12').click()
+                cy.wait(4000)
+                cy.contains('.select2-result-label','---tyest').click()              //'.content_selector_element'
+
                 cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
                 cy.get('.bbm-modal__bottombar > .primary_button').click({force:true})
                 cy.log('Ad created successfully')
