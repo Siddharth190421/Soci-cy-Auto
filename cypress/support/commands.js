@@ -61,7 +61,7 @@
                 `[cy.login: Missing required field(s) for user "${user}": [${missing.join(', ')}]`
             );
         }
-        return userObject;
+        return userObject; 
     });
 
     Cypress.Commands.add('login', (user) => {

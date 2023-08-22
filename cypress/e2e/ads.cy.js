@@ -257,7 +257,8 @@ describe('Ads', () => {
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
                 cy.get('.prefixed_input > .promote_input').type('99')
 
-                cy.get('#select2-chosen-12').click()
+                // cy.get('#select2-chosen-12').click()
+                cy.contains('.select2-choice > .select2-chosen', 'All libraries').click()
                 cy.wait(4000)
                 cy.contains('.select2-result-label','---tyest').click()              //'.content_selector_element'
 

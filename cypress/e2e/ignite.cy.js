@@ -246,6 +246,13 @@ describe.only('VPN', ()=>{
     })
 
 
+    it.only('vvv',()=>{
+
+        cy.visit('www.expressvpn.com/')
+        cy.get('.nav-menu-item.js-cta-get-started > .button-group > .btn').click()
+    })
+
+
 
 
 
