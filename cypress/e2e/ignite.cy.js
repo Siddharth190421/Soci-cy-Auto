@@ -745,6 +745,35 @@ describe.only('Prod', ()=>{
 
     })
 
+    it('baseettfurniture', ()=>{
+
+        cy.visit('http://hosted.where2getit.com/bassettfurniture/index.html')
+        cy.wait(5000)
+        cy.get('.filter_btn').click()
+        cy.get(':nth-child(1) > label').click()
+        cy.get('ul > :nth-child(2) > label').click()
+        cy.get(':nth-child(3) > label').click()
+        cy.get(':nth-child(4) > label').click()
+        cy.get(':nth-child(5) > label').click()
+        cy.get(':nth-child(6) > label').click()
+        cy.get(':nth-child(7) > label').click()
+        cy.get(':nth-child(8) > label').click()
+        cy.get('.filter_btn').click()
+
+        cy.get('#search_input').clear()
+        cy.get('#search_input').type('90046 {enter}')
+        cy.wait(5000)
+        cy.get('.poi-item').first().should('be.visible')
+
+
+        cy.get('#search_input').clear()
+        cy.get('#search_input').type('santa clara {enter}')
+        cy.wait(5000)
+        cy.get('.poi-item').first().should('be.visible')
+
+    
+    })
+
 
 })
 
