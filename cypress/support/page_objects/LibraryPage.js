@@ -4,7 +4,7 @@ export class LibraryPage{
     createLibrary(){
         cy.wait(6000)
         cy.contains('.canned_control', 'Create Library').click()
-        cy.get('#name').type('LLLibrary levelzzz')
+        cy.get('#name').type('LLLibrary12345')
         cy.get('.primary_button').click()
         cy.wait(5000)
     }

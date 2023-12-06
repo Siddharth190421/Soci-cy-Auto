@@ -55,7 +55,8 @@ describe('Survey', ()=>{
     it('Insights Location level - C2975', ()=>{
 
         cy.visit('/admin/account/3854/surveys_insights/3153')
-        // cy.wait(6000)
+        cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
+        cy.wait(6000)
         cy.wait('@insights')
         cy.wait('@pg')
         cy.get('.highcharts-series.highcharts-series-0 > .highcharts-point').first().trigger('mouseover')
@@ -69,6 +70,7 @@ describe('Survey', ()=>{
     it('Survey on Account level - C2976', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3164')
+        cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
         cy.wait('@pg')
         cy.get('.dataTables_scrollBody').should('be.visible')
 
@@ -76,7 +78,8 @@ describe('Survey', ()=>{
 
     it('Survey on loc level - C2977', ()=>{
 
-        cy.visit('/admin/account/3854/office/0/project/320406/surveys_insights/3155')
+        cy.visit('admin/account/3854/office/0/project/320406/surveys_insights/3155')
+        cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
         cy.wait('@pg')
         cy.get('.system_contents').should('be.visible')
         
@@ -96,6 +99,7 @@ describe('Survey', ()=>{
 
     it('open Survey', ()=>{
 
+        
         cy.get('div[data-href="surveys"] > .section-heading > .section-label').click()
         cy.wait('@pg')
         cy.url().should('include', 'surveys')
@@ -108,6 +112,8 @@ describe('Survey', ()=>{
 
         const filepath = 'tesla.jpg'
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
+        cy.get('[data-href="surveys_list"]').click()
+
         cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.survey_fields > :nth-child(1) > input').type('Survey' + xMen[Math.floor(Math.random() * 6)])
@@ -128,6 +134,7 @@ describe('Survey', ()=>{
 
 
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
+        cy.get('[data-href="surveys_list"]').click()
         cy.wait(7000)
         cy.wait('@pg') 
         Survey.createCampaign()
@@ -138,7 +145,7 @@ describe('Survey', ()=>{
     it('Verify rated Campaign- C2983', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
-        // cy.wait('@pg')
+        cy.get('[data-href="surveys_list"]').click()
         cy.get('.truncated').first().click()
         cy.wait('@pg')
         cy.get('.SurveyReportView').should('be.visible')
@@ -148,6 +155,7 @@ describe('Survey', ()=>{
     it('Verify Localize feature - C2984', ()=> {
 
         cy.visit('/admin/account/3854/surveys_list/3158')
+        cy.get('[data-href="surveys_list"]').click()
         // cy.wait(5000)
         cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
@@ -161,6 +169,7 @@ describe('Survey', ()=>{
     it('Upload CSV - C2985', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
+        cy.get('[data-href="surveys_list"]').click()
         cy.wait('@pg')
         cy.get('.ActionButtonsColumn > .white_button').first().click({force:true})
         cy.get('.csv_file_button').siblings('input').attachFile('survey.csv')

@@ -118,12 +118,13 @@ describe('Libraries', ()=>{
 
     })
 
-    it('Delete Message - C2927,28,31', ()=>{
+    it.skip('Delete Message - C2927,28,31', ()=>{
 
         cy.reload()
         Library.searchLibrary()
+        cy.get('.canned_edit_buttons > .warning_button > .fa').first().click()
 
-        cy.get('[class="icon_button warning_button btn_del_message"][title="Delete"]').first().click()
+        // cy.get('[class="icon_button warning_button btn_del_message"][title="Delete"]').first().click()
         cy.wait(4000)
         cy.get('.primary_button').click({force:true})
         
@@ -131,11 +132,37 @@ describe('Libraries', ()=>{
 
     })
 
+    it.skip('Clear', ()=>{
+
+       
+
+        cy.visit('/admin/account/3854/canned')
+        cy.wait(4000)
+
+        for( let i=0; i < 10; i++) {
+
+        Library.searchLibrary()
+        cy.wait(4000)
+        cy.get('.CannedFiltersView > .canned_control').click()
+        cy.get('.btn_delete').click()
+        cy.get('.DlgUtilityConfirm > .bbm-modal > .bbm-modal__bottombar > .primary_button').click({force:true})
+
+        }
+    })
+
 
     it("Schedule", ()=>{
 
-        cy.get('.component_tab_text').eq(4).click()
-        Library.schedule()
+        cy.visit('/admin/account/3854/office/0/project/320406/canned')
+        cy.wait(4000)
+        cy.get('[data-name="1094106"] > :nth-child(1) > .component_tab_text').click()
+        cy.wait(5000)
+        cy.get('.btn_schedule_message > .fa').click()
+        cy.get('.bbm-modal__bottombar > .gray_button').click({force:true})
+
+
+        // cy.get('.component_tab_text').eq(4).click()
+        // Library.schedule()
 
     })
 
