@@ -560,12 +560,12 @@ describe.only('Prod', ()=>{
         cy.wait(5000)
         cy.get('[data-id="0"]').should('be.visible')
 
-        // cy.get('[data-id="0"] > .col_cont > .column_two > .desktop_hours > .buttons > .button-desktop').click()
         cy.get('[data-id="0"] > .col_cont > .column_one').click()
 
         cy.get(':nth-child(12) > .input-custom').click()
         cy.get(':nth-child(13) > .input-custom').click()
         cy.get('[style="margin-top:15px;"] > .input-custom').click()
+        
     })
 
     it('samashmusic', ()=>{

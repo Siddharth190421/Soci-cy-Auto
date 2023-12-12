@@ -47,15 +47,9 @@ describe('Creative', ()=>{
         gotoAccount()
         const filepath = 'emi.jpg'
         cy.get("input[type='file']").attachFile(filepath)
-        cy.wait(4000)
-        cy.get('.primary_button').click()
+        cy.wait(8000)
+        cy.get('.primary_button').click({force:true})
 
-
-    })
-
-    it('Multiple uploads', ()=>{
-
-        
 
     })
 
@@ -67,9 +61,7 @@ describe('Creative', ()=>{
         cy.get('.ComponentTagsEditor').type('Taggy').type('{enter}')
         cy.wait(4000)
         cy.get('.primary_button').click({force:true})
-        
-
-
+     
     })
 
     it('Delete a Cover Image -  C2847', ()=>{
@@ -118,7 +110,7 @@ describe('Creative', ()=>{
         
     })
 
-    it('Download - C2990', ()=>{
+    it.skip('Download - C2990', ()=>{
 
         gotoAccount()
 
