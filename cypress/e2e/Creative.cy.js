@@ -50,7 +50,6 @@ describe('Creative', ()=>{
         cy.wait(8000)
         cy.get('.primary_button').click({force:true})
 
-
     })
 
 

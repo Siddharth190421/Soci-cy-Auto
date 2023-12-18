@@ -152,7 +152,7 @@ describe('Ads', () => {
 
     })
 
-    describe('Leads', () => {
+    describe.only('Leads', () => {
 
         it('Create Lead - C2801', () => {
 
@@ -223,7 +223,7 @@ describe('Ads', () => {
 
     })
     
-        describe('Ads PLUS', () => {
+        describe.only('Ads PLUS', () => {
 
 
             it('Audience - C2792', () => {
@@ -260,8 +260,8 @@ describe('Ads', () => {
                 // cy.get('#select2-chosen-12').click()
                 cy.contains('.select2-choice > .select2-chosen', 'All libraries').click()
                 cy.wait(4000)
-                cy.contains('.select2-result-label','---tyest').click()              //'.content_selector_element'
-
+                // cy.contains('.select2-result-label','---tyest').click()              //'.content_selector_element'
+                cy.get(':nth-child(1) > .front_grid > .PromoteAdCreativeFrontView').click()
                 cy.get(':nth-child(1) > .post_checkbox > .label_check').click()
                 cy.get('.bbm-modal__bottombar > .primary_button').click({force:true})
                 cy.log('Ad created successfully')
