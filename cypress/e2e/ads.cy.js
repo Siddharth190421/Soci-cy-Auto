@@ -152,7 +152,7 @@ describe('Ads', () => {
 
     })
 
-    describe.only('Leads', () => {
+    describe('Leads', () => {
 
         it('Create Lead - C2801', () => {
 
