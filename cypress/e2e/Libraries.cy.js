@@ -161,8 +161,6 @@ describe('Libraries', ()=>{
         cy.get('.bbm-modal__bottombar > .gray_button').click({force:true})
 
 
-        // cy.get('.component_tab_text').eq(4).click()
-        // Library.schedule()
 
     })
 
