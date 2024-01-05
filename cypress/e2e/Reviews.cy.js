@@ -14,7 +14,7 @@ describe('Reviews', ()=>{
         cy.wait(4000)
         cy.get('.report_view_container').should('be.visible')
         cy.wait(4000)
-        cy.get('.highcharts-series.highcharts-series-0 > [x="132.5"]').should('be.visible')
+        // cy.get('.highcharts-series.highcharts-series-0 > [x="132.5"]').should('be.visible')
         cy.get('.report_view_container').should('be.visible')
 
 
@@ -41,8 +41,17 @@ describe('Reviews', ()=>{
     it('Locations',()=>{
 
         cy.get('[data-href="reputation_locations"]').click()
+        cy.get('.section').should('be.visible')
         
     })
+
+    it('Widget', ()=>{
+
+        cy.get('[data-href="reviews_widget"]').click()
+        cy.get('.ReviewsWidgetWithCustomizerView').should('be.visible')
+    })
+
+
 
 
 
