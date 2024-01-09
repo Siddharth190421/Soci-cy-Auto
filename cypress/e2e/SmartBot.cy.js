@@ -63,7 +63,6 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('admin/account/3854/office/0/project/320406/bots_locations/3053')
-        // cy.wait(5000)
         cy.wait('@insights')
         cy.wait('@frontend')
         cy.get('.bulk-select-col > .BulkSelectColumn > div > .header > span').click()
@@ -74,7 +73,6 @@ describe('SmartBot', ()=>{
         cy.get('.btn_action_apply').click()
         cy.get(':nth-child(1) > [data-cy="toast_type"] > [data-cy="toast_message"]').should('have.text', '\n\t\tActivated SmartBot for 1 locations.\n\t\t\n\t')
         // cy.get('[data-cy="toast_message"]').should('have.text', '\n\t\tSmartBot for Facebook Messenger was enabled for 1 locations.\n\t\t\n\t')
-        // cy.get(':nth-child(4) > [data-cy="toast_type"] > [data-cy="toast_message"]')
 
     })
 
@@ -84,7 +82,7 @@ describe('SmartBot', ()=>{
 
 
         cy.visit('/admin/account/3854/bots_locations/3053')
-        // cy.wait(6000)
+        cy.wait(6000)
         // cy.wait('@atBots')
         // cy.wait('@account')
         cy.wait('@frontend')
