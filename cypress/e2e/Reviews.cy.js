@@ -51,5 +51,12 @@ describe('Reviews', ()=>{
         cy.get('.ReviewsWidgetWithCustomizerView').should('be.visible')
     })
 
+    it('Locations',()=>{
+
+        cy.get('[data-href="reputation_locations"]').click()
+        cy.get('.section').should('be.visible')
+        
+    })
+
 
 })
