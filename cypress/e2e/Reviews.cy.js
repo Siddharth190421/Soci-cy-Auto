@@ -1,6 +1,6 @@
 describe('Reviews', ()=>{
 
-    it('to Reviews ', ()=>{
+    it.only('to Reviews ', ()=>{
 
         Cypress.on('uncaught:exception', (err, runnable) => {
     
@@ -51,12 +51,26 @@ describe('Reviews', ()=>{
         cy.get('.ReviewsWidgetWithCustomizerView').should('be.visible')
     })
 
-    it('Locations',()=>{
+    it.only("Add Rule",()=>{
 
-        cy.get('[data-href="reputation_locations"]').click()
-        cy.get('.section').should('be.visible')
-        
+        cy.get('[data-href="reputation_reviews"]').click()
+        cy.get('[data-name="reviews"] > :nth-child(1) > .component_tab_text').click()
+        cy.wait(7000)
+        cy.get('[ref="reviews"] > :nth-child(1)').should('be.visible')
+
+        // cy.get('.btn_add_rule').click()
+        // cy.get('.rule_name').type('Rule777 ')
+        // cy.get('.primary_button').click()
+
+        cy.reload()
+
+        cy.get('.label').click()
+        cy.contains('input[type="checkbox"]', 'Rule777').click()
+
+
     })
+
+
 
 
 })
