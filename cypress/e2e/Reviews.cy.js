@@ -35,6 +35,8 @@ describe('Reviews', ()=>{
         cy.wait(5000)
         cy.get('[data-name="rules"] > :nth-child(1) > .component_tab_text').click()
         cy.get('[data-name="my_tasks"]').should('be.visible')
+        cy.get('[data-name="my_tasks"]').should('be.visible')
+
 
     })
 
@@ -51,7 +53,7 @@ describe('Reviews', ()=>{
         cy.get('.ReviewsWidgetWithCustomizerView').should('be.visible')
     })
 
-    it.only("Add Rule",()=>{
+    it("Add Rule",()=>{
 
         cy.get('[data-href="reputation_reviews"]').click()
         cy.get('[data-name="reviews"] > :nth-child(1) > .component_tab_text').click()
@@ -65,7 +67,7 @@ describe('Reviews', ()=>{
         cy.reload()
 
         cy.get('.label').click()
-        cy.contains('input[type="checkbox"]', 'Rule777').click()
+        cy.contains('input[type="checkbox"][class="ComponentMultiselectorOption"]', 'Rule777').click()
 
 
     })
