@@ -60,14 +60,12 @@ describe('Reviews', ()=>{
         cy.wait(7000)
         cy.get('[ref="reviews"] > :nth-child(1)').should('be.visible')
 
-        // cy.get('.btn_add_rule').click()
-        // cy.get('.rule_name').type('Rule777 ')
-        // cy.get('.primary_button').click()
-
         cy.reload()
 
         cy.get('.label').click()
         cy.contains('input[type="checkbox"][class="ComponentMultiselectorOption"]', 'Rule777').click()
+        cy.get('[ref="reviews"] > :nth-child(1)').should('be.visible')
+
 
 
     })
