@@ -62,12 +62,18 @@ describe('Reviews', ()=>{
 
         cy.reload()
 
+
         cy.get('.label').click()
         cy.contains('input[type="checkbox"][class="ComponentMultiselectorOption"]', 'Rule777').click()
         cy.get('[ref="reviews"] > :nth-child(1)').should('be.visible')
 
 
+    })
 
+    it('Widget', ()=>{
+
+        cy.get('[data-href="reviews_widget"]').click()
+        cy.get('.ReviewsWidgetWithCustomizerView').should('be.visible')
     })
 
 
