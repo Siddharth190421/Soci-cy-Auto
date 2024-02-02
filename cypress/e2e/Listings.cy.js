@@ -188,8 +188,7 @@ describe('Listings', ()=>{
 
     it('Going back a step', ()=>{
 
-         //going back a step
-
+        // going a step back nj
 
          cy.get('[style="--section-size:410px; --grid-gap:10px; --grid-template-columns:2.02fr 1fr 1fr;"] > .subsections > :nth-child(3) > :nth-child(1) > .BiModulesModule > .BiModulesTypesBase').click()
          cy.wait(7000)
