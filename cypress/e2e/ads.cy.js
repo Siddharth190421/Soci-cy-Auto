@@ -106,6 +106,8 @@ describe('Ads', () => {
             cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives')
             cy.wait('@creatives')
             cy.contains('.select2-chosen', 'All libraries').click()
+            cy.wait(4000)
+
             cy.wait('@libdrp')
             cy.get('#s2id_autogen2_search').type(LibName)
             cy.wait(4000)
