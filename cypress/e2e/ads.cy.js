@@ -243,7 +243,7 @@ describe('Ads', () => {
 
             })
 
-            it('Management - C2797', () => {
+            it.only('Management - C2797', () => {
 
 
                 cy.visit('/admin/account/3854/office/0/project/320406/ads_management')
@@ -252,7 +252,7 @@ describe('Ads', () => {
                 cy.get('.campaign > .field_input > .promote_input').type(Hdate + xMen[Math.floor(Math.random() * 6)])
                 cy.contains('Custom Objective Per Ad').click()
                 // cy.xpath('//*[contains(text(),"Reach")][@class="select2-result-label"]').click()
-                cy.contains('[class="select2-result-label"][role="option"]', 'Reach').click()
+                cy.contains('[class="option_title"]', 'Traffic').click()
                 cy.contains('Use Location Default Audience').click()
                 cy.wait('@mgmtdrp')
                 cy.contains('[class="select2-result-label"][role="option"]', 'Audience-').first().click()
