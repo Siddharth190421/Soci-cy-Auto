@@ -34,11 +34,7 @@ describe('Survey', ()=>{
 
         })
 
-        // Cypress.on('fail', (error, runnable) => {
 
-        //     return false
-            
-        //   })
 
 
         cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
@@ -58,7 +54,9 @@ describe('Survey', ()=>{
         cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
         cy.wait(6000)
         cy.wait('@insights')
-        cy.wait('@pg')
+        cy.wait(6000)
+
+        // cy.wait('@pg')
         cy.get('.highcharts-series.highcharts-series-0 > .highcharts-point').first().trigger('mouseover')
         cy.get('[class="highcharts-point highcharts-color-1"]').should('be.visible')
         cy.get('.SurveysRecentNegativeReviewsView').should('be.visible')
@@ -71,7 +69,9 @@ describe('Survey', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3164')
         cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
-        cy.wait('@pg')
+        // cy.wait('@pg')
+        cy.wait(6000)
+
         cy.get('.dataTables_scrollBody').should('be.visible')
 
     })
@@ -80,7 +80,9 @@ describe('Survey', ()=>{
 
         cy.visit('admin/account/3854/office/0/project/320406/surveys_insights/3155')
         cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
-        cy.wait('@pg')
+        // cy.wait('@pg')
+        cy.wait(6000)
+
         cy.get('.system_contents').should('be.visible')
         
     })
@@ -101,7 +103,9 @@ describe('Survey', ()=>{
 
         
         cy.get('div[data-href="surveys"] > .section-heading > .section-label').click()
-        cy.wait('@pg')
+        // cy.wait('@pg') 
+        cy.wait(6000)
+
         cy.url().should('include', 'surveys')
         cy.get('[data-href="surveys_list"]').click()
         
@@ -113,8 +117,8 @@ describe('Survey', ()=>{
         const filepath = 'tesla.jpg'
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
         cy.get('[data-href="surveys_list"]').click()
-
-        cy.wait('@pg')
+        cy.wait(7000)
+        // cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
         cy.get('.survey_fields > :nth-child(1) > input').type('Survey' + xMen[Math.floor(Math.random() * 6)])
         cy.get(':nth-child(2) > .supports_dynamic_text').type('skakade@meetsoci.com')
@@ -126,7 +130,7 @@ describe('Survey', ()=>{
         cy.get(':nth-child(6) > .supports_dynamic_text').type('Survey-Foot')
         cy.contains('.bbm-modal__bottombar > .primary_button','Save').click({force:true}) 
         // cy.wait(5000)
-        cy.wait('@pg') 
+        // cy.wait('@pg') 
         
     })
 
@@ -136,7 +140,7 @@ describe('Survey', ()=>{
         cy.visit('/admin/account/3854/office/0/project/320406/surveys_list/3164')
         cy.get('[data-href="surveys_list"]').click()
         cy.wait(7000)
-        cy.wait('@pg') 
+        // cy.wait('@pg') 
         Survey.createCampaign()
         
         
@@ -147,7 +151,8 @@ describe('Survey', ()=>{
         cy.visit('/admin/account/3854/surveys_list/3158')
         cy.get('[data-href="surveys_list"]').click()
         cy.get('.truncated').first().click()
-        cy.wait('@pg')
+        cy.wait(7000)
+        // cy.wait('@pg')
         cy.get('.SurveyReportView').should('be.visible')
 
     })
@@ -156,10 +161,10 @@ describe('Survey', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
         cy.get('[data-href="surveys_list"]').click()
-        // cy.wait(5000)
-        cy.wait('@pg')
+        cy.wait(5000)
+        // cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
-        // cy.wait(4000)
+        cy.wait(4000)
         cy.contains('.select2-chosen', 'Localize').click()
         cy.contains('{%Address Line 1}').click()
 
@@ -170,7 +175,8 @@ describe('Survey', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
         cy.get('[data-href="surveys_list"]').click()
-        cy.wait('@pg')
+        // cy.wait('@pg')
+        cy.wait(5000)
         cy.get('.ActionButtonsColumn > .white_button').first().click({force:true})
         cy.get('.csv_file_button').siblings('input').attachFile('survey.csv')
         cy.get('.bbm-modal__bottombar > .secondary_button').click()
@@ -183,8 +189,6 @@ describe('Survey', ()=>{
         cy.exec('del /q cypress\\downloads\\.', { log: true, failOnNonZeroExit: false });
       
       })
-
-
 
 
 })
