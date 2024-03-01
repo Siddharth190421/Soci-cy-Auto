@@ -243,7 +243,7 @@ describe('Ads', () => {
 
             })
 
-            it.only('Management - C2797', () => {
+            it('Management - C2797', () => {
 
 
                 cy.visit('/admin/account/3854/office/0/project/320406/ads_management')
