@@ -161,7 +161,7 @@ describe('Survey', ()=>{
 
         cy.visit('/admin/account/3854/surveys_list/3158')
         cy.get('[data-href="surveys_list"]').click()
-        cy.wait(5000)
+        cy.wait(5000) 
         // cy.wait('@pg')
         cy.get('.control_wrapper > .icon_button').click()
         cy.wait(4000)
