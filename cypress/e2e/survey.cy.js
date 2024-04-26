@@ -39,7 +39,7 @@ describe('Survey', ()=>{
 
         cy.intercept('GET', '/admin/account/3854/surveys_insights/3153').as('insights')
         // cy.intercept('POST', '/graphql?*').as('pg')
-        // cy.intercept('POST', '/dqs?_op=SurveyList').as('pg')
+        // cy.intercept('POST', '/dqs?_op=SurveyList').as('pg')    
              // cy.intercept('POST', '/dqs?_op=SurveyList').as('pg')
         cy.intercept('POST', '/dqs?*').as('pg')
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/').as('Smoke-21')
