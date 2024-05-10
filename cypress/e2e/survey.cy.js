@@ -81,7 +81,7 @@ describe('Survey', ()=>{
 
         cy.visit('admin/account/3854/office/0/project/320406/surveys_insights/3155')
         cy.get('[data-cy="Surveys"] > .section-heading > .section-label').click()
-        // cy.wait('@pg')
+        
         cy.wait(6000)
 
         cy.get('.system_contents').should('be.visible')
