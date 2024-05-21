@@ -220,6 +220,7 @@ describe('Ads', () => {
             cy.get('.primary_button').click()
             cy.get('.bbm-modal__icon_close').click()
 
+
         })
 
     })

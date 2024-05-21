@@ -476,7 +476,8 @@ it('Delete Published - C2782',()=>{
     it('Reject a Post - C2784', ()=>{
 
       cy.visit(Smoke22CAG)
-      cy.wait(4000)
+      // cy.wait(4000)
+      cy.wait(5000)
       cy.contains('.approval_post_body > .approval_actions_area > .btn_approval_reject','Reject').first().click()
       // #post_49343982 > .approval_post_body > .rejection_actions_area > .rejection_textarea_container > .rejection_textarea
       cy.get('[class="rejection_textarea"][name="reject_reason"][placeholder="Explain why you are rejecting this message."]').first().type('Reject for test')

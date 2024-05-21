@@ -121,6 +121,8 @@ describe('Libraries', ()=>{
     it.skip('Delete Message - C2927,28,31', ()=>{
 
         cy.reload()
+        cy.reload()
+
         Library.searchLibrary()
         cy.get('.canned_edit_buttons > .warning_button > .fa').first().click()
 

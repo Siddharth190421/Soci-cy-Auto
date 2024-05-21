@@ -101,7 +101,8 @@ describe('Boost', ()=> {
             cy.wait('@auddrp')
             cy.wait('@err') 
         //    cy.get('div[data-href="boost"] > .section-heading > .section-label').should('contain.text', 'Boost')
-        //    cy.wait(4000)
+       
+        // cy.wait(5000)
         //    cy.get('[data-href="boost_audiences"]').click()
            cy.get('.AdItemView > .item_row > .action > .label_check').eq(4).click()
            cy.get('.edit').click()

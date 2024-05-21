@@ -57,18 +57,12 @@ describe('Post activity', ()=>{
         cy.wait('@postAct')
         cy.get('.date-range-container').click()
         cy.get('[data-range-key="Last 30 Days"]').click()
-        // cy.get('[data-item-cid="c1817"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase').contains('eq', 22)
-        // cy.get('[data-item-cid="c1823"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').invoke('text').then((published) => {
 
         //     expect(published).to.eq(22)
             
             // cy.get('[data-gs-x="6"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-            // cy.get('[data-gs-x="12"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
             // cy.get('[data-gs-x="18"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-            // cy.get('[data-gs-x="3"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
             // cy.get('[data-gs-x="9"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-
-            // cy.get('[data-gs-x="15"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
 
         })
 
