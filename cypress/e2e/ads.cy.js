@@ -44,6 +44,7 @@ describe('Ads', () => {
             return false
 
         })
+        
 
 
         cy.intercept('GET', '/admin/account/3854/office/0/project/320406/ads_dashboard').as('ads')

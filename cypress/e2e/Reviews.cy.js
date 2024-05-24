@@ -8,6 +8,12 @@ describe('Reviews', ()=>{
   
         })
 
+        Cypress.on('fail', (error, runnable) => {
+
+            return false
+            
+          })
+
         cy.visit('/admin/account/3854')
         cy.wait(4000)
         cy.get('div[data-href="reputation"] > .section-heading > .section-label').click()

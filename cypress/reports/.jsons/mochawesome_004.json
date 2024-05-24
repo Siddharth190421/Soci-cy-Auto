@@ -1,0 +1,225 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 1,
+    "failures": 0,
+    "start": "2024-05-24T11:06:17.843Z",
+    "end": "2024-05-24T11:11:44.753Z",
+    "duration": 326910,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 14.285714285714285,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "40500a54-574f-4c74-b376-f21ca0cbf435",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Creative.cy.js",
+      "file": "cypress\\e2e\\Creative.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+          "title": "Creative",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigating to Locations level",
+              "fullTitle": "Creative Navigating to Locations level",
+              "timedOut": null,
+              "duration": 22928,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Creative.cy.js\\\\Creative -- Navigating to Locations level (failed).png\"\n      }\n    ],\n    []\n  ]\n}",
+              "code": "gotoLocation();",
+              "err": {},
+              "uuid": "29cd6c92-803d-43b0-b398-d836ab04cb48",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "add a Cover image (Single upload) - C2844",
+              "fullTitle": "Creative add a Cover image (Single upload) - C2844",
+              "timedOut": null,
+              "duration": 43617,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gotoAccount();\nconst filepath = 'emi.jpg';\ncy.get(\"input[type='file']\").attachFile(filepath);\ncy.wait(8000);\ncy.get('.primary_button').click({\n  force: true\n});",
+              "err": {},
+              "uuid": "d28315b2-2690-4eaf-8354-3232d635aec3",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "tag a Cover Image - C2846",
+              "fullTitle": "Creative tag a Cover Image - C2846",
+              "timedOut": null,
+              "duration": 63701,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gotoAccount();\ncy.get('.image > .image_info_container > .info > .btn_edit_tags').first().click();\ncy.get('.ComponentTagsEditor').type('Taggy').type('{enter}');\ncy.wait(4000);\ncy.get('.primary_button').click({\n  force: true\n});",
+              "err": {},
+              "uuid": "c6e538d1-bc41-4f50-8da1-5c0e7412a416",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete a Cover Image -  C2847",
+              "fullTitle": "Creative Delete a Cover Image -  C2847",
+              "timedOut": null,
+              "duration": 26904,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gotoAccount();\ncy.get('.image > .image_info_container > .info > .warning_button').first().click();\ncy.wait(4000);\ncy.get('.primary_button').click();\ncy.get('[data-cy=\"toast_message\"]').should('have.text', '\\n\\t\\tImage has been deleted from the library!\\n\\t\\t\\n\\t');",
+              "err": {},
+              "uuid": "2160b3ac-bdeb-451b-8af0-1067ca865a87",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "to Creative",
+              "fullTitle": "Creative to Creative",
+              "timedOut": null,
+              "duration": 33436,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gotoLocation();\ncy.get('div[data-href=\"design_hub\"] > .section-heading > .section-label').click();\ncy.get('[data-href=\"create_cover\"]').click();\ncy.wait(5000);",
+              "err": {},
+              "uuid": "4220b499-905e-4d46-8a5f-c6e4c8a28fcb",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Cover Image for FB - C2848",
+              "fullTitle": "Creative Create Cover Image for FB - C2848",
+              "timedOut": null,
+              "duration": 75795,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// cy.visit(\"/admin/account/3854/office/0/project/320406\")\ncy.get('#create_page').click();\ncy.wait(7000);\ncy.get('.customize_header > .section_right > .section_heading > table > tbody > tr > [valign=\"top\"]').click();\ncy.wait(4000);\ncy.get('.add_image_lib').click();\ncy.wait(5000); // cy.get('#s2id_autogen9 > .select2-choice').select('Santosh Kakade Demo Account (Account)')\n// cy.contains('SOCI Library (System)').select('Santosh Kakade Demo Account (Account)')\n// cy.contains('Santosh Kakade Demo Account (User)')\ncy.contains('.select2-choice', 'SOCI Library (System)').click();\ncy.wait(4000);\ncy.contains('.select2-result-label', 'Santosh Kakade Demo Account (Account)').click();\ncy.wait(4000);\ncy.get('.images_holder > :nth-child(' + 2 + ') > img').click();\ncy.wait(10000);\ncy.get('.btn_publish').click();\ncy.wait(20000);\ncy.get('.primary_button').click();",
+              "err": {},
+              "uuid": "1b1a45e3-f331-4e90-97e8-1086e00661e1",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Download - C2990",
+              "fullTitle": "Creative Download - C2990",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "gotoAccount();\nCypress.on('fail', (error, runnable) => {\n  return false;\n});\ncy.get('.image > .image_info_container > .info > .btn_download').first().click();",
+              "err": {},
+              "uuid": "5bda11d8-bcf3-47a5-9b5c-214ad9fdc456",
+              "parentUUID": "6e29cc4f-b84c-4d04-aaac-2aeaa088a925",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "29cd6c92-803d-43b0-b398-d836ab04cb48",
+            "d28315b2-2690-4eaf-8354-3232d635aec3",
+            "c6e538d1-bc41-4f50-8da1-5c0e7412a416",
+            "2160b3ac-bdeb-451b-8af0-1067ca865a87",
+            "4220b499-905e-4d46-8a5f-c6e4c8a28fcb",
+            "1b1a45e3-f331-4e90-97e8-1086e00661e1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "5bda11d8-bcf3-47a5-9b5c-214ad9fdc456"
+          ],
+          "duration": 266381,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "cypress\\reports\\.jsons",
+        "reportPageTitle": "Demo-title1",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

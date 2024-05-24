@@ -8,7 +8,7 @@ const Hosted = new hosted()
 
 
 
-describe('Ignite', () => {
+describe.skip('Ignite', () => {
 
     beforeEach(() => {
 

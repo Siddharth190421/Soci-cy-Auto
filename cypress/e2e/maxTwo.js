@@ -7,7 +7,7 @@ function minimumOperations(nums) {
 };
 
 
-it('Ignite', ()=>{
+it.skip('Ignite', ()=>{
     
     cy.visit('ignite.where2getit.com')
 

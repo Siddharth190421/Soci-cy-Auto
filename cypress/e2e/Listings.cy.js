@@ -698,7 +698,7 @@ describe('Listings', ()=>{
     })
 
 
-    it.only('Bulk Edit', ()=>{
+    it('Bulk Edit', ()=>{
 
         const filepath = 'emi.jpg'
 

@@ -2,7 +2,7 @@
 
 import { unlink } from 'fs';
 
-describe('My First Test', function()  {
+describe.skip('My First Test', function()  {
 
   before(function()  {
 

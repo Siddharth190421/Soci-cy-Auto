@@ -1,0 +1,408 @@
+{
+  "stats": {
+    "suites": 5,
+    "tests": 11,
+    "passes": 9,
+    "pending": 1,
+    "failures": 1,
+    "start": "2024-05-24T10:29:27.636Z",
+    "end": "2024-05-24T10:47:27.837Z",
+    "duration": 1080201,
+    "testsRegistered": 12,
+    "passPercent": 81.81818181818183,
+    "pendingPercent": 8.333333333333332,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "f3f27fb4-8d35-4a33-82f0-edeecae1d0f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ads.cy.js",
+      "file": "cypress\\e2e\\ads.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f31a7566-15bd-42d9-ba7f-7c798d7b6ce8",
+          "title": "Ads",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "38bafa19-73cf-462f-bcd7-dfe3c3e412c2",
+              "title": "Dashboard ",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Insights - C2791",
+                  "fullTitle": "Ads Dashboard  Insights - C2791",
+                  "timedOut": null,
+                  "duration": 60362,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Dashboard -- Insights - C2791 (failed).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Dashboard -- Insights - C2791 (failed) (attempt 2).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Dashboard -- Insights - C2791 (failed) (attempt 3).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Dashboard -- Insights - C2791 (failed) (attempt 4).png\"\n      }\n    ]\n  ]\n}",
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_dashboard');\ncy.wait('@ads');\ncy.get('.date-range-container').click();\ncy.get('[data-range-key=\"Last Year\"]').click();\ncy.get('.dashboard_controls').should('be.visible');\ncy.get('.AdsDashboardView').should('be.visible');\ncy.get('.stat_module_spend > .AdsMetricView > .metric_view_container').should('be.visible');\ncy.get('.stat_module_impressions > .AdsMetricView').should('be.visible');\ncy.get('.stat_module_engagement > .AdsMetricView > .metric_view_container').should('be.visible');\ncy.get('.stat_module_active_ads > .AdsMetricView').should('be.visible');\ncy.get('.AdsTopPerformingCreativesView').should('be.visible');",
+                  "err": {
+                    "message": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.",
+                    "estack": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n    at timedOutWaitingForPageLoad (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:141258:72)\n    at <unknown> (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:142456:16)\n    at tryCatcher (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:11327:23)\n    at <unknown> (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6449:41)\n    at tryCatcher (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise._settlePromiseFromHandler (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9262:31)\n    at Promise._settlePromise (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9319:18)\n    at Promise._settlePromise0 (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9364:10)\n    at Promise._settlePromises (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9440:18)\n    at _drainQueueStep (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6034:12)\n    at _drainQueue (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6027:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6043:5)\n    at Async.drainQueues (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:5913:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/ads.cy.js:72:15)",
+                    "diff": null
+                  },
+                  "uuid": "fef5457d-e9a7-498e-b9f4-360ca72a2a20",
+                  "parentUUID": "38bafa19-73cf-462f-bcd7-dfe3c3e412c2",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "fef5457d-e9a7-498e-b9f4-360ca72a2a20"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 60362,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "c5bd4ba5-7778-42d3-a662-339eb4c0c51b",
+              "title": "Library-creative",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Creatve Lib - C2793",
+                  "fullTitle": "Ads Library-creative Creatve Lib - C2793",
+                  "timedOut": null,
+                  "duration": 55177,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Library-creative -- Creatve Lib - C2793 (failed).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Library-creative -- Creatve Lib - C2793 (failed) (attempt 2).png\"\n      }\n    ],\n    []\n  ]\n}",
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives');\ncy.get('.btn_add_library').click();\ncy.get('#name').type(LibName);\ncy.get('.primary_button').click();\ncy.wait('@afterCreative');",
+                  "err": {},
+                  "uuid": "bd1ecad4-2ca3-4b35-89a2-7545c88650c3",
+                  "parentUUID": "c5bd4ba5-7778-42d3-a662-339eb4c0c51b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Add creative - C2794",
+                  "fullTitle": "Ads Library-creative Add creative - C2794",
+                  "timedOut": null,
+                  "duration": 70780,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives');\ncy.contains('.select2-chosen', 'All libraries').click();\ncy.wait(4000);\ncy.wait('@libdrp');\ncy.get('#s2id_autogen2_search').type(LibName);\ncy.wait(4000);\ncy.get('[class=\"select2-result-label\"][role=\"option\"]').first().click();\ncy.get('.btn_add_creative').click();\ncy.get('.AdCreativeImageFormatView > .btn_container > .left-col > .label_check').click();\ncy.wait(4000);\ncy.contains('.primary_button', 'Save').click({\n  force: true\n});\ncy.wait(2000);",
+                  "err": {},
+                  "uuid": "1400b8b3-880e-4d12-84cf-838b81680ec9",
+                  "parentUUID": "c5bd4ba5-7778-42d3-a662-339eb4c0c51b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "edit creative - C2795",
+                  "fullTitle": "Ads Library-creative edit creative - C2795",
+                  "timedOut": null,
+                  "duration": 4787,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// cy.get('.creative_toolbar > .btn_secondary').first().click()\ncy.get(':nth-child(1) > .creative_toolbar > .btn_secondary').click();\ncy.wait(4000);\ncy.get('.AdCreativeImageFormatView > .text_input_container > :nth-child(1) > textarea').first().type('arsenal');\ncy.contains('.primary_button', 'Save').click({\n  force: true\n});",
+                  "err": {},
+                  "uuid": "a8e15495-9a19-49f2-a8d3-411898e2984c",
+                  "parentUUID": "c5bd4ba5-7778-42d3-a662-339eb4c0c51b",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Transfer creative - C2796",
+                  "fullTitle": "Ads Library-creative Transfer creative - C2796",
+                  "timedOut": null,
+                  "duration": 64234,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_creatives');\ncy.wait('@creatives'); // cy.get(':nth-child(3) > .wrapper').click({force:true})\ncy.get('.wrapper > .section_image > .img').eq(2).click();\ncy.wait(7000);\ncy.get('.creative_toolbar > :nth-child(3) > .btn_gray').first().click({\n  force: true\n}); // cy.reload()\ncy.wait(4000);\ncy.get('.label_checkbox').click();\ncy.contains('.select2-chosen', 'All libraries').click().type('...Lib17thfeb');\ncy.wait(2000);\ncy.contains('[class=\"name\"]', '...Lib17thfeb').click();\ncy.get('.primary_button').click();",
+                  "err": {},
+                  "uuid": "cb23afc7-3688-4f99-9620-1521af3baaec",
+                  "parentUUID": "c5bd4ba5-7778-42d3-a662-339eb4c0c51b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bd1ecad4-2ca3-4b35-89a2-7545c88650c3",
+                "1400b8b3-880e-4d12-84cf-838b81680ec9",
+                "a8e15495-9a19-49f2-a8d3-411898e2984c",
+                "cb23afc7-3688-4f99-9620-1521af3baaec"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 194978,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "f6bd9b9c-3a94-4be5-9daf-01236d992b06",
+              "title": "Leads",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Create Lead - C2801",
+                  "fullTitle": "Ads Leads Create Lead - C2801",
+                  "timedOut": null,
+                  "duration": 63507,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[data-href=\"ads_leads\"]').click();\ncy.get('.control_btn_group > .AdLeadsControlBarView > .icon_button').click();\ncy.get(':nth-child(1) > .row > input').type('Leadz' + Hdate + xMen[Math.floor(Math.random() * 6)]);\ncy.get(':nth-child(5) > .header').click();\ncy.wait(4000);\ncy.get('.open > .content > :nth-child(2) > input').type(CompleteURL);\ncy.wait(4000);\ncy.get(':nth-child(7) > .header').click();\ncy.get(':nth-child(5) > input').type(CompleteURL);\ncy.get('.primary_button').click({\n  force: true\n});\ncy.wait(5000);",
+                  "err": {},
+                  "uuid": "cacbe6ef-9382-4f62-bbcf-98b80d483371",
+                  "parentUUID": "f6bd9b9c-3a94-4be5-9daf-01236d992b06",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Leads Form-Download - C2803",
+                  "fullTitle": "Ads Leads Leads Form-Download - C2803",
+                  "timedOut": null,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "Cypress.on('fail', (error, runnable) => {\n  return false;\n});\ncy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[data-href=\"ads_leads\"]').click();\ncy.get('[class=\"icon_button export fa fa-download\"][title=\"Export Leads\"]').first().click();\ncy.wait(5000);\ncy.contains('Download All Leads').click();\ncy.get('.btn_export').click();",
+                  "err": {},
+                  "uuid": "a8e4b395-b63d-4aad-91ff-c9cc1d0535c7",
+                  "parentUUID": "f6bd9b9c-3a94-4be5-9daf-01236d992b06",
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "Leads Form-Copy - C2802",
+                  "fullTitle": "Ads Leads Leads Form-Copy - C2802",
+                  "timedOut": null,
+                  "duration": 51782,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[data-href=\"ads_leads\"]').click();\ncy.get('[class=\"icon_button copy fa fa-copy\"][title=\"Copy Form\"]').first().click({\n  force: true\n});\ncy.wait(5000);\ncy.get('.primary_button').click();\ncy.get('.bbm-modal__icon_close').click();",
+                  "err": {},
+                  "uuid": "28011cc1-aef7-4070-bbe3-38222beaf162",
+                  "parentUUID": "f6bd9b9c-3a94-4be5-9daf-01236d992b06",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Leads Form-Delete",
+                  "fullTitle": "Ads Leads Leads Form-Delete",
+                  "timedOut": null,
+                  "duration": 60615,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Leads -- Leads Form-Delete (failed).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Leads -- Leads Form-Delete (failed) (attempt 2).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Leads -- Leads Form-Delete (failed) (attempt 3).png\"\n      }\n    ],\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\ads.cy.js\\\\Ads -- Leads -- Leads Form-Delete (failed) (attempt 4).png\"\n      }\n    ]\n  ]\n}",
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_leads');\ncy.wait('@leads');\ncy.get('[data-href=\"ads_leads\"]').click();\ncy.wait(4000);\ncy.get('[class=\"icon_button delete fa fa-trash\"][title=\"Delete Form\"]').first().click();\ncy.wait(5000);\ncy.get('.primary_button').click();\ncy.get('.bbm-modal__icon_close').click();",
+                  "err": {
+                    "message": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.",
+                    "estack": "CypressError: Timed out after waiting `60000ms` for your remote page to load.\n\nYour page did not fire its `load` event within `60000ms`.\n\nYou can try increasing the `pageLoadTimeout` value in `cypress.config.js` to wait longer.\n\nBrowsers will not fire the `load` event until all stylesheets and scripts are done downloading.\n\nWhen this `load` event occurs, Cypress will continue running commands.\n    at timedOutWaitingForPageLoad (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:141258:72)\n    at <unknown> (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:142456:16)\n    at tryCatcher (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:11327:23)\n    at <unknown> (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6449:41)\n    at tryCatcher (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:11327:23)\n    at Promise._settlePromiseFromHandler (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9262:31)\n    at Promise._settlePromise (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9319:18)\n    at Promise._settlePromise0 (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9364:10)\n    at Promise._settlePromises (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:9440:18)\n    at _drainQueueStep (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6034:12)\n    at _drainQueue (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6027:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:6043:5)\n    at Async.drainQueues (https://sneaky.meetsoci.com/__cypress/runner/cypress_runner.js:5913:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/ads.cy.js:215:15)",
+                    "diff": null
+                  },
+                  "uuid": "6e1566fe-be47-4289-9da3-64645987b245",
+                  "parentUUID": "f6bd9b9c-3a94-4be5-9daf-01236d992b06",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "cacbe6ef-9382-4f62-bbcf-98b80d483371",
+                "28011cc1-aef7-4070-bbe3-38222beaf162"
+              ],
+              "failures": [
+                "6e1566fe-be47-4289-9da3-64645987b245"
+              ],
+              "pending": [],
+              "skipped": [
+                "a8e4b395-b63d-4aad-91ff-c9cc1d0535c7"
+              ],
+              "duration": 175904,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "d5b4b0f6-da2b-45ea-8a71-29d0701ab902",
+              "title": "Ads PLUS",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Audience - C2792",
+                  "fullTitle": "Ads Ads PLUS Audience - C2792",
+                  "timedOut": null,
+                  "duration": 51969,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_audiences');\ncy.wait('@audience');\ncy.get('.btn_create_audience').click();\ncy.get('.audience_name').type('Audience-' + Hdate);\ncy.wait('@audres'); // cy.wait(4000)\n// cy.get('#s2id_autogen30 > .select2-choices').type('batman')\n// cy.xpath('/html/body/div[21]/ul/li[1]/div/div[2]').click()\ncy.get('.primary_button').click();\ncy.get('[data-cy=\"toast_message\"]').should('have.text', '\\n\\t\\tAudience created!\\n\\t\\t\\n\\t');",
+                  "err": {},
+                  "uuid": "b9ccb304-0701-4aac-aaf3-81ec3c40924c",
+                  "parentUUID": "d5b4b0f6-da2b-45ea-8a71-29d0701ab902",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Management - C2797",
+                  "fullTitle": "Ads Ads PLUS Management - C2797",
+                  "timedOut": null,
+                  "duration": 48792,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_management');\ncy.wait('@management');\ncy.get('.control_btn_group > .active').click();\ncy.get('.campaign > .field_input > .promote_input').type(Hdate + xMen[Math.floor(Math.random() * 6)]);\ncy.contains('Custom Objective Per Ad').click(); // cy.xpath('//*[contains(text(),\"Reach\")][@class=\"select2-result-label\"]').click()\ncy.contains('[class=\"option_title\"]', 'Traffic').click();\ncy.contains('Use Location Default Audience').click();\ncy.wait('@mgmtdrp');\ncy.contains('[class=\"select2-result-label\"][role=\"option\"]', 'Audience-').first().click();\ncy.get('.prefixed_input > .promote_input').type('99'); // cy.get('#select2-chosen-12').click()\ncy.contains('.select2-choice > .select2-chosen', 'All libraries').click();\ncy.wait(4000); // cy.contains('.select2-result-label','---tyest').click()              //'.content_selector_element'\ncy.get(':nth-child(1) > .front_grid > .PromoteAdCreativeFrontView').click();\ncy.get(':nth-child(1) > .post_checkbox > .label_check').click();\ncy.get('.bbm-modal__bottombar > .primary_button').click({\n  force: true\n});\ncy.log('Ad created successfully');",
+                  "err": {},
+                  "uuid": "13c2b05c-02a6-4f08-a9d7-d84b8c91016f",
+                  "parentUUID": "d5b4b0f6-da2b-45ea-8a71-29d0701ab902",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Pause Ads - C2798",
+                  "fullTitle": "Ads Ads PLUS Pause Ads - C2798",
+                  "timedOut": null,
+                  "duration": 51049,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.visit('/admin/account/3854/office/0/project/320406/ads_management');\ncy.wait('@management');\ncy.get('.dropdown').click();\ncy.get('.overflow_menu_item').click(); // cy.exec('npx cypress run --spec \"D:\\Web\\SOCi\\cypress\\e2e\\Proper.cy.js\"')",
+                  "err": {},
+                  "uuid": "728e38cc-87ea-4f9a-aefb-bbd551033b35",
+                  "parentUUID": "d5b4b0f6-da2b-45ea-8a71-29d0701ab902",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b9ccb304-0701-4aac-aaf3-81ec3c40924c",
+                "13c2b05c-02a6-4f08-a9d7-d84b8c91016f",
+                "728e38cc-87ea-4f9a-aefb-bbd551033b35"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 151810,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "cypress\\reports\\.jsons",
+        "reportPageTitle": "Demo-title1",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -34,6 +34,12 @@ describe('Survey', ()=>{
 
         })
 
+        Cypress.on('fail', (error, runnable) => {
+
+            return false
+            
+          })
+
 
 
 

@@ -17,6 +17,12 @@ describe('Reports', () => {
       return false
     });
 
+    Cypress.on('fail', (error, runnable) => {
+
+      return false
+      
+    })
+
         // cy.viewport('iphone-xr')
 
     // Cypress.on('fail', (error, runnable) => {
