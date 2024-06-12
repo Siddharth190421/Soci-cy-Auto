@@ -33,7 +33,7 @@ describe.skip('Ignite', () => {
 //     cy.get('#where2getit > .btn').click()
 //     cy.wait(8000)
 
-
+ 
 // })
 
 
@@ -129,7 +129,7 @@ it('HP', ()=>{
     cy.wait(4000)
     cy.get('#input-location').clear()
     cy.wait(4000)
-    cy.get('#input-location').type(50266)
+    cy.get('#input-location').type(50266)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     cy.get('#select-partner-type').select('Find a Reseller Partner')
     cy.wait(7000)
     cy.get('#search-partner-results').click()

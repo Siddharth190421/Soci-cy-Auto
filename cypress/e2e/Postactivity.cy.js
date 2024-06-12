@@ -50,8 +50,7 @@ describe('Post activity', ()=>{
     it('To account level - C2960, C2966', ()=>{
 
         Cypress.on('uncaught:exception', (err, runnable) => {
-            // returning false here prevents Cypress from
-            // failing the test       
+            
             return false
         })
 
@@ -66,10 +65,7 @@ describe('Post activity', ()=>{
 
         //     expect(published).to.eq(22)
             
-            // cy.get('[data-gs-x="6"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-            // cy.get('[data-gs-x="18"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-            // cy.get('[data-gs-x="9"] > .grid-stack-item-content > .BiModulesModule > .BiModulesTypesBase > .module_wrapper > [ref="module_value_container"] > .value').should('not.contain', '0')
-
+           
         })
 
         it('Published', ()=>{
@@ -176,7 +172,7 @@ describe('Post activity', ()=>{
 
             // cy.wait('@pg')
             cy.contains('.select2-chosen', 'Location Post View').click()
-            // cy.wait(4000)
+            cy.wait(4000)
             cy.contains('.select2-result-label', 'Group Post View').click()
             // cy.wait(5000)
 
@@ -186,7 +182,7 @@ describe('Post activity', ()=>{
         it('Post types - C2971', ()=>{
 
             cy.contains('.toggle_button ','All Post Types').click()
-            // cy.wait(4000)
+            cy.wait('5000')
             cy.get('[data-id="ORGANIC"]').click({force:true})
             cy.wait('@pg')
             // cy.readFile('*.xlsx')

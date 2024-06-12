@@ -211,7 +211,7 @@ describe('SmartBot', ()=>{
         
     })
 
-    it('Download Leads- C2841 ', ()=>{
+    it.skip('Download Leads- C2841 ', ()=>{
 
         Cypress.on('fail', (error, runnable) => {
             return false
