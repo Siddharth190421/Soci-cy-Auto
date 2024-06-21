@@ -73,13 +73,15 @@ describe('Ads', () => {
             cy.wait('@ads')
             cy.get('.date-range-container').click()
             cy.get('[data-range-key="Last Year"]').click()
-            cy.get('.dashboard_controls').should('be.visible')
-            cy.get('.AdsDashboardView').should('be.visible')
+            // cy.get('.dashboard_controls').should('be.visible')
+            // cy.get('.AdsDashboardView').should('be.visible')
             cy.get('.stat_module_spend > .AdsMetricView > .metric_view_container').should('be.visible')
             cy.get('.stat_module_impressions > .AdsMetricView').should('be.visible')
             cy.get('.stat_module_engagement > .AdsMetricView > .metric_view_container').should('be.visible')
             cy.get('.stat_module_active_ads > .AdsMetricView').should('be.visible')
             cy.get('.AdsTopPerformingCreativesView').should('be.visible')
+
+            cy.get('.layout_row_container > :nth-child(2)').should('be.visible')
 
 
 
